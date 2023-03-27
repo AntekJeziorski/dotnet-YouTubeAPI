@@ -13,7 +13,8 @@ namespace YouTubeAPI
         public string YtChannelID { get; set; }
         public string JoiningDate { get; set; }
 
-        public virtual AuthorsHistory AuthorsHistory { get; set; }
-        public virtual Track Track { get; set; }
+        
+        public virtual ICollection<AuthorsHistory> AuthorsHistory { get; set; }
+        public virtual ICollection<Track> Track { get; set; }
     }
 }

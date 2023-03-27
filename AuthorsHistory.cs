@@ -19,6 +19,7 @@ namespace YouTubeAPI
         [Timestamp]
         public byte[] Timestamp { get; set; }
 
-        public virtual ICollection<Author> Authors { get; set; }
+        public virtual Author Author { get; set; }
+
     }
 }

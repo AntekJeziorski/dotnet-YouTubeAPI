@@ -15,7 +15,8 @@ namespace YouTubeAPI
         public string YtClipID { get; set; }
         public string ReleaseDate { get; set; }
 
-        public virtual ICollection<Author> Authors { get; set; }
-        public virtual TracksHistory TracksHistory { get; set; }
+        public virtual Author Author { get; set; }
+
+        public virtual ICollection<TracksHistory> TracksHistory { get; set; }
     }
 }

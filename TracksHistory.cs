@@ -20,6 +20,6 @@ namespace YouTubeAPI
         [Timestamp]
         public byte[] Timestamp { get; set; }
 
-        public virtual ICollection<Track> Tracks { get; set; }
+        public virtual Track Track { get; set; }
     }
 }
