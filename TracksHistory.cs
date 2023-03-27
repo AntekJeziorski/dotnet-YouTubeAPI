@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace YouTubeAPI
 {
-    internal class TracksHistory
+    public class TracksHistory
     {
         public int ID { get; set; }
         [ForeignKey("Track")]

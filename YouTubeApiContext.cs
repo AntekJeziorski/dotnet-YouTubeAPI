@@ -1,8 +1,10 @@
 using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Collections.ObjectModel;
 
-namespace dotnet_YouTubeAPI
+namespace YouTubeAPI
 {
     public class YouTubeApiContext : DbContext
     {
@@ -15,8 +17,13 @@ namespace dotnet_YouTubeAPI
         public YouTubeApiContext()
             : base("name=YouTubeApiContext")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
 
+        public DbSet<Author> Authors { get; set; }
+        public DbSet<Track> Tracks { get; set; }
+        public DbSet<TracksHistory> TrackHist { get; set; }
+        public DbSet<AuthorsHistory> AuthorsHist { get; set; } 
         // Add a DbSet for each entity type that you want to include in your model. For more information 
         // on configuring and using a Code First model, see http://go.microsoft.com/fwlink/?LinkId=390109.
 
