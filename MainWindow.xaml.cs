@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace dotnet_YouTubeAPI
+namespace YouTubeAPI
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,6 +23,23 @@ namespace dotnet_YouTubeAPI
         public MainWindow()
         {
             InitializeComponent();
+            IList<Author> authors;
+            using (var context = new YouTubeApiContext())
+            { 
+                authors = context.Authors.ToList();
+            }
+            authorList.ItemsSource = authors;
+            Console.WriteLine(authors);
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            MessageBox.Show((authorList.SelectedItem as Author).Nickname);
+        }
+
+        private void authorList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

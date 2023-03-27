@@ -27,8 +27,8 @@ namespace YouTubeAPI
         protected override void Seed(YouTubeApiContext context)
         {
             var authors = new List<Author>
-            { new Author() { ID = 1, Nickname = "Klawiatur", YtChannelID = "irueope804", JoiningDate = "04/23/22 04:34:22" },
-
+            { 
+                new Author() { ID = 1, Nickname = "Klawiatur", YtChannelID = "irueope804", JoiningDate = "04/23/22 04:34:22" },
             };
             authors.ForEach(c => context.Authors.Add(c));
             context.SaveChanges();

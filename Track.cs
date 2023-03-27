@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace YouTubeAPI
 {
     public class Track
-    {
+    { 
         public int ID { get; set; }
         [ForeignKey("Author")]
         public int AuthorID { get; set; }
@@ -16,5 +16,6 @@ namespace YouTubeAPI
         public string ReleaseDate { get; set; }
 
         public virtual ICollection<Author> Authors { get; set; }
+        public virtual TracksHistory TracksHistory { get; set; }
     }
 }
