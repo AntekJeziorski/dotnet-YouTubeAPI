@@ -75,6 +75,11 @@
     </ApplicationDefinition>
     <Compile Include="Author.cs" />
     <Compile Include="AuthorsHistory.cs" />
+    <Compile Include="Migrations\202303272226410_InitialCreate.cs" />
+    <Compile Include="Migrations\202303272226410_InitialCreate.designer.cs">
+      <DependentUpon>202303272226410_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Track.cs" />
     <Compile Include="TracksHistory.cs" />
     <Compile Include="YouTubeApiContext.cs" />
@@ -105,6 +110,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\202303272226410_InitialCreate.resx">
+      <DependentUpon>202303272226410_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

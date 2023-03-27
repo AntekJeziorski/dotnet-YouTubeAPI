@@ -19,15 +19,15 @@ namespace YouTubeAPI
 
         public DbSet<Author> Authors { get; set; }
         public DbSet<Track> Tracks { get; set; }
-        public DbSet<TracksHistory> TrackHist { get; set; }
-        public DbSet<AuthorsHistory> AuthorsHist { get; set; }
+        public DbSet<TracksHistory> TracksHistory { get; set; }
+        public DbSet<AuthorsHistory> AuthorsHistory { get; set; }
     }
     public class YouTubeDbInitializer : DropCreateDatabaseAlways<YouTubeApiContext>
     {
         protected override void Seed(YouTubeApiContext context)
         {
             var authors = new List<Author>
-            { 
+            {
                 new Author() { ID = 1, Nickname = "Klawiatur", YtChannelID = "irueope804", JoiningDate = "04/23/22 04:34:22" },
             };
             authors.ForEach(c => context.Authors.Add(c));

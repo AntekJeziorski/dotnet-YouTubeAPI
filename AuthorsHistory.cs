@@ -10,7 +10,7 @@ namespace YouTubeAPI
 {
     public class AuthorsHistory
     {
-        public int ID;
+        public int ID { get; set; }
         [ForeignKey("Author")]
         public int AuthorID { get; set; }
         public int ViewCount { get; set; }

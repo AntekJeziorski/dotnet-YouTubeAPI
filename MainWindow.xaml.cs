@@ -25,7 +25,7 @@ namespace YouTubeAPI
             InitializeComponent();
             IList<Author> authors;
             using (var context = new YouTubeApiContext())
-            { 
+            {
                 authors = context.Authors.ToList();
             }
             authorList.ItemsSource = authors;
