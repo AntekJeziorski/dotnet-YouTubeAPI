@@ -11,7 +11,7 @@ namespace YouTubeAPI
         public int ID { get; set; }
         public string Nickname { get; set; }
         public string YtChannelID { get; set; }
-        public int JoiningDate { get; set; }
+        public string JoiningDate { get; set; }
         // randomowy komentarz
     }
 }
