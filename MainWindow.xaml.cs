@@ -20,25 +20,52 @@ namespace YouTubeAPI
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        int newID;
+        string newNickname;
+        string newYtChannelID;
+        IList<Author> authors;
         public MainWindow()
         {
             InitializeComponent();
-            IList<Author> authors;
+            
             using (var context = new YouTubeApiContext())
             {
                 authors = context.Authors.ToList();
             }
+
             authorList.ItemsSource = authors;
+            
             Console.WriteLine(authors);
         }
 
-        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            MessageBox.Show((authorList.SelectedItem as Author).Nickname);
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {  
         }
 
-        private void authorList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
         {
+        }
+
+        private void TextBox_TextChanged_2(object sender, TextChangedEventArgs e)
+        {
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            newID = int.Parse(textID.Text);
+            newNickname = textNickname.Text;
+            newYtChannelID = textYTID.Text;
+
+            var newAuthor = new Author() { ID = newID, Nickname = newNickname, YtChannelID = newYtChannelID, JoiningDate = "04/23/22 04:34:22"};
+
+            using (var context = new YouTubeApiContext())
+            {
+                context.addNewAuthor(newAuthor);
+                authors = context.Authors.ToList();
+            }
+
+            authorList.ItemsSource = authors;
 
         }
     }
