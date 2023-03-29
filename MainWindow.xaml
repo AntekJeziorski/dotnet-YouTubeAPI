@@ -5,40 +5,53 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YouTubeAPI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <UIElement.RenderTransform>
-            <TransformGroup>
-                <ScaleTransform/>
-                <SkewTransform/>
-                <RotateTransform/>
-                <TranslateTransform/>
-            </TransformGroup>
-        </UIElement.RenderTransform>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="48*"/>
-            <RowDefinition Height="169*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="4*"/>
-        </Grid.ColumnDefinitions>
-        <Image HorizontalAlignment="Center" Height="71" VerticalAlignment="Center" Width="122" Source="/youbookie-logo.png" Stretch="UniformToFill">
-            <UIElement.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </UIElement.RenderTransform>
-        </Image>
-        <Rectangle Grid.Column="1" HorizontalAlignment="Center" Height="61" Margin="0,20,0,0" Stroke="Black" VerticalAlignment="Top" Width="606"/>
-        <DataGrid x:Name="authorList" Grid.Column="1" d:ItemsSource="{Binding authorList}" Margin="0,96,0,169" Grid.RowSpan="2"/>
-        <Button Grid.Column="1" Content="Add" HorizontalAlignment="Left" Margin="404,232,0,0" Grid.Row="1" VerticalAlignment="Top" Click="Button_Click"/>
-        <TextBox x:Name="textID" Grid.Column="1" HorizontalAlignment="Left" Margin="17,197,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-        <TextBox x:Name="textNickname" Grid.Column="1" HorizontalAlignment="Left" Margin="159,197,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_1"/>
-        <TextBox x:Name="textYTID" Grid.Column="1" HorizontalAlignment="Left" Margin="310,197,0,0" Grid.Row="1" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_2"/>
+        Icon="/Static/favicon.ico"
+        WindowStartupLocation="CenterScreen"
+        Title="YouBookie - Your Fav Tracker" Height="450" Width="800">
+    <Border Background="#FFFFFF" CornerRadius="25">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition  Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
 
-    </Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="400"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid  Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Grid.Column="0" HorizontalAlignment="Left" Height="50" Margin="20,0,0,0" VerticalAlignment="Center" Width="50" Source="/Static/youbookie-icon.png" RenderTransformOrigin="0.13,0.5"/>
+
+                <TextBlock Grid.Column="0" VerticalAlignment="Center" FontFamily="/Static/Fonts/youbookie-sans.ttf"  FontSize="20" FontWeight="Medium" Foreground="#FFEE3E38" Margin="80,0,23,0"><Run Language="pl-pl" Text="YouBookie"/></TextBlock>
+
+
+                <RadioButton  Grid.Column="1" Content="Home" FontSize="20" Style="{StaticResource TopBarButtonTheme}" Margin="25,10,25,10" Checked="RadioButton_Checked" />
+                <RadioButton  Grid.Column="2" Content="Artists" FontSize="20" Style="{StaticResource TopBarButtonTheme}" Margin="25,10,25,10" Checked="RadioButton_Checked"/>
+                <RadioButton  Grid.Column="3" Content="Hits" FontSize="20" Style="{StaticResource TopBarButtonTheme}" Margin="25,10,25,10" Checked="RadioButton_Checked"/>
+                <RadioButton  Grid.Column="4" Content="Add" FontSize="20" Style="{StaticResource TopBarButtonTheme}" Margin="25,10,25,10" Checked="RadioButton_Checked"/>
+
+
+
+
+            </Grid>
+
+            <DataGrid x:Name="authorList" d:ItemsSource="{Binding authorList}" Margin="121,88,30,-88" Grid.Row="1"/>
+            <Button Content="Add" HorizontalAlignment="Left" Margin="555,298,0,0" VerticalAlignment="Top" Click="Button_Click" Height="20" Width="26" Grid.Row="1"/>
+            <TextBox x:Name="textID" HorizontalAlignment="Left" Margin="168,263,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" Height="18" Grid.Row="1"/>
+            <TextBox x:Name="textNickname" HorizontalAlignment="Left" Margin="310,263,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_1" Height="18" Grid.Row="1"/>
+            <TextBox x:Name="textYTID" HorizontalAlignment="Left" Margin="461,263,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_2" Height="18" Grid.Row="1"/>
+
+
+        </Grid>
+    </Border>
 </Window>

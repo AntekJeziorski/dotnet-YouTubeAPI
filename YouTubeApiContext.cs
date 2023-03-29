@@ -18,11 +18,6 @@ namespace YouTubeAPI
             Database.SetInitializer(new YouTubeApiDbInitializer());
         }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-        }
-
         public DbSet<Author> Authors { get; set; }
         public DbSet<Track> Tracks { get; set; }
         public DbSet<TracksHistory> TracksHistory { get; set; }

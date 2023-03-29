@@ -68,5 +68,15 @@ namespace YouTubeAPI
             authorList.ItemsSource = authors;
 
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
