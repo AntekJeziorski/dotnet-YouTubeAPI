@@ -10,7 +10,7 @@ namespace YouTubeAPI
 {
     public class AuthorsHistory
     {
-        public int ID;
+        public int ID { get; set; }
         [ForeignKey("Author")]
         public int AuthorID { get; set; }
         public int ViewCount { get; set; }
@@ -19,6 +19,7 @@ namespace YouTubeAPI
         [Timestamp]
         public byte[] Timestamp { get; set; }
 
-        public virtual ICollection<Author> Authors { get; set; }
+        public virtual Author Author { get; set; }
+
     }
 }

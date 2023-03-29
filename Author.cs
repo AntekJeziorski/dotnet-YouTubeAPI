@@ -12,6 +12,9 @@ namespace YouTubeAPI
         public string Nickname { get; set; }
         public string YtChannelID { get; set; }
         public string JoiningDate { get; set; }
-        // randomowy komentarz
+
+        
+        public virtual ICollection<AuthorsHistory> AuthorsHistory { get; set; }
+        public virtual ICollection<Track> Track { get; set; }
     }
 }
