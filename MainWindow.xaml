@@ -4,10 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:YouTubeAPI"
+        xmlns:viewModel="clr-namespace:dotnet_YouTubeAPI.MVVM.ViewModel"
         mc:Ignorable="d"
         Icon="/Static/favicon.ico"
         WindowStartupLocation="CenterScreen"
-        Title="YouBookie - Your Fav Tracker" Height="450" Width="800">
+        MinHeight="450" MinWidth="800"
+        Title="YouBookie - Your Fav Tracker" Height="720" Width="1280">
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
+    
     <Border Background="#FFFFFF" CornerRadius="25">
         <Grid>
             <Grid.RowDefinitions>
@@ -16,13 +22,13 @@
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="400"/>
+                <ColumnDefinition Width="170"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
             <Grid  Grid.ColumnSpan="2">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="170"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
@@ -30,28 +36,19 @@
 
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Image Grid.Column="0" HorizontalAlignment="Left" Height="50" Margin="20,0,0,0" VerticalAlignment="Center" Width="50" Source="/Static/youbookie-icon.png" RenderTransformOrigin="0.13,0.5"/>
+                <Image Grid.Column="0" Height="50" VerticalAlignment="Center" Source="/Static/youbookie-icon.png" RenderTransformOrigin="0.13,0.5" Margin="5,0,0,0" HorizontalAlignment="Left" Width="50"/>
 
-                <TextBlock Grid.Column="0" VerticalAlignment="Center" FontFamily="/Static/Fonts/youbookie-sans.ttf"  FontSize="20" FontWeight="Medium" Foreground="#FFEE3E38" Margin="80,0,23,0"><Run Language="pl-pl" Text="YouBookie"/></TextBlock>
-
-
-                <RadioButton  Grid.Column="1" Content="Home" FontSize="20" Style="{StaticResource TopBarButtonTheme}" Margin="25,10,25,10" Checked="RadioButton_Checked" />
-                <RadioButton  Grid.Column="2" Content="Artists" FontSize="20" Style="{StaticResource TopBarButtonTheme}" Margin="25,10,25,10" Checked="RadioButton_Checked"/>
-                <RadioButton  Grid.Column="3" Content="Hits" FontSize="20" Style="{StaticResource TopBarButtonTheme}" Margin="25,10,25,10" Checked="RadioButton_Checked"/>
-                <RadioButton  Grid.Column="4" Content="Add" FontSize="20" Style="{StaticResource TopBarButtonTheme}" Margin="25,10,25,10" Checked="RadioButton_Checked"/>
+                <TextBlock Grid.Column="0" VerticalAlignment="Center" FontFamily="/Static/Fonts/youbookie-sans.ttf"  FontSize="22" FontWeight="Medium" Foreground="#FFEE3E38" Margin="60,0,5,0"><Run Language="pl-pl" Text="YouBookie"/></TextBlock>
 
 
-
-
+                <RadioButton  Grid.Column="1" Content="Home" FontSize="24" Style="{StaticResource TopBarButtonTheme}" Margin="25,10,25,10" IsChecked="True" Command="{Binding HomeViewCommand}"/>
+                <RadioButton  Grid.Column="2" Content="Artists" FontSize="24" Style="{StaticResource TopBarButtonTheme}" Margin="25,10,25,10" Command="{Binding ArtistViewCommand}"/>
+                <RadioButton  Grid.Column="3" Content="Hits" FontSize="24" Style="{StaticResource TopBarButtonTheme}" Margin="25,10,25,10"/>
+                <RadioButton  Grid.Column="4" Content="Add" FontSize="24" Style="{StaticResource TopBarButtonTheme}" Margin="25,10,25,10"/>
             </Grid>
-
-            <DataGrid x:Name="authorList" d:ItemsSource="{Binding authorList}" Margin="121,88,30,-88" Grid.Row="1"/>
-            <Button Content="Add" HorizontalAlignment="Left" Margin="555,298,0,0" VerticalAlignment="Top" Click="Button_Click" Height="20" Width="26" Grid.Row="1"/>
-            <TextBox x:Name="textID" HorizontalAlignment="Left" Margin="168,263,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" Height="18" Grid.Row="1"/>
-            <TextBox x:Name="textNickname" HorizontalAlignment="Left" Margin="310,263,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_1" Height="18" Grid.Row="1"/>
-            <TextBox x:Name="textYTID" HorizontalAlignment="Left" Margin="461,263,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_2" Height="18" Grid.Row="1"/>
-
-
+            
+            <ContentControl Grid.Row="1" Grid.Column="1" Margin="10" Content="{Binding CurrentView}"/>
+         
         </Grid>
     </Border>
 </Window>
