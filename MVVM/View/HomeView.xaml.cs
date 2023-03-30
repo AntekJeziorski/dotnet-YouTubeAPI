@@ -53,11 +53,10 @@ namespace dotnet_YouTubeAPI.MVVM.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            newID = int.Parse(textID.Text);
             newNickname = textNickname.Text;
             newYtChannelID = textYTID.Text;
 
-            var newAuthor = new Author() { ID = newID, Nickname = newNickname, YtChannelID = newYtChannelID, JoiningDate = "04/23/22 04:34:22" };
+            var newAuthor = new Author() { Nickname = newNickname, YtChannelID = newYtChannelID, JoiningDate = "04/23/22 04:34:22" };
 
             using (var context = new YouTubeApiContext())
             {
