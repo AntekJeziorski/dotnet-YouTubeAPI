@@ -9,7 +9,7 @@
              Background="LightPink">
 
     <Grid>
-        <TextBlock HorizontalAlignment="Center" Margin="0,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="42" Width="190" FontSize="22" TextAlignment="Center"><Run Language="pl-pl" Text="Jestę Frontendee"/></TextBlock>
+        <TextBlock HorizontalAlignment="Center" Margin="0,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="42" Width="190" FontSize="22" TextAlignment="Center"><Run Language="pl-pl" Text="I'm on my way!"/></TextBlock>
         <Image HorizontalAlignment="Left" Height="212" Margin="56,202,0,0" VerticalAlignment="Top" Width="257" Source="/Static/mockup.png" RenderTransformOrigin="0.5,0.5">
             <Image.RenderTransform>
                 <TransformGroup>
