@@ -53,7 +53,11 @@ namespace dotnet_YouTubeAPI.MVVM.View
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            newID = int.Parse(textID.Text);
+            Console.WriteLine("Button Test");
+            var newVideo = new dotnet_YouTubeAPI.YouTubeApiHand();
+            newVideo.GetViedoData();
+            
+            /*newID = int.Parse(textID.Text);
             newNickname = textNickname.Text;
             newYtChannelID = textYTID.Text;
 
@@ -65,7 +69,7 @@ namespace dotnet_YouTubeAPI.MVVM.View
                 authors = context.Authors.ToList();
             }
 
-            authorList.ItemsSource = authors;
+            authorList.ItemsSource = authors;*/
 
         }
 
