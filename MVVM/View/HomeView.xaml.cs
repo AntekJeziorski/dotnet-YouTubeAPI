@@ -52,30 +52,38 @@ namespace dotnet_YouTubeAPI.MVVM.View
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Console.WriteLine("Button Test");
-            var newVideo = new dotnet_YouTubeAPI.YouTubeApiHand();
-            newVideo.GetViedoData();
-            
-            /*newID = int.Parse(textID.Text);
-            newNickname = textNickname.Text;
-            newYtChannelID = textYTID.Text;
+        { 
+            //newID = int.Parse(textID.Text);
+            //newNickname = textNickname.Text;
+            //newYtChannelID = textYTID.Text;
 
-            var newAuthor = new Author() { ID = newID, Nickname = newNickname, YtChannelID = newYtChannelID, JoiningDate = "04/23/22 04:34:22" };
+            //var newAuthor = new Author() { ID = newID, Nickname = newNickname, YtChannelID = newYtChannelID, JoiningDate = "04/23/22 04:34:22" };
 
-            using (var context = new YouTubeApiContext())
-            {
-                context.addNewAuthor(newAuthor);
-                authors = context.Authors.ToList();
-            }
+            //using (var context = new YouTubeApiContext())
+            //{
+            //    context.addNewAuthor(newAuthor);
+            //    authors = context.Authors.ToList();
+            //}
 
-            authorList.ItemsSource = authors;*/
+            //authorList.ItemsSource = authors;
 
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Button_Click_Video(object sender, RoutedEventArgs e)
+        {
+            var newVideo = new YouTubeAPI.Track(textVideoId.Text); /* nLIp4wd0oXs */
+            //newVideo.GetViedoData();
+            textVideoId.Clear();
+        }
+
+        private void Button_Click_Author(object sender, RoutedEventArgs e)
+        {
+            var newAuthor = new YouTubeAPI.Author(textAuthorId.Text);
         }
     }
 }

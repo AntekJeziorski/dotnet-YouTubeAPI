@@ -102,6 +102,26 @@
     <Compile Include="Migrations\202303272226410_InitialCreate.designer.cs">
       <DependentUpon>202303272226410_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202304161256197_InitialCreate1.cs" />
+    <Compile Include="Migrations\202304161256197_InitialCreate1.designer.cs">
+      <DependentUpon>202304161256197_InitialCreate1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304171501417_InitialCreate2.cs" />
+    <Compile Include="Migrations\202304171501417_InitialCreate2.designer.cs">
+      <DependentUpon>202304171501417_InitialCreate2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304211933533_InitialCreate3.cs" />
+    <Compile Include="Migrations\202304211933533_InitialCreate3.designer.cs">
+      <DependentUpon>202304211933533_InitialCreate3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304211936578_InitialCreate4.cs" />
+    <Compile Include="Migrations\202304211936578_InitialCreate4.designer.cs">
+      <DependentUpon>202304211936578_InitialCreate4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304211938193_InitialCreate5.cs" />
+    <Compile Include="Migrations\202304211938193_InitialCreate5.designer.cs">
+      <DependentUpon>202304211938193_InitialCreate5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MVVM\ViewModel\ArtistViewModel.cs" />
     <Compile Include="MVVM\ViewModel\HomeViewModel.cs" />
@@ -115,7 +135,6 @@
     <Compile Include="Track.cs" />
     <Compile Include="TracksHistory.cs" />
     <Compile Include="YouTubeApiContext.cs" />
-    <Compile Include="YouTubeApiHand.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -157,6 +176,21 @@
     </Compile>
     <EmbeddedResource Include="Migrations\202303272226410_InitialCreate.resx">
       <DependentUpon>202303272226410_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304161256197_InitialCreate1.resx">
+      <DependentUpon>202304161256197_InitialCreate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304171501417_InitialCreate2.resx">
+      <DependentUpon>202304171501417_InitialCreate2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304211933533_InitialCreate3.resx">
+      <DependentUpon>202304211933533_InitialCreate3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304211936578_InitialCreate4.resx">
+      <DependentUpon>202304211936578_InitialCreate4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304211938193_InitialCreate5.resx">
+      <DependentUpon>202304211938193_InitialCreate5.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

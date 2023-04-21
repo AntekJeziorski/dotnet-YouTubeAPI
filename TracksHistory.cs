@@ -12,7 +12,7 @@ namespace YouTubeAPI
     {
         public int ID { get; set; }
         [ForeignKey("Track")]
-        public int TrackID { get; set; }
+        public string TrackID { get; set; }
         public int LikeCount { get; set; }
         public int ViewCount { get; set; }
         public int CommentCount { get; set; }

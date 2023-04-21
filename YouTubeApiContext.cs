@@ -38,15 +38,15 @@ namespace YouTubeAPI
         protected override void Seed(YouTubeApiContext context)
         {
 
-            IList<Author> defaultAuthors = new List<Author>();
+            //IList<Author> defaultAuthors = new List<Author>();
 
-            defaultAuthors.Add(new Author() { ID = 1, Nickname = "Klawiatur", YtChannelID = "irueope804", JoiningDate = "04/23/22 04:34:22" });
-            defaultAuthors.Add(new Author() { ID = 2, Nickname = "Klawiatur", YtChannelID = "irueope804", JoiningDate = "04/23/22 04:34:22" });
-            defaultAuthors.Add(new Author() { ID = 3, Nickname = "Klawiatur", YtChannelID = "irueope804", JoiningDate = "04/23/22 04:34:22" });
+            //defaultAuthors.Add(new Author() { ID = 1, Nickname = "Klawiatur", YtChannelID = "irueope804", JoiningDate = "04/23/22 04:34:22" });
+            //defaultAuthors.Add(new Author() { ID = 2, Nickname = "Klawiatur", YtChannelID = "irueope804", JoiningDate = "04/23/22 04:34:22" });
+            //defaultAuthors.Add(new Author() { ID = 3, Nickname = "Klawiatur", YtChannelID = "irueope804", JoiningDate = "04/23/22 04:34:22" });
 
-            context.Authors.AddRange(defaultAuthors);
+            //context.Authors.AddRange(defaultAuthors);
 
-            base.Seed(context);
+            //base.Seed(context);
         }
     }
 }

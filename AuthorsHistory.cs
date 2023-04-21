@@ -12,9 +12,10 @@ namespace YouTubeAPI
     {
         public int ID { get; set; }
         [ForeignKey("Author")]
-        public int AuthorID { get; set; }
+        public string ChannelId { get; set; }
         public int ViewCount { get; set; }
         public int SubCount { get; set; }
+        public int VideoCount { get; set; }
 
         [Timestamp]
         public byte[] Timestamp { get; set; }
