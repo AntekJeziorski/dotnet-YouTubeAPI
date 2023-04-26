@@ -55,8 +55,7 @@ namespace YouTubeAPI
             context.Authors.AddRange(defaultAuthors);
             context.Tracks.AddRange(defaultTracks);
 
-
-            base.Seed(context);
+            //base.Seed(context);
         }
     }
 }
