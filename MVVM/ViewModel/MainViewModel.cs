@@ -1,9 +1,4 @@
 ﻿using dotnet_YouTubeAPI.Core;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace dotnet_YouTubeAPI.MVVM.ViewModel
 {
@@ -11,9 +6,13 @@ namespace dotnet_YouTubeAPI.MVVM.ViewModel
     {
         public RelayCommand HomeViewCommand { get; set; }
         public RelayCommand ArtistViewCommand { get; set; }
+        public RelayCommand TracksViewCommand { get; set; }
+        public RelayCommand AboutViewCommand { get; set; }  
 
         public HomeViewModel HomeVm { get; set; }
         public ArtistViewModel ArtistVM { get; set; }
+        public TracksViewModel TracksVM { get; set; }
+        public AboutViewModel AboutVM  { get; set; }
 
         private object _currentView;
 
@@ -21,12 +20,16 @@ namespace dotnet_YouTubeAPI.MVVM.ViewModel
         public MainViewModel() 
         { 
             HomeVm = new HomeViewModel(); 
-            ArtistVM = new ArtistViewModel(); 
-            
+            ArtistVM = new ArtistViewModel();
+            TracksVM = new TracksViewModel();   
+            AboutVM = new AboutViewModel();
+
             CurrentView = HomeVm;
 
             HomeViewCommand = new RelayCommand(o => { CurrentView = HomeVm; });
             ArtistViewCommand = new RelayCommand(o => { CurrentView = ArtistVM; });
+            TracksViewCommand = new RelayCommand(o => { CurrentView = TracksVM; });
+            AboutViewCommand = new RelayCommand(o => { CurrentView = AboutVM; });   
         }
     }
 }

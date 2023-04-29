@@ -19,6 +19,16 @@
                 <view:ArtistView/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewModel:TracksViewModel}">
+                <view:TracksView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:AboutViewModel}">
+                <view:AboutView/>
+            </DataTemplate>
+
+            
+
         </ResourceDictionary>
     </Application.Resources>
 </Application>

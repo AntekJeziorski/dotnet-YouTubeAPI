@@ -83,13 +83,21 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MVVM\ViewModel\ArtistViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\AboutViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\TracksViewModel.cs" />
     <Compile Include="MVVM\ViewModel\HomeViewModel.cs" />
     <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
+    <Compile Include="MVVM\View\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\View\ArtistView.xaml.cs">
       <DependentUpon>ArtistView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\TracksView.xaml.cs">
+      <DependentUpon>TracksView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Track.cs" />
     <Compile Include="TracksHistory.cs" />
@@ -106,11 +114,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MVVM\View\AboutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\View\ArtistView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MVVM\View\HomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\TracksView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
