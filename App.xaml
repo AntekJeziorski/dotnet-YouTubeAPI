@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:YouTubeAPI"
              xmlns:viewModel="clr-namespace:dotnet_YouTubeAPI.MVVM.ViewModel"
              xmlns:view="clr-namespace:dotnet_YouTubeAPI.MVVM.View"
-             StartupUri="MainWindow.xaml">
+             StartupUri="/MVVM/View/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
