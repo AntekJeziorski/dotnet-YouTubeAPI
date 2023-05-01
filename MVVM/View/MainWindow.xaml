@@ -10,6 +10,7 @@
         WindowStartupLocation="CenterScreen"
         MinHeight="450" MinWidth="800"
         Title="YouBookie - Your Fav Tracker" Height="720" Width="1280">
+        
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
@@ -38,8 +39,8 @@
 
                 <RadioButton  Grid.Column="1" Content="Home" FontSize="24" Style="{StaticResource TopBarButtonTheme}" Margin="25,10,25,10" IsChecked="True" Command="{Binding HomeViewCommand}"/>
                 <RadioButton  Grid.Column="2" Content="Artists" FontSize="24" Style="{StaticResource TopBarButtonTheme}" Margin="25,10,25,10" Command="{Binding ArtistViewCommand}"/>
-                <RadioButton  Grid.Column="3" Content="Hits" FontSize="24" Style="{StaticResource TopBarButtonTheme}" Margin="25,10,25,10"/>
-                <RadioButton  Grid.Column="4" Content="Add" FontSize="24" Style="{StaticResource TopBarButtonTheme}" Margin="25,10,25,10"/>
+                <RadioButton  Grid.Column="3" Content="Tracks" FontSize="24" Style="{StaticResource TopBarButtonTheme}" Margin="25,10,25,10" Command="{Binding TracksViewCommand}"/>
+                <RadioButton  Grid.Column="4" Content="About" FontSize="24" Style="{StaticResource TopBarButtonTheme}" Margin="25,10,25,10" Command="{Binding AboutViewCommand}"/>
             </Grid>
             
             <ContentControl Grid.Row="1" Grid.Column="1" Margin="10" Content="{Binding CurrentView}"/>

@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:YouTubeAPI"
              xmlns:viewModel="clr-namespace:dotnet_YouTubeAPI.MVVM.ViewModel"
              xmlns:view="clr-namespace:dotnet_YouTubeAPI.MVVM.View"
-             StartupUri="MainWindow.xaml">
+             StartupUri="/MVVM/View/MainWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -18,6 +18,16 @@
             <DataTemplate DataType="{x:Type viewModel:ArtistViewModel}">
                 <view:ArtistView/>
             </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:TracksViewModel}">
+                <view:TracksView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:AboutViewModel}">
+                <view:AboutView/>
+            </DataTemplate>
+
+            
 
         </ResourceDictionary>
     </Application.Resources>
