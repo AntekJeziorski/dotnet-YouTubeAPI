@@ -15,11 +15,12 @@ namespace YouTubeAPI
         [Key]
         public string ChannelId { get; set; }
         public string ChannelTitle { get; set; }
-        //public string YtChannelID { get; set; }
         public string ChannelDescription { get; set; }
         public DateTime JoiningDate { get; set; }
         public string ThumbnailMedium { get; set; }
 
+        public virtual ICollection<AuthorsHistory> AuthorsHistory { get; set; }
+        //public virtual ICollection<Track> Track { get; set; }
 
         public Author()
         {
@@ -65,8 +66,5 @@ namespace YouTubeAPI
             }
             Console.ReadLine();
         }
-
-        public virtual ICollection<AuthorsHistory> AuthorsHistory { get; set; }
-        //public virtual ICollection<Track> Track { get; set; }
     }
 }

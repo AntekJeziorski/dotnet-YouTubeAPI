@@ -15,19 +15,15 @@ namespace YouTubeAPI
     {
         [Key]
         public string VideoId { get; set; }
-        //public int ViewCount { get; set; }
-        //public int LikeCount { get; set; }
         public string Title { get; set; }
         public string ChannelTitle { get; set; }
         public string ChannelId { get; set; }
+        public string Description { get; set; }
+        public DateTime ReleaseDate { get; set; }
+        public string ThumbnailMedium { get; set; }
 
-        //public int ID { get; set; }
-        //[ForeignKey("Author")]
-        public int AuthorID { get; set; }
-        //public string YtClipID { get; set; }
-        //public string ReleaseDate { get; set; }
+        public virtual ICollection<TracksHistory> TracksHistory { get; set; }
 
-        //public virtual Author Author { get; set; }
 
         public Track(string Id)
         {
@@ -77,7 +73,5 @@ namespace YouTubeAPI
             }
             Console.ReadLine();
         }
-
-        public virtual ICollection<TracksHistory> TracksHistory { get; set; }
     }
 }

@@ -50,7 +50,7 @@ namespace YouTubeAPI
             //defaultTracks.Add(new Track() { ID = 2, AuthorID = 3, YtClipID = "eivKqL_Ri9o", ReleaseDate = "2022-11-23T16:45:03Z" });
             //defaultTracks.Add(new Track() { ID = 1, AuthorID = 1, YtClipID = "p3yZIwVVxCw", ReleaseDate = "2023-03-26T17:59:49Z" });
             //defaultTracks.Add(new Track() { ID = 1, AuthorID = 2, YtClipID = "0IhmkF50VgE", ReleaseDate = "2023-03-27T19:00:01Z" });
-            //defaultTracks.Add(new Track() { ID = 1, AuthorID = 2, YtClipID = "b-WFetQjifc", ReleaseDate = "2023-02-12T18:01:00Z" });
+            //defaultTracks.Add(new Track() { ID = 1, AuthorID = 2, YtClipID = "b-WFetQjifc", ReleaseDate = DateTime("2023-02-12T18:01:00Z") });
 
             context.Authors.AddRange(defaultAuthors);
             context.Tracks.AddRange(defaultTracks);
