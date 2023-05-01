@@ -25,6 +25,12 @@ namespace YouTubeAPI
 
         public virtual Author Author { get; set; }
 
+        public AuthorsHistory(string Id)
+        {
+            ChannelId = Id;
+            GetChannelStats ();
+        }
+
         public async Task GetChannelStats()
         {
             var youtubeService = new YouTubeService(new BaseClientService.Initializer()
