@@ -49,21 +49,17 @@ namespace YouTubeAPI
                 // Access the video information
                 foreach (var item in response.Items)
                 {
-                    //ViewCount = (int)item.Statistics.ViewCount;
-                    //LikeCount = (int)item.Statistics.LikeCount;
                     Title = item.Snippet.Title;
                     ChannelTitle = item.Snippet.ChannelTitle;
                     ChannelId = item.Snippet.ChannelId;
+                    Description = item.Snippet.Description;
+                    ReleaseDate = item.Snippet.PublishedAt ?? DateTime.Now;
+                    ThumbnailMedium = item.Snippet.Thumbnails.Medium.Url;
 
                     Console.WriteLine("Title: " + Title);
                     Console.WriteLine("Viedo Id: " + VideoId);
                     Console.WriteLine("Channel Name: " + ChannelTitle);
                     Console.WriteLine("Channel Id: " + ChannelId);
-                    //Console.WriteLine("View Count: " + ViewCount);
-                    //Console.WriteLine("Like Count: " + LikeCount);
-
-                    /*Console.WriteLine("Title: " + item.Snippet.Title);
-                    Console.WriteLine("View Count: " + item.Statistics.ViewCount);*/
                 }
             }
             catch (Exception e)

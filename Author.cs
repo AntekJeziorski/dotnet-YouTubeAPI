@@ -28,25 +28,24 @@ namespace YouTubeAPI
         public Author(string Id)
         {
             ChannelId = Id;
-            GetAuthorData();
+            GetChannelData();
         }
 
-        public async Task GetAuthorData()
+        public async Task GetChannelData()
         {
             var youtubeService = new YouTubeService(new BaseClientService.Initializer()
             {
                 ApiKey = "AIzaSyCTlONe6H40ircsdbuIq87DGV5gZeVv2wc",
                 ApplicationName = this.GetType().ToString()
             });
-            //string videoId = "nLIp4wd0oXs";
             // Prepare the request
-            ChannelsResource.ListRequest listRequest = youtubeService.Channels.List("snippet,statistics");
+            ChannelsResource.ListRequest listRequest = youtubeService.Channels.List("snippet");
             listRequest.Id = ChannelId;
             try
             {
                 // Execute the request
                 ChannelListResponse response = listRequest.Execute();
-                // Access the video information
+                // Access the channel information
                 foreach (var item in response.Items)
                 {
                     ChannelTitle = item.Snippet.Title;
