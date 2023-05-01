@@ -51,23 +51,6 @@ namespace dotnet_YouTubeAPI.MVVM.View
         {
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            newNickname = textNickname.Text;
-            newYtChannelID = textYTID.Text;
-
-            var newAuthor = new Author() { Nickname = newNickname, YtChannelID = newYtChannelID, JoiningDate = "04/23/22 04:34:22" };
-
-            //using (var context = new YouTubeApiContext())
-            //{
-            //    context.addNewAuthor(newAuthor);
-            //    authors = context.Authors.ToList();
-            //}
-
-            //authorList.ItemsSource = authors;
-
-        }
-
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
 
