@@ -1,5 +1,4 @@
-﻿using dotnet_YouTubeAPI.MVVM.View;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace YouTubeAPI
+namespace dotnet_YouTubeAPI
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace YouTubeAPI.Properties
+namespace dotnet_YouTubeAPI.Properties
 {
 
 
