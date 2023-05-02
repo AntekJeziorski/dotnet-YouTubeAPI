@@ -5,6 +5,7 @@ using System.Linq;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using Google.Apis.YouTube.v3.Data;
+using System.Data.Entity.Migrations;
 
 namespace YouTubeAPI
 {
@@ -29,7 +30,20 @@ namespace YouTubeAPI
         {
             using(var context = new YouTubeApiContext())
             {
-                context.Authors.Add(author);
+                context.Authors.AddOrUpdate(author);
+                context.SaveChanges();
+            }
+        }
+
+        //! Deletes author from database
+        public void deleteAuthor(string Id)
+        {
+            using (var context = new YouTubeApiContext())
+            {
+                context.AuthorsHistory.RemoveRange(context.AuthorsHistory.Where(Channel => Channel.ChannelId == Id));
+                var deleteAuthro = new Author(Id);
+                context.Authors.Attach(deleteAuthro);
+                context.Authors.Remove(deleteAuthro);
                 context.SaveChanges();
             }
         }
@@ -77,7 +91,20 @@ namespace YouTubeAPI
         {
             using (var context = new YouTubeApiContext())
             {
-                context.Tracks.Add(track);
+                context.Tracks.AddOrUpdate(track);
+                context.SaveChanges();
+            }
+        }
+
+        //! Delete track from database
+        public void deleteTrack(string Id)
+        {
+            using (var context = new YouTubeApiContext())
+            {
+                context.TracksHistory.RemoveRange(context.TracksHistory.Where(Channel => Channel.VideoId == Id));
+                var deleteTrack = new Track(Id);
+                context.Tracks.Attach(deleteTrack);
+                context.Tracks.Remove(deleteTrack);
                 context.SaveChanges();
             }
         }
