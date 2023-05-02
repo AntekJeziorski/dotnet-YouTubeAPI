@@ -16,22 +16,31 @@ namespace YouTubeAPI
         public int ID { get; set; }
         [ForeignKey("Author")]
         public string ChannelId { get; set; }
-        public ulong ViewCount { get; set; }
-        public ulong SubCount { get; set; }
-        public ulong VideoCount { get; set; }
+        public Int64 ViewCount { get; set; }
+        public Int64 SubCount { get; set; }
+        public Int64 VideoCount { get; set; }
 
         [Timestamp]
         public byte[] Timestamp { get; set; }
 
         public virtual Author Author { get; set; }
 
+        public AuthorsHistory() { }
         public AuthorsHistory(string Id)
         {
-            ChannelId = Id;
-            GetChannelStats ();
+            try
+            {
+                ChannelId = Id;
+                GetChannelStats();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally { }
         }
 
-        public async Task GetChannelStats()
+        public void GetChannelStats()
         {
             var youtubeService = new YouTubeService(new BaseClientService.Initializer()
             {
@@ -48,9 +57,9 @@ namespace YouTubeAPI
                 // Access the channel information
                 foreach (var item in response.Items)
                 {
-                    ViewCount = (ulong)item.Statistics.ViewCount;
-                    SubCount = (ulong)item.Statistics.SubscriberCount;
-                    VideoCount = (ulong)item.Statistics.VideoCount;
+                    ViewCount = (Int64)item.Statistics.ViewCount;
+                    SubCount = (Int64)item.Statistics.SubscriberCount;
+                    VideoCount = (Int64)item.Statistics.VideoCount;
 
 
                     Console.WriteLine("Channel view count: " + ViewCount);
@@ -58,10 +67,10 @@ namespace YouTubeAPI
                     Console.WriteLine("Channel video count: " + VideoCount);
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
                 // Log the error
-                Console.WriteLine("An error occurred: " + e.Message);
+                throw ex;
             }
             Console.ReadLine();
         }

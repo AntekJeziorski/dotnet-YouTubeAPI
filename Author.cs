@@ -27,11 +27,20 @@ namespace YouTubeAPI
         }
         public Author(string Id)
         {
-            ChannelId = Id;
-            GetChannelData();
+            try
+            {
+                ChannelId = Id;
+                GetChannelData();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Author :" + ex.Message);
+                throw ex;
+            }
+            finally {}
         }
 
-        public async Task GetChannelData()
+        public void GetChannelData()
         {
             var youtubeService = new YouTubeService(new BaseClientService.Initializer()
             {
@@ -45,23 +54,31 @@ namespace YouTubeAPI
             {
                 // Execute the request
                 ChannelListResponse response = listRequest.Execute();
-                // Access the channel information
-                foreach (var item in response.Items)
+                if (response.PageInfo.TotalResults > 0)
                 {
-                    ChannelTitle = item.Snippet.Title;
-                    ChannelDescription = item.Snippet.Description;
-                    JoiningDate = item.Snippet.PublishedAt ?? DateTime.Now;
-                    ThumbnailMedium = item.Snippet.Thumbnails.Medium.Url;
+                    // Access the channel information
+                    foreach (var item in response.Items)
+                    {
+                        ChannelTitle = item.Snippet.Title;
+                        ChannelDescription = item.Snippet.Description;
+                        JoiningDate = item.Snippet.PublishedAt ?? DateTime.Now;
+                        ThumbnailMedium = item.Snippet.Thumbnails.Medium.Url;
 
-                    Console.WriteLine("Channel Name: " + ChannelTitle);
-                    Console.WriteLine("Channel Id: " + ChannelId);
-                    Console.WriteLine("Channel Description: " + ChannelDescription);
+                        Console.WriteLine("Channel Name: " + ChannelTitle);
+                        Console.WriteLine("Channel Id: " + ChannelId);
+                        Console.WriteLine("Channel Description: " + ChannelDescription);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Channel not found!!!");
+                    throw new Exception("Wrong Channel Id");
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                // Log the error
-                Console.WriteLine("An error occurred: " + e.Message);
+                // Re-throw exception
+                throw ex;
             }
             Console.ReadLine();
         }

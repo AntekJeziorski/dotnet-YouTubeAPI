@@ -16,22 +16,32 @@ namespace YouTubeAPI
         public int ID { get; set; }
         [ForeignKey("Track")]
         public string VideoId { get; set; }
-        public int LikeCount { get; set; }
-        public int ViewCount { get; set; }
-        public int CommentCount { get; set; }
+        public Int64 LikeCount { get; set; }
+        public Int64 ViewCount { get; set; }
+        public Int64 CommentCount { get; set; }
 
         [Timestamp]
         public byte[] Timestamp { get; set; }
 
         public virtual Track Track { get; set; }
 
+        public TracksHistory() { }
+
         public TracksHistory(string Id)
         {
-            VideoId = Id;
-            GetViedoStats();
+            try
+            {
+                VideoId = Id;
+                GetViedoStats();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally { }
         }
 
-        public async Task GetViedoStats()
+        public void GetViedoStats()
         {
             var youtubeService = new YouTubeService(new BaseClientService.Initializer()
             {
@@ -49,18 +59,18 @@ namespace YouTubeAPI
                 // Access the video information
                 foreach (var item in response.Items)
                 {
-                    ViewCount = (int)item.Statistics.ViewCount;
-                    LikeCount = (int)item.Statistics.LikeCount;
-                    CommentCount = (int)item.Statistics.CommentCount;
+                    ViewCount = (Int64)item.Statistics.ViewCount;
+                    LikeCount = (Int64)item.Statistics.LikeCount;
+                    CommentCount = (Int64)item.Statistics.CommentCount;
 
                     Console.WriteLine("View Count: " + ViewCount);
                     Console.WriteLine("Like Count: " + LikeCount);
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
                 // Log the error
-                Console.WriteLine("An error occurred: " + e.Message);
+                throw ex;
             }
             Console.ReadLine();
         }

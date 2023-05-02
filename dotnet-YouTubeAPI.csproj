@@ -132,6 +132,22 @@
     <Compile Include="Migrations\202305012322291_InitialCreate8.designer.cs">
       <DependentUpon>202305012322291_InitialCreate8.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305021601262_InitialCreate9.cs" />
+    <Compile Include="Migrations\202305021601262_InitialCreate9.designer.cs">
+      <DependentUpon>202305021601262_InitialCreate9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305021606225_InitialCreate10.cs" />
+    <Compile Include="Migrations\202305021606225_InitialCreate10.designer.cs">
+      <DependentUpon>202305021606225_InitialCreate10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305021610049_InitialCreate11.cs" />
+    <Compile Include="Migrations\202305021610049_InitialCreate11.designer.cs">
+      <DependentUpon>202305021610049_InitialCreate11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305021740127_InitialCreate12.cs" />
+    <Compile Include="Migrations\202305021740127_InitialCreate12.designer.cs">
+      <DependentUpon>202305021740127_InitialCreate12.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MVVM\ViewModel\ArtistViewModel.cs" />
     <Compile Include="MVVM\ViewModel\AboutViewModel.cs" />
@@ -226,6 +242,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305012322291_InitialCreate8.resx">
       <DependentUpon>202305012322291_InitialCreate8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305021601262_InitialCreate9.resx">
+      <DependentUpon>202305021601262_InitialCreate9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305021606225_InitialCreate10.resx">
+      <DependentUpon>202305021606225_InitialCreate10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305021610049_InitialCreate11.resx">
+      <DependentUpon>202305021610049_InitialCreate11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305021740127_InitialCreate12.resx">
+      <DependentUpon>202305021740127_InitialCreate12.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

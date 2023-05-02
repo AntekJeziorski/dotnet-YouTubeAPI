@@ -24,14 +24,23 @@ namespace YouTubeAPI
 
         public virtual ICollection<TracksHistory> TracksHistory { get; set; }
 
-
+        public Track() { }
         public Track(string Id)
         {
-            VideoId = Id;
-            GetViedoData();
+            try
+            {
+                VideoId = Id;
+                GetViedoData();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally { }
+            
         }
 
-        public async Task GetViedoData()
+        public void GetViedoData()
         {
             var youtubeService = new YouTubeService(new BaseClientService.Initializer()
             {
@@ -40,15 +49,17 @@ namespace YouTubeAPI
             });
             //string videoId = "nLIp4wd0oXs";
             // Prepare the request
-            VideosResource.ListRequest listRequest = youtubeService.Videos.List("snippet,statistics");
+            VideosResource.ListRequest listRequest = youtubeService.Videos.List("snippet");
             listRequest.Id = VideoId;
             try
             {
                 // Execute the request
                 VideoListResponse response = listRequest.Execute();
-                // Access the video information
-                foreach (var item in response.Items)
+                if (response.PageInfo.TotalResults > 0)
                 {
+                    // Access the video information
+                    foreach (var item in response.Items)
+                    {
                     Title = item.Snippet.Title;
                     ChannelTitle = item.Snippet.ChannelTitle;
                     ChannelId = item.Snippet.ChannelId;
@@ -60,12 +71,18 @@ namespace YouTubeAPI
                     Console.WriteLine("Viedo Id: " + VideoId);
                     Console.WriteLine("Channel Name: " + ChannelTitle);
                     Console.WriteLine("Channel Id: " + ChannelId);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Viedo not found!!!");
+                    throw new Exception("Wrong Video Id");
                 }
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                // Log the error
-                Console.WriteLine("An error occurred: " + e.Message);
+                // Re-throw exception
+                throw ex;
             }
             Console.ReadLine();
         }
