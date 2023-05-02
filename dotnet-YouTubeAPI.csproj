@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -14,6 +15,8 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,8 +38,40 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis, Version=1.60.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.1.60.0\lib\net45\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.60.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.Auth.1.60.0\lib\net461\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.60.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.Auth.1.60.0\lib\net461\Google.Apis.Auth.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.60.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.Core.1.60.0\lib\net45\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.60.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.1.60.0\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.YouTube.v3, Version=1.60.0.2945, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.YouTube.v3.1.60.0.2945\lib\net45\Google.Apis.YouTube.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -46,16 +81,95 @@
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
+    <Reference Include="UIAutomationProvider" />
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Compile Include="Author.cs" />
+    <Compile Include="AuthorsHistory.cs" />
+    <Compile Include="Core\ObservableObject.cs" />
+    <Compile Include="Core\RelayCommand.cs" />
+    <Compile Include="Migrations\202303272226410_InitialCreate.cs" />
+    <Compile Include="Migrations\202303272226410_InitialCreate.designer.cs">
+      <DependentUpon>202303272226410_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304161256197_InitialCreate1.cs" />
+    <Compile Include="Migrations\202304161256197_InitialCreate1.designer.cs">
+      <DependentUpon>202304161256197_InitialCreate1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304171501417_InitialCreate2.cs" />
+    <Compile Include="Migrations\202304171501417_InitialCreate2.designer.cs">
+      <DependentUpon>202304171501417_InitialCreate2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304211933533_InitialCreate3.cs" />
+    <Compile Include="Migrations\202304211933533_InitialCreate3.designer.cs">
+      <DependentUpon>202304211933533_InitialCreate3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304211936578_InitialCreate4.cs" />
+    <Compile Include="Migrations\202304211936578_InitialCreate4.designer.cs">
+      <DependentUpon>202304211936578_InitialCreate4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304211938193_InitialCreate5.cs" />
+    <Compile Include="Migrations\202304211938193_InitialCreate5.designer.cs">
+      <DependentUpon>202304211938193_InitialCreate5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305012139139_InitialCreate6.cs" />
+    <Compile Include="Migrations\202305012139139_InitialCreate6.designer.cs">
+      <DependentUpon>202305012139139_InitialCreate6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305012316276_InitialCreate7.cs" />
+    <Compile Include="Migrations\202305012316276_InitialCreate7.designer.cs">
+      <DependentUpon>202305012316276_InitialCreate7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305012322291_InitialCreate8.cs" />
+    <Compile Include="Migrations\202305012322291_InitialCreate8.designer.cs">
+      <DependentUpon>202305012322291_InitialCreate8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305021601262_InitialCreate9.cs" />
+    <Compile Include="Migrations\202305021601262_InitialCreate9.designer.cs">
+      <DependentUpon>202305021601262_InitialCreate9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305021606225_InitialCreate10.cs" />
+    <Compile Include="Migrations\202305021606225_InitialCreate10.designer.cs">
+      <DependentUpon>202305021606225_InitialCreate10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305021610049_InitialCreate11.cs" />
+    <Compile Include="Migrations\202305021610049_InitialCreate11.designer.cs">
+      <DependentUpon>202305021610049_InitialCreate11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305021740127_InitialCreate12.cs" />
+    <Compile Include="Migrations\202305021740127_InitialCreate12.designer.cs">
+      <DependentUpon>202305021740127_InitialCreate12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="MVVM\ViewModel\ArtistViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\AboutViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\TracksViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\HomeViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
+    <Compile Include="MVVM\View\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\ArtistView.xaml.cs">
+      <DependentUpon>ArtistView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\TracksView.xaml.cs">
+      <DependentUpon>TracksView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Track.cs" />
+    <Compile Include="TracksHistory.cs" />
+    <Compile Include="YouTubeApiContext.cs" />
+    <Page Include="MVVM\View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -63,10 +177,30 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="MVVM\View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MVVM\View\AboutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\ArtistView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\HomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\TracksView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Theme\TopBarButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -82,17 +216,84 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\202303272226410_InitialCreate.resx">
+      <DependentUpon>202303272226410_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304161256197_InitialCreate1.resx">
+      <DependentUpon>202304161256197_InitialCreate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304171501417_InitialCreate2.resx">
+      <DependentUpon>202304171501417_InitialCreate2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304211933533_InitialCreate3.resx">
+      <DependentUpon>202304211933533_InitialCreate3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304211936578_InitialCreate4.resx">
+      <DependentUpon>202304211936578_InitialCreate4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304211938193_InitialCreate5.resx">
+      <DependentUpon>202304211938193_InitialCreate5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305012139139_InitialCreate6.resx">
+      <DependentUpon>202305012139139_InitialCreate6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305012316276_InitialCreate7.resx">
+      <DependentUpon>202305012316276_InitialCreate7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305012322291_InitialCreate8.resx">
+      <DependentUpon>202305012322291_InitialCreate8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305021601262_InitialCreate9.resx">
+      <DependentUpon>202305021601262_InitialCreate9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305021606225_InitialCreate10.resx">
+      <DependentUpon>202305021606225_InitialCreate10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305021610049_InitialCreate11.resx">
+      <DependentUpon>202305021610049_InitialCreate11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305021740127_InitialCreate12.resx">
+      <DependentUpon>202305021740127_InitialCreate12.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Resource Include="Static\Fonts\youbookie-sans.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Static\youbookie-logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Static\youbookie-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Static\favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="MVVM\Model\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Static\mockup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Static\Tracks.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>
