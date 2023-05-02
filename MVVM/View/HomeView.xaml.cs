@@ -65,7 +65,9 @@ namespace dotnet_YouTubeAPI.MVVM.View
 
         private void Button_Click_Author(object sender, RoutedEventArgs e)
         {
+            var context = new YouTubeApiContext(); /* UCXuqSBlHAE6Xw-yeJA0Tunw */
             var newAuthor = new YouTubeAPI.Author(textAuthorId.Text);
+            context.addNewAuthor(newAuthor);  
         }
     }
 }
