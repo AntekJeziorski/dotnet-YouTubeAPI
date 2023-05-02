@@ -24,5 +24,10 @@ namespace dotnet_YouTubeAPI.MVVM.View
         {
             InitializeComponent();
         }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

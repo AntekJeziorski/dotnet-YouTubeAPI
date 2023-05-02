@@ -9,9 +9,17 @@
              Background="White">
     <DockPanel>
         <Grid DockPanel.Dock="Top">
-            <Image Height="100" Source="/Static/Tracks.jpg" Opacity=".3" Stretch="UniformToFill"></Image>
-            <StackPanel VerticalAlignment="Bottom" Margin="8">
-                <TextBlock Text="Favourite Tracks" Foreground="Black" FontSize="30" FontWeight="Bold" />
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Image Grid.ColumnSpan="2" Height="100" Source="/Static/Tracks.jpg" Opacity=".3" Stretch="UniformToFill"></Image>
+            <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="8">
+                <TextBlock Text="Favourite Tracks" Foreground="Black" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="8" HorizontalAlignment="Left">
+                <TextBox Width="250" Height="40" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5" Style="{StaticResource SearchBar}" TextChanged="TextBox_TextChanged"/>
             </StackPanel>
             
         </Grid>
