@@ -7,7 +7,10 @@ using System.ComponentModel;
 using Google.Apis.YouTube.v3.Data;
 
 namespace YouTubeAPI
-{
+{   
+    /// <summary>
+    /// Class which represents database context.
+    /// </summary>
     public class YouTubeApiContext : DbContext
     {
         // Your context has been configured to use a 'YouTubeApiContext' connection string from your application's 
@@ -24,7 +27,10 @@ namespace YouTubeAPI
         public DbSet<TracksHistory> TracksHistory { get; set; }
         public DbSet<AuthorsHistory> AuthorsHistory { get; set; }
 
-        //! Adds new object to database
+        /// <summary>
+        /// Adds new author to Authors table
+        /// </summary>
+        /// <param name="author">Author object which will be added to Authors table.</param>
         public void addNewAuthor(Author author)
         {
             using(var context = new YouTubeApiContext())
@@ -34,7 +40,10 @@ namespace YouTubeAPI
             }
         }
 
-        //! Adds new entry to author history
+        /// <summary>
+        /// Adds new entry to author history.
+        /// </summary>
+        /// <param name="authorsHistory">AuthorsHistory object which will be added.</param>
         public void addNewAuthorHistoryEntry(AuthorsHistory authorsHistory)
         {
             using (var context = new YouTubeApiContext())
@@ -44,7 +53,10 @@ namespace YouTubeAPI
             }
         }
 
-        //! Getter for author history entries by author id
+        /// <summary>
+        /// Gets author history entries by Author id.
+        /// </summary>
+        /// <param name="Id">Author Id</param>
         public void getAuthorsHistory(string Id)
         {
             using (var context = new YouTubeApiContext())
@@ -57,7 +69,9 @@ namespace YouTubeAPI
             }   
         }
 
-        //! Add current stats to author history
+        /// <summary>
+        /// Adds new entries for all authors to AuthorsHistory table.
+        /// </summary>
         public void updateAllAuthors()
         {
             using (var context = new YouTubeApiContext())
@@ -72,7 +86,10 @@ namespace YouTubeAPI
         }
 
 
-        //! Adds new track to database
+        /// <summary>
+        /// Adds new track Tracks table.
+        /// </summary>
+        /// <param name="track">The track which will be added.</param>
         public void addNewTrack(Track track)
         {
             using (var context = new YouTubeApiContext())
@@ -82,7 +99,10 @@ namespace YouTubeAPI
             }
         }
 
-        //! Adds new entry to track history
+        /// <summary>
+        /// Adds new entry to track history
+        /// </summary>
+        /// <param name="tracksHistory"></param>
         public void addNewTrackHistoryEntry(TracksHistory tracksHistory)
         {
             using (var context = new YouTubeApiContext())
@@ -92,7 +112,10 @@ namespace YouTubeAPI
             }
         }
 
-        //! Getter for track history entries by track id
+        /// <summary>
+        /// Gets track history entries by track Id.
+        /// </summary>
+        /// <param name="Id">Track's Id</param>
         public void getTracksHistory(string Id)
         {
             using (var context = new YouTubeApiContext())
@@ -105,7 +128,9 @@ namespace YouTubeAPI
             }
         }
 
-        //! Add current stats to track history
+        /// <summary>
+        /// Adds new entries for all tracks to TracksHistory table.
+        /// </summary>
         public void updateAllTracks()
         {
             using (var context = new YouTubeApiContext())
@@ -120,6 +145,10 @@ namespace YouTubeAPI
         }
 
     }
+    /// <summary>
+    /// Database initializer.
+    /// Initializes database with seed.
+    /// </summary>
     public class YouTubeApiDbInitializer : DropCreateDatabaseAlways<YouTubeApiContext>
     {
         protected override void Seed(YouTubeApiContext context)
