@@ -27,8 +27,7 @@ namespace dotnet_YouTubeAPI.MVVM.View
         string newNickname;
         string newYtChannelID;
 
-
-        IList<Author> authors;
+        IList<Track> Tracks;
         
         public HomeView()
         {
@@ -36,33 +35,24 @@ namespace dotnet_YouTubeAPI.MVVM.View
 
             using (var context = new YouTubeApiContext())
             {
-                authors = context.Tracks.ToList();
-
+                Tracks = context.Tracks.ToList();
             }
 
-            authorList.ItemsSource = authors;
+            authorList.ItemsSource = Tracks;
 
-            Console.WriteLine(authors);
+            Console.WriteLine(Tracks);
         }
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-        }
-
-        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-        }
-
-        private void TextBox_TextChanged_2(object sender, TextChangedEventArgs e)
-        {
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        
         private void Button_Click_Video(object sender, RoutedEventArgs e)
         {
+            var context = new YouTubeApiContext();
+            var tmp = context.getAuthorInfo();
+            Console.WriteLine(tmp);
+            foreach (var item in tmp)
+            {
+                Console.WriteLine($"Author: {item.Author.ChannelId}, Latest Entry: {item.AuthorsHistory.AddTime}, View Count: {item.AuthorsHistory.ViewCount}");
+            }
+
             //var newVideo = new YouTubeAPI.Track(textVideoId.Text); /* nLIp4wd0oXs */
             //newVideo.GetViedoData();
             //textVideoId.Clear();
@@ -82,14 +72,6 @@ namespace dotnet_YouTubeAPI.MVVM.View
             //var context = new YouTubeApiContext();
             //context.updateAllTracks();
             //context.getTracksHistory("nLIp4wd0oXs");
-
-            var context = new YouTubeApiContext();
-            var tmp = context.getAuthorInfo();
-            Console.WriteLine(tmp);
-            foreach (var item in tmp)
-            {
-                Console.WriteLine($"Author: {item.Author.ChannelId}, Latest Entry: {item.AuthorsHistory.AddTime}, View Count: {item.AuthorsHistory.ViewCount}");
-            }
         }
 
         private void Button_Click_Author(object sender, RoutedEventArgs e)
