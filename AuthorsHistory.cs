@@ -19,9 +19,7 @@ namespace YouTubeAPI
         public Int64 ViewCount { get; set; }
         public Int64 SubCount { get; set; }
         public Int64 VideoCount { get; set; }
-
-        [Timestamp]
-        public byte[] Timestamp { get; set; }
+        public DateTime AddTime { get; set; }
 
         public virtual Author Author { get; set; }
 
@@ -31,6 +29,7 @@ namespace YouTubeAPI
             try
             {
                 ChannelId = Id;
+                AddTime = DateTime.Now;
                 GetChannelStats();
             }
             catch (Exception ex)

@@ -19,9 +19,7 @@ namespace YouTubeAPI
         public Int64 LikeCount { get; set; }
         public Int64 ViewCount { get; set; }
         public Int64 CommentCount { get; set; }
-
-        [Timestamp]
-        public byte[] Timestamp { get; set; }
+        public DateTime AddTime { get; set; }
 
         public virtual Track Track { get; set; }
 
@@ -32,6 +30,7 @@ namespace YouTubeAPI
             try
             {
                 VideoId = Id;
+                AddTime = DateTime.Now;
                 GetViedoStats();
             }
             catch (Exception ex)

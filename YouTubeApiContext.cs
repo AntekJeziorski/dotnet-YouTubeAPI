@@ -6,6 +6,8 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using Google.Apis.YouTube.v3.Data;
 using System.Runtime.Remoting.Contexts;
+using System.Data.Entity.Migrations;
+
 
 namespace YouTubeAPI
 {
@@ -25,12 +27,30 @@ namespace YouTubeAPI
         public DbSet<TracksHistory> TracksHistory { get; set; }
         public DbSet<AuthorsHistory> AuthorsHistory { get; set; }
 
+
+        /*
+         * Authors handling
+         */
+
         //! Adds new object to database
         public void addNewAuthor(Author author)
         {
             using(var context = new YouTubeApiContext())
             {
-                context.Authors.Add(author);
+                context.Authors.AddOrUpdate(author);
+                context.SaveChanges();
+            }
+        }
+
+        //! Deletes author from database
+        public void deleteAuthor(string Id)
+        {
+            using (var context = new YouTubeApiContext())
+            {
+                context.AuthorsHistory.RemoveRange(context.AuthorsHistory.Where(Channel => Channel.ChannelId == Id));
+                var deleteAuthro = new Author(Id);
+                context.Authors.Attach(deleteAuthro);
+                context.Authors.Remove(deleteAuthro);
                 context.SaveChanges();
             }
         }
@@ -72,13 +92,47 @@ namespace YouTubeAPI
             }
         }
 
+        public List<YouTubeAPI.AuthorInfo> getAuthorInfo()
+        {
+            using (var context = new YouTubeApiContext())
+            {
+                var newestEntry = context.AuthorsHistory
+                    .GroupBy(o => o.ChannelId)
+                    .Select(g => g.OrderByDescending(o => o.AddTime).FirstOrDefault());
+
+
+                var authors = from history in newestEntry
+                              join author in context.Authors
+                              on history.ChannelId equals author.ChannelId
+                              select new AuthorInfo { AuthorsHistory = history, Author = author };
+                return authors.ToList();
+            }
+        }
+        
+
+        /*
+         * Tracks handling
+         */
 
         //! Adds new track to database
         public void addNewTrack(Track track)
         {
             using (var context = new YouTubeApiContext())
             {
-                context.Tracks.Add(track);
+                context.Tracks.AddOrUpdate(track);
+                context.SaveChanges();
+            }
+        }
+
+        //! Delete track from database
+        public void deleteTrack(string Id)
+        {
+            using (var context = new YouTubeApiContext())
+            {
+                context.TracksHistory.RemoveRange(context.TracksHistory.Where(Channel => Channel.VideoId == Id));
+                var deleteTrack = new Track(Id);
+                context.Tracks.Attach(deleteTrack);
+                context.Tracks.Remove(deleteTrack);
                 context.SaveChanges();
             }
         }
@@ -120,6 +174,7 @@ namespace YouTubeAPI
             }
         }
 
+
         public List<Track> GetAllTracks()
         {
             using (var context = new YouTubeApiContext())
@@ -128,7 +183,25 @@ namespace YouTubeAPI
                 return tracks;
             }
         }
-            
+
+        public List<YouTubeAPI.TrackInfo> getTrackInfo()
+        {
+            using (var context = new YouTubeApiContext())
+            {
+                var newestEntry = context.TracksHistory
+                    .GroupBy(o => o.VideoId)
+                    .Select(g => g.OrderByDescending(o => o.AddTime).FirstOrDefault());
+
+
+                var tracks = from history in newestEntry
+                              join track in context.Tracks
+                              on history.VideoId equals track.VideoId
+                              select new TrackInfo { TracksHistory = history, Track = track };
+                return tracks.ToList();
+            }
+        }
+
+
     }
     public class YouTubeApiDbInitializer : CreateDatabaseIfNotExists<YouTubeApiContext>
     {
