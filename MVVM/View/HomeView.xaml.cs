@@ -26,16 +26,18 @@ namespace dotnet_YouTubeAPI.MVVM.View
         int newID;
         string newNickname;
         string newYtChannelID;
-        IList<Author> authors;
-        //IList<TracksHistory> authors;
 
+
+        IList<Author> authors;
+        
         public HomeView()
         {
             InitializeComponent();
 
             using (var context = new YouTubeApiContext())
             {
-                authors = context.Authors.ToList();
+                authors = context.Tracks.ToList();
+
             }
 
             authorList.ItemsSource = authors;
