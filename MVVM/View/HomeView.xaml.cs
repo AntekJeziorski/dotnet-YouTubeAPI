@@ -26,81 +26,64 @@ namespace dotnet_YouTubeAPI.MVVM.View
         int newID;
         string newNickname;
         string newYtChannelID;
-        // IList<Author> authors;
-        IList<TracksHistory> authors;
 
+        IList<Track> Tracks;
+        
         public HomeView()
         {
             InitializeComponent();
 
             using (var context = new YouTubeApiContext())
             {
-                authors = context.TracksHistory.ToList();
+                Tracks = context.Tracks.ToList();
             }
 
-            authorList.ItemsSource = authors;
+            authorList.ItemsSource = Tracks;
 
-            Console.WriteLine(authors);
+            Console.WriteLine(Tracks);
         }
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-        }
-
-        private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
-        {
-        }
-
-        private void TextBox_TextChanged_2(object sender, TextChangedEventArgs e)
-        {
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+        
         private void Button_Click_Video(object sender, RoutedEventArgs e)
         {
-            //var newVideo = new YouTubeAPI.Track(textVideoId.Text); /* nLIp4wd0oXs */
-            ////newVideo.GetViedoData();
-            //textVideoId.Clear();
-            //var context = new YouTubeApiContext();
-            //context.getAuthorsHistory("UCXuqSBlHAE6Xw-yeJA0Tunw");
             var context = new YouTubeApiContext();
-            context.updateAllTracks();
-            context.getTracksHistory("nLIp4wd0oXs");
-        }
+            var tmp = context.getAuthorInfo();
+            Console.WriteLine(tmp);
+            foreach (var item in tmp)
+            {
+                Console.WriteLine($"Author: {item.Author.ChannelId}, Latest Entry: {item.AuthorsHistory.AddTime}, View Count: {item.AuthorsHistory.ViewCount}");
+            }
 
-        private void Button_Click_Author(object sender, RoutedEventArgs e)
-        {
-            //var context = new YouTubeApiContext(); /* UCXuqSBlHAE6Xw-yeJA0Tunw */
+            //var newVideo = new YouTubeAPI.Track(textVideoId.Text); /* nLIp4wd0oXs */
+            //newVideo.GetViedoData();
+            //textVideoId.Clear();
+
+            //var context = new YouTubeApiContext();
+            ////context.getAuthorsHistory("UCXuqSBlHAE6Xw-yeJA0Tunw");
             //try
             //{
-            //    var newAuthor = new YouTubeAPI.Author(textAuthorId.Text);
-            //    context.addNewAuthor(newAuthor);
-            //    textAuthorId.Clear();
-            //    var newAuthorEntry = new YouTubeAPI.AuthorsHistory(newAuthor.ChannelId);
-            //    context.addNewAuthorHistoryEntry(newAuthorEntry);
-            //    //context.getAuthorsHistory(newAuthor.ChannelId);
-            //}
-            //catch (DbUpdateException)
-            //{
-            //    System.Windows.Forms.MessageBox.Show("Author already subscribed.", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    context.deleteAuthor(textAuthorId.Text);
             //}
             //catch (Exception ex)
             //{
             //    System.Windows.Forms.MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //}
 
-            //! For tracks
+
+            //var context = new YouTubeApiContext();
+            //context.updateAllTracks();
+            //context.getTracksHistory("nLIp4wd0oXs");
+        }
+
+        private void Button_Click_Author(object sender, RoutedEventArgs e)
+        {
             var context = new YouTubeApiContext(); /* UCXuqSBlHAE6Xw-yeJA0Tunw */
             try
             {
-                var newTrack = new YouTubeAPI.Track(textAuthorId.Text);
-                context.addNewTrack(newTrack);
+                var newAuthor = new YouTubeAPI.Author(textAuthorId.Text);
+                context.addNewAuthor(newAuthor);
                 textAuthorId.Clear();
-                var newTrackEntry = new YouTubeAPI.TracksHistory(newTrack.VideoId);
-                context.addNewTrackHistoryEntry(newTrackEntry);
+                var newAuthorEntry = new YouTubeAPI.AuthorsHistory(newAuthor.ChannelId);
+                context.addNewAuthorHistoryEntry(newAuthorEntry);
                 //context.getAuthorsHistory(newAuthor.ChannelId);
             }
             catch (DbUpdateException)
@@ -111,6 +94,26 @@ namespace dotnet_YouTubeAPI.MVVM.View
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            ////! For tracks
+            //var context = new YouTubeApiContext(); /* UCXuqSBlHAE6Xw-yeJA0Tunw */
+            //try
+            //{
+            //    var newTrack = new YouTubeAPI.Track(textAuthorId.Text);
+            //    context.addNewTrack(newTrack);
+            //    textAuthorId.Clear();
+            //    var newTrackEntry = new YouTubeAPI.TracksHistory(newTrack.VideoId);
+            //    context.addNewTrackHistoryEntry(newTrackEntry);
+            //    //context.getAuthorsHistory(newAuthor.ChannelId);
+            //}
+            //catch (DbUpdateException)
+            //{
+            //    System.Windows.Forms.MessageBox.Show("Author already subscribed.", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
+            //catch (Exception ex)
+            //{
+            //    System.Windows.Forms.MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
         }
     }
 }

@@ -94,6 +94,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Author.cs" />
+    <Compile Include="AuthorInfo.cs" />
     <Compile Include="AuthorsHistory.cs" />
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />
@@ -149,6 +150,10 @@
     <Compile Include="Migrations\202305021740127_InitialCreate12.designer.cs">
       <DependentUpon>202305021740127_InitialCreate12.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305031205261_FixTimestamp.cs" />
+    <Compile Include="Migrations\202305031205261_FixTimestamp.designer.cs">
+      <DependentUpon>202305031205261_FixTimestamp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MVVM\ViewModel\ArtistViewModel.cs" />
     <Compile Include="MVVM\ViewModel\AboutViewModel.cs" />
@@ -168,6 +173,7 @@
       <DependentUpon>TracksView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Track.cs" />
+    <Compile Include="TrackInfo.cs" />
     <Compile Include="TracksHistory.cs" />
     <Compile Include="YouTubeApiContext.cs" />
     <Page Include="MVVM\View\MainWindow.xaml">
@@ -199,6 +205,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Theme\TopBarButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Theme\TrackList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -256,6 +266,9 @@
     <EmbeddedResource Include="Migrations\202305021740127_InitialCreate12.resx">
       <DependentUpon>202305021740127_InitialCreate12.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305031205261_FixTimestamp.resx">
+      <DependentUpon>202305031205261_FixTimestamp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -279,9 +292,7 @@
   <ItemGroup>
     <Resource Include="Static\favicon.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="MVVM\Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Static\mockup.png" />
   </ItemGroup>
