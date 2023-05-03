@@ -59,8 +59,9 @@ namespace YouTubeAPI
         /// <param name="Id">Author Id</param>
         public void getAuthorsHistory(string Id)
         {
+            //bwah
             using (var context = new YouTubeApiContext())
-            {
+            {   //bwah
                 var authorsHistoryEntry = context.AuthorsHistory.Where(Channel => Channel.ChannelId == Id).ToList();
                 foreach (var author in authorsHistoryEntry)
                 {
