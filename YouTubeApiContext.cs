@@ -5,6 +5,7 @@ using System.Linq;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using Google.Apis.YouTube.v3.Data;
+using System.Runtime.Remoting.Contexts;
 
 namespace YouTubeAPI
 {
@@ -119,8 +120,17 @@ namespace YouTubeAPI
             }
         }
 
+        public List<Track> GetAllTracks()
+        {
+            using (var context = new YouTubeApiContext())
+            {
+                var tracks = context.Tracks.ToList();
+                return tracks;
+            }
+        }
+            
     }
-    public class YouTubeApiDbInitializer : DropCreateDatabaseAlways<YouTubeApiContext>
+    public class YouTubeApiDbInitializer : CreateDatabaseIfNotExists<YouTubeApiContext>
     {
         protected override void Seed(YouTubeApiContext context)
         {
@@ -130,7 +140,8 @@ namespace YouTubeAPI
 
             context.Authors.AddRange(defaultAuthors);
             context.Tracks.AddRange(defaultTracks);
-
+            var newTrack = new YouTubeAPI.Track("2ixECdC615g");
+            context.addNewTrack(newTrack);
         }
     }
 }

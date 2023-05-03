@@ -3,28 +3,138 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:dotnet_YouTubeAPI.MVVM.View"
+             xmlns:local="clr-namespace:dotnet_YouTubeAPI.MVVM.View" xmlns:row="clr-namespace:dotnet_YouTubeAPI.MVVM.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              Background="White">
+    <UserControl.Resources>
+        <local:RowNumberConverter x:Key="RowNumberConverter"/>
+    </UserControl.Resources>
     <DockPanel>
         <Grid DockPanel.Dock="Top">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="300"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="2*"/>
             </Grid.ColumnDefinitions>
             
-            <Image Grid.ColumnSpan="2" Height="100" Source="/Static/Tracks.jpg" Opacity=".3" Stretch="UniformToFill"></Image>
-            <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="8">
-                <TextBlock Text="Favourite Tracks" Foreground="Black" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center"/>
-            </StackPanel>
-            <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="8" HorizontalAlignment="Left">
-                <TextBox Width="250" Height="40" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="5" Style="{StaticResource SearchBar}" TextChanged="TextBox_TextChanged"/>
-            </StackPanel>
             
+            <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="0,30,0,30">
+                <TextBlock Text="Favourite Tracks:" VerticalAlignment="Center"  Foreground="Black" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center"/>
+            </StackPanel>
+
+            <Border Grid.Column="1" 
+                    CornerRadius="30"
+                    Background="#f8f8f8"
+                    Width="420" Height="50" 
+                    HorizontalAlignment="Right" 
+                    Margin="0,0,60,0"
+                    BorderThickness="1"
+                    BorderBrush="#FFEE3E38">
+                <Grid>
+                    <TextBox   Name="txtUserName" 
+                       Grid.Column="1" 
+                       Margin="28,0,0,0"
+                       BorderThickness ="0"
+                       Background="Transparent"
+                       VerticalAlignment="Center"
+                       
+                       FontFamily="/Static/Fonts/youbookie-sans.ttf"
+                       FontSize="16" 
+                       Foreground="Black"
+                       TextChanged="SearchBarTextChange" 
+
+                       KeyDown="OnEnterKeyDown"/>
+
+                    <TextBlock  Name="tbUsername" 
+                        Text="Search for content, press Enter to submit." 
+                        VerticalAlignment="Center" 
+                        HorizontalAlignment="Left" 
+                        Margin="30,0,0,0" 
+                        FontFamily="/Static/Fonts/youbookie-sans.ttf"
+                        FontSize="16" 
+                        Foreground="Black"  IsHitTestVisible="False"  Grid.Column="1" KeyDown="OnEnterKeyDown"/>
+                </Grid>
+            </Border>
+    
         </Grid>
-        <StackPanel Background="LightGray" ScrollViewer.CanContentScroll="False">
-          
-        </StackPanel>
+        
+        <ListView x:Name="listView" BorderThickness="0">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView >
+                    
+                    <GridViewColumn Header="#" Width="30">
+                        <GridViewColumn.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="#" Background="AntiqueWhite" Foreground="Red" FontSize="16" />
+                            </DataTemplate>
+                        </GridViewColumn.HeaderTemplate>
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock  Text="{Binding Converter={StaticResource RowNumberConverter}}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    
+                    <GridViewColumn Header="Thumbnail" Width="100" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding ThumbnailMedium}" Width="80" Height="80" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="Title" Width="Auto">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Title}" FontSize="14" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="ChannelTitle" Width="200">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding ChannelTitle}" FontSize="14" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    
+                    <GridViewColumn Header="VideoId" Width="150">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding VideoId}" FontSize="14" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+            <!--<ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border Background="Red">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding ThumbnailMedium}" Width="50" Height="50" Grid.Column="1" />
+                            <TextBlock Text="{Binding Title}" Grid.Column="2" />
+                            <TextBlock Text="{Binding ChannelTitle}" Grid.Column="3" />
+                            <TextBlock Text="{Binding VideoId}" Grid.Column="4" />
+                        </Grid>
+                    </Border>
+                    
+                </DataTemplate>
+            </ListView.ItemTemplate>-->
+        </ListView>
+
+
     </DockPanel>
 </UserControl>

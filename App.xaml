@@ -9,7 +9,7 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Theme/TopBarButton.xaml"/>
-                <ResourceDictionary Source="Theme/SearchBar.xaml"/>
+                <ResourceDictionary Source="Theme/TrackList.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">

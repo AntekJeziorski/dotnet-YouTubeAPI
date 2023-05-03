@@ -27,7 +27,7 @@ namespace dotnet_YouTubeAPI.MVVM.View
         string newNickname;
         string newYtChannelID;
         // IList<Author> authors;
-        IList<TracksHistory> authors;
+        IList<Track> authors;
 
         public HomeView()
         {
@@ -35,7 +35,7 @@ namespace dotnet_YouTubeAPI.MVVM.View
 
             using (var context = new YouTubeApiContext())
             {
-                authors = context.TracksHistory.ToList();
+                authors = context.Tracks.ToList();
             }
 
             authorList.ItemsSource = authors;
