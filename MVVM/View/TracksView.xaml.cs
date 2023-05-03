@@ -31,6 +31,13 @@ namespace dotnet_YouTubeAPI.MVVM.View
             PopulateCollection();
         }
 
+        private void OnListViewItemClicked(object sender, MouseButtonEventArgs e)
+        {
+            System.Windows.Controls.ListViewItem item = sender as System.Windows.Controls.ListViewItem;
+            TrackInfo data = item.Content as TrackInfo;
+            Console.WriteLine(data.Track.ChannelId);
+        }
+
         private void OnEnterKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == Key.Return)
@@ -70,7 +77,7 @@ namespace dotnet_YouTubeAPI.MVVM.View
         {
             using (var context = new YouTubeApiContext())
             {
-                var tracks = context.GetAllTracks();
+                var tracks = context.getTrackInfo();
                 listView.ItemsSource = tracks;
             }
         }

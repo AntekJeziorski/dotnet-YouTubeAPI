@@ -57,84 +57,84 @@
             </Border>
     
         </Grid>
-        
+
         <ListView x:Name="listView" BorderThickness="0">
+
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="Margin" Value="0,2,0,2"/>
+                    <EventSetter Event="PreviewMouseDoubleClick" Handler="OnListViewItemClicked"/>
                 </Style>
             </ListView.ItemContainerStyle>
             <ListView.View>
-                <GridView >
-                    
+                <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle1}">
                     <GridViewColumn Header="#" Width="30">
-                        <GridViewColumn.HeaderTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="#" Background="AntiqueWhite" Foreground="Red" FontSize="16" />
-                            </DataTemplate>
-                        </GridViewColumn.HeaderTemplate>
+                        
+                       
+       
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock  Text="{Binding Converter={StaticResource RowNumberConverter}}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
-                    
-                    <GridViewColumn Header="Thumbnail" Width="100" >
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <Image Source="{Binding ThumbnailMedium}" Width="80" Height="80" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding Converter={StaticResource RowNumberConverter}}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn Header="Title" Width="Auto">
+
+                    <GridViewColumn Header="Thumbnail" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding Title}" FontSize="14" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <Image Source="{Binding Track.ThumbnailMedium}" Width="80" Height="80" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn Header="ChannelTitle" Width="200">
+                    <GridViewColumn Header="Title"  Width="Auto">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Text="{Binding ChannelTitle}" FontSize="14" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Track.Title}" Foreground="Black" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding Track.ChannelTitle}" Margin="0,5,0,0" Foreground="Gray" FontSize="12" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="Likes" Width="120">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding TracksHistory.LikeCount}" FontSize="14" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="Views" Width="120">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding TracksHistory.ViewCount}" FontSize="14" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+
+                    <GridViewColumn Header="Comments" Width="120">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding TracksHistory.CommentCount}" FontSize="14" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+
+                    <GridViewColumn Header="ReleaseDate" Width="120">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Track.ReleaseDate, StringFormat={}{0:dd.MM.yyyy}}" FontSize="14" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     
-                    <GridViewColumn Header="VideoId" Width="150">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding VideoId}" FontSize="14" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
                 </GridView>
             </ListView.View>
-            <!--<ListView.ItemTemplate>
-                <DataTemplate>
-                    <Border Background="Red">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                            <Image Source="{Binding ThumbnailMedium}" Width="50" Height="50" Grid.Column="1" />
-                            <TextBlock Text="{Binding Title}" Grid.Column="2" />
-                            <TextBlock Text="{Binding ChannelTitle}" Grid.Column="3" />
-                            <TextBlock Text="{Binding VideoId}" Grid.Column="4" />
-                        </Grid>
-                    </Border>
-                    
-                </DataTemplate>
-            </ListView.ItemTemplate>-->
         </ListView>
-
-
     </DockPanel>
 </UserControl>

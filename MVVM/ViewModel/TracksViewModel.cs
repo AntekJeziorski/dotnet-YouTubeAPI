@@ -10,7 +10,6 @@ using YouTubeAPI;
 
 namespace dotnet_YouTubeAPI.MVVM.ViewModel
 {
-   
     internal class TracksViewModel
     {
     }
