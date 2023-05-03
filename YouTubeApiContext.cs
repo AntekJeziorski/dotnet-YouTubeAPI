@@ -168,15 +168,16 @@ namespace YouTubeAPI
         /// Gets track history entries by track Id.
         /// </summary>
         /// <param name="Id">Track's Id</param>
-        public void getTracksHistory(string Id)
+        public IList<TracksHistory> getTracksHistory(string Id)
         {
             using (var context = new YouTubeApiContext())
             {
                 var tracksHistoryEntry = context.TracksHistory.Where(Video => Video.VideoId == Id).ToList();
-                foreach (var track in tracksHistoryEntry)
-                {
-                    Console.WriteLine(track.VideoId + ", " + track.ViewCount + ", " + track.LikeCount + ", " + track.CommentCount);
-                }
+                //foreach (var track in tracksHistoryEntry)
+                //{
+                //    Console.WriteLine(track.VideoId + ", " + track.ViewCount + ", " + track.LikeCount + ", " + track.CommentCount);
+                //}
+                return tracksHistoryEntry.ToList();
             }
         }
 
