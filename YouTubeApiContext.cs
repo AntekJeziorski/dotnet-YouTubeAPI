@@ -25,6 +25,11 @@ namespace YouTubeAPI
         public DbSet<TracksHistory> TracksHistory { get; set; }
         public DbSet<AuthorsHistory> AuthorsHistory { get; set; }
 
+
+        /*
+         * Authors handling
+         */
+
         //! Adds new object to database
         public void addNewAuthor(Author author)
         {
@@ -85,6 +90,27 @@ namespace YouTubeAPI
             }
         }
 
+        public List<YouTubeAPI.AuthorInfo> getAuthorInfo()
+        {
+            using (var context = new YouTubeApiContext())
+            {
+                var newestEntry = context.AuthorsHistory
+                    .GroupBy(o => o.ChannelId)
+                    .Select(g => g.OrderByDescending(o => o.AddTime).FirstOrDefault());
+
+
+                var authors = from history in newestEntry
+                              join author in context.Authors
+                              on history.ChannelId equals author.ChannelId
+                              select new AuthorInfo { AuthorsHistory = history, Author = author };
+                return authors.ToList();
+            }
+        }
+        
+
+        /*
+         * Tracks handling
+         */
 
         //! Adds new track to database
         public void addNewTrack(Track track)
@@ -143,6 +169,23 @@ namespace YouTubeAPI
                     var newTrackEntry = new YouTubeAPI.TracksHistory(track);
                     context.addNewTrackHistoryEntry(newTrackEntry);
                 }
+            }
+        }
+
+        public List<YouTubeAPI.TrackInfo> getTrackInfo()
+        {
+            using (var context = new YouTubeApiContext())
+            {
+                var newestEntry = context.TracksHistory
+                    .GroupBy(o => o.VideoId)
+                    .Select(g => g.OrderByDescending(o => o.AddTime).FirstOrDefault());
+
+
+                var tracks = from history in newestEntry
+                              join track in context.Tracks
+                              on history.VideoId equals track.VideoId
+                              select new TrackInfo { TracksHistory = history, Track = track };
+                return tracks.ToList();
             }
         }
 

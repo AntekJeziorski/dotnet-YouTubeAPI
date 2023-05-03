@@ -93,6 +93,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Author.cs" />
+    <Compile Include="AuthorInfo.cs" />
     <Compile Include="AuthorsHistory.cs" />
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />
@@ -171,6 +172,7 @@
       <DependentUpon>TracksView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Track.cs" />
+    <Compile Include="TrackInfo.cs" />
     <Compile Include="TracksHistory.cs" />
     <Compile Include="YouTubeApiContext.cs" />
     <Page Include="MVVM\View\MainWindow.xaml">

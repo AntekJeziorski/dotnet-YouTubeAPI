@@ -65,21 +65,29 @@ namespace dotnet_YouTubeAPI.MVVM.View
             //newVideo.GetViedoData();
             //textVideoId.Clear();
 
-            var context = new YouTubeApiContext();
-            //context.getAuthorsHistory("UCXuqSBlHAE6Xw-yeJA0Tunw");
-            try
-            {
-                context.deleteAuthor(textAuthorId.Text);
-            }
-            catch (Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            
+            //var context = new YouTubeApiContext();
+            ////context.getAuthorsHistory("UCXuqSBlHAE6Xw-yeJA0Tunw");
+            //try
+            //{
+            //    context.deleteAuthor(textAuthorId.Text);
+            //}
+            //catch (Exception ex)
+            //{
+            //    System.Windows.Forms.MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+
 
             //var context = new YouTubeApiContext();
             //context.updateAllTracks();
             //context.getTracksHistory("nLIp4wd0oXs");
+
+            var context = new YouTubeApiContext();
+            var tmp = context.getAuthorInfo();
+            Console.WriteLine(tmp);
+            foreach (var item in tmp)
+            {
+                Console.WriteLine($"Author: {item.Author.ChannelId}, Latest Entry: {item.AuthorsHistory.AddTime}, View Count: {item.AuthorsHistory.ViewCount}");
+            }
         }
 
         private void Button_Click_Author(object sender, RoutedEventArgs e)
