@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace YouTubeAPI
 {
+    /// <summary>
+    /// bwah
+    /// </summary>
     public class Author
     {
         [Key]
