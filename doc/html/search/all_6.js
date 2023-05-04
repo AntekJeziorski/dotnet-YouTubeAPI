@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['observableobject_0',['ObservableObject',['../classdotnet___you_tube_a_p_i_1_1_core_1_1_observable_object.html',1,'dotnet_YouTubeAPI::Core']]]
+  ['rownumberconverter_0',['RowNumberConverter',['../classdotnet___you_tube_a_p_i_1_1_m_v_v_m_1_1_view_1_1_row_number_converter.html',1,'dotnet_YouTubeAPI::MVVM::View']]]
 ];
