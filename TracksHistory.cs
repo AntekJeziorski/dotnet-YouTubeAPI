@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace YouTubeAPI
 {
     /// <summary>
-    /// Represents TrackHistory table which contains informations about its views, likes, comments and time when the video was added.
+    /// Represents TracksHistory table which contains informations about its views, likes, comments and time when the video was added.
     /// </summary>
     public class TracksHistory
     {   
