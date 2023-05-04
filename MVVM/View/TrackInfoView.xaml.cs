@@ -25,7 +25,7 @@ namespace dotnet_YouTubeAPI.MVVM.View
         {
             InitializeComponent();
             InspectedTrack = data;
-            Console.WriteLine(InspectedTrack.Track.ChannelId);
+            Console.WriteLine(InspectedTrack.Track.SubscribeTime);
         }
     }
 }

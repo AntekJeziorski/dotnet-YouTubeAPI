@@ -231,7 +231,6 @@ namespace YouTubeAPI
     {
         protected override void Seed(YouTubeApiContext context)
         {
-
             IList<Author> defaultAuthors = new List<Author>();
             IList<Track> defaultTracks = new List<Track>();
 
