@@ -46,7 +46,7 @@ namespace dotnet_YouTubeAPI.MVVM.View
         private void Button_Click_Video(object sender, RoutedEventArgs e)
         {
             var context = new YouTubeApiContext();
-            var tmp = context.getAuthorInfo();
+            var tmp = context.GetAuthorInfo();
             Console.WriteLine(tmp);
             foreach (var item in tmp)
             {
@@ -80,10 +80,10 @@ namespace dotnet_YouTubeAPI.MVVM.View
             try
             {
                 var newAuthor = new YouTubeAPI.Author(textAuthorId.Text);
-                context.addNewAuthor(newAuthor);
+                context.AddNewAuthor(newAuthor);
                 textAuthorId.Clear();
                 var newAuthorEntry = new YouTubeAPI.AuthorsHistory(newAuthor.ChannelId);
-                context.addNewAuthorHistoryEntry(newAuthorEntry);
+                context.AddNewAuthorHistoryEntry(newAuthorEntry);
                 //context.getAuthorsHistory(newAuthor.ChannelId);
             }
             catch (DbUpdateException)
