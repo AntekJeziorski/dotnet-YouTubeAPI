@@ -36,10 +36,10 @@ namespace dotnet_YouTubeAPI.MVVM.View
                 try
                 {
                     var newTrack = new YouTubeAPI.Track(txtUserName.Text);
-                    context.addNewTrack(newTrack);
+                    context.AddNewTrack(newTrack);
                     txtUserName.Text = string.Empty;
                     var newTrackEntry = new YouTubeAPI.TracksHistory(newTrack.VideoId);
-                    context.addNewTrackHistoryEntry(newTrackEntry);
+                    context.AddNewTrackHistoryEntry(newTrackEntry);
                     PopulateCollection();
                 }
                 catch (DbUpdateException)

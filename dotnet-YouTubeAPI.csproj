@@ -154,6 +154,10 @@
     <Compile Include="Migrations\202305031205261_FixTimestamp.designer.cs">
       <DependentUpon>202305031205261_FixTimestamp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305041633273_InitialCreate13.cs" />
+    <Compile Include="Migrations\202305041633273_InitialCreate13.designer.cs">
+      <DependentUpon>202305041633273_InitialCreate13.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MVVM\ViewModel\ArtistViewModel.cs" />
     <Compile Include="MVVM\ViewModel\AboutViewModel.cs" />
@@ -283,6 +287,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305031205261_FixTimestamp.resx">
       <DependentUpon>202305031205261_FixTimestamp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305041633273_InitialCreate13.resx">
+      <DependentUpon>202305041633273_InitialCreate13.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
