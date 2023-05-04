@@ -9,3 +9,5 @@ If you want to check the history of your favourite video or channel, YouBookie w
 
 # Database
 Here is an UML diagram of YouBookie database.
+
+![Alt text](images/uml.jpg "UML diagram")
