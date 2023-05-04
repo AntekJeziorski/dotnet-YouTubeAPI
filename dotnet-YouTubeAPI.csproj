@@ -172,6 +172,9 @@
     <Compile Include="MVVM\View\TracksView.xaml.cs">
       <DependentUpon>TracksView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MVVM\View\TrackInfoView.xaml.cs">
+      <DependentUpon>TrackInfoView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Track.cs" />
     <Compile Include="TrackInfo.cs" />
     <Compile Include="TracksHistory.cs" />
@@ -204,7 +207,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MVVM\View\TrackInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Theme\ListViewHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Theme\ListViewHeaderRightAligment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
