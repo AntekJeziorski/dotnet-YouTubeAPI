@@ -66,7 +66,7 @@ namespace dotnet_YouTubeAPI.MVVM.View
         {
             using (var context = new YouTubeApiContext())
             {
-                var tracks = context.GetTrackInfo();
+                var tracks = context.getTrackInfo();
                 listView.ItemsSource = tracks;
             }
         }
