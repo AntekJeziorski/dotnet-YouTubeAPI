@@ -115,7 +115,7 @@ namespace YouTubeAPI
                               on history.ChannelId equals author.ChannelId
                               select new AuthorInfo { AuthorsHistory = history, Author = author };
                 authors.OrderByDescending(a => a.Author.SubscribeTime);
-                return authors.ToList();
+                return authors.OrderByDescending(t => t.Author.SubscribeTime).ToList();
             }
         }
         
@@ -216,9 +216,8 @@ namespace YouTubeAPI
                               join track in context.Tracks
                               on history.VideoId equals track.VideoId
                               select new TrackInfo { TracksHistory = history, Track = track };
-                tracks.OrderByDescending(t => t.Track.SubscribeTime);
 
-                return tracks.ToList();
+                return tracks.OrderByDescending(t => t.Track.SubscribeTime).ToList();
             }
         }
     }
