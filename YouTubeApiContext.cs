@@ -101,7 +101,7 @@ namespace YouTubeAPI
             }
         }
 
-        public List<YouTubeAPI.AuthorInfo> GetAuthorInfo()
+        public IList<YouTubeAPI.AuthorInfo> GetAuthorInfo()
         {
             using (var context = new YouTubeApiContext())
             {
@@ -118,7 +118,43 @@ namespace YouTubeAPI
                 return authors.OrderByDescending(t => t.Author.SubscribeTime).ToList();
             }
         }
-        
+
+        public IList<YouTubeAPI.AuthorInfo> GetMostViewedAuthor()
+        {
+            using (var context = new YouTubeApiContext())
+            {
+                var newestEntry = context.AuthorsHistory
+                    .GroupBy(o => o.ChannelId)
+                    .Select(g => g.OrderByDescending(o => o.AddTime).FirstOrDefault());
+
+
+                var authors = from history in newestEntry
+                              join author in context.Authors
+                              on history.ChannelId equals author.ChannelId
+                              select new AuthorInfo { AuthorsHistory = history, Author = author };
+                authors.OrderByDescending(a => a.Author.SubscribeTime);
+                return authors.OrderByDescending(t => t.AuthorsHistory.ViewCount).ToList();
+            }
+        }
+
+        public IList<YouTubeAPI.AuthorInfo> GetMostSubAuthor()
+        {
+            using (var context = new YouTubeApiContext())
+            {
+                var newestEntry = context.AuthorsHistory
+                    .GroupBy(o => o.ChannelId)
+                    .Select(g => g.OrderByDescending(o => o.AddTime).FirstOrDefault());
+
+
+                var authors = from history in newestEntry
+                              join author in context.Authors
+                              on history.ChannelId equals author.ChannelId
+                              select new AuthorInfo { AuthorsHistory = history, Author = author };
+                authors.OrderByDescending(a => a.Author.SubscribeTime);
+                return authors.OrderByDescending(t => t.AuthorsHistory.SubCount).ToList();
+            }
+        }
+
 
         /*
          * Tracks handling
@@ -194,7 +230,7 @@ namespace YouTubeAPI
         }
 
 
-        public List<Track> GetAllTracks()
+        public IList<Track> GetAllTracks()
         {
             using (var context = new YouTubeApiContext())
             {
@@ -203,7 +239,7 @@ namespace YouTubeAPI
             }
         }
 
-        public List<YouTubeAPI.TrackInfo> GetTrackInfo()
+        public IList<YouTubeAPI.TrackInfo> GetTrackInfo()
         {
             using (var context = new YouTubeApiContext())
             {
@@ -218,6 +254,42 @@ namespace YouTubeAPI
                               select new TrackInfo { TracksHistory = history, Track = track };
 
                 return tracks.OrderByDescending(t => t.Track.SubscribeTime).ToList();
+            }
+        }
+
+        public IList<YouTubeAPI.TrackInfo> GetMostViewedTrack()
+        {
+            using (var context = new YouTubeApiContext())
+            {
+                var newestEntry = context.TracksHistory
+                    .GroupBy(o => o.VideoId)
+                    .Select(g => g.OrderByDescending(o => o.AddTime).FirstOrDefault());
+
+
+                var tracks = from history in newestEntry
+                             join track in context.Tracks
+                             on history.VideoId equals track.VideoId
+                             select new TrackInfo { TracksHistory = history, Track = track };
+
+                return tracks.OrderByDescending(t => t.TracksHistory.ViewCount).ToList();
+            }
+        }
+
+        public IList<YouTubeAPI.TrackInfo> GetMostLikedTrack()
+        {
+            using (var context = new YouTubeApiContext())
+            {
+                var newestEntry = context.TracksHistory
+                    .GroupBy(o => o.VideoId)
+                    .Select(g => g.OrderByDescending(o => o.AddTime).FirstOrDefault());
+
+
+                var tracks = from history in newestEntry
+                             join track in context.Tracks
+                             on history.VideoId equals track.VideoId
+                             select new TrackInfo { TracksHistory = history, Track = track };
+
+                return tracks.OrderByDescending(t => t.TracksHistory.LikeCount).ToList();
             }
         }
     }
