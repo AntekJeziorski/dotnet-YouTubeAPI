@@ -101,7 +101,7 @@ namespace YouTubeAPI
             }
         }
 
-        public List<YouTubeAPI.AuthorInfo> GetAuthorInfo()
+        public IList<YouTubeAPI.AuthorInfo> GetAuthorInfo()
         {
             using (var context = new YouTubeApiContext())
             {
@@ -193,8 +193,7 @@ namespace YouTubeAPI
             }
         }
 
-
-        public List<Track> GetAllTracks()
+        public IList<Track> GetAllTracks()
         {
             using (var context = new YouTubeApiContext())
             {
@@ -203,7 +202,7 @@ namespace YouTubeAPI
             }
         }
 
-        public List<YouTubeAPI.TrackInfo> GetTrackInfo()
+        public IList<YouTubeAPI.TrackInfo> GetTrackInfo()
         {
             using (var context = new YouTubeApiContext())
             {

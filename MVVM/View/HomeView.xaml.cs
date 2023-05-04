@@ -84,7 +84,6 @@ namespace dotnet_YouTubeAPI.MVVM.View
                 textAuthorId.Clear();
                 var newAuthorEntry = new YouTubeAPI.AuthorsHistory(newAuthor.ChannelId);
                 context.AddNewAuthorHistoryEntry(newAuthorEntry);
-                //context.getAuthorsHistory(newAuthor.ChannelId);
             }
             catch (DbUpdateException)
             {
