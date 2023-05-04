@@ -48,7 +48,7 @@ namespace YouTubeAPI
         public DateTime AddTime { get; set; }
 
         /// <summary>
-        /// Connection to Tracks table which represents one to many relationship.
+        /// Connection to one track from Tracks table which represents one to many relationship.
         /// </summary>
         public virtual Track Track { get; set; }
 
@@ -58,7 +58,7 @@ namespace YouTubeAPI
         public TracksHistory() { }
 
         /// <summary>
-        /// Constructor for TracksHisotry class. It creates one entry in TrackHistory table with given track ID from Tracks table.
+        /// Constructor for TracksHisotry class. It creates one instance of TracksHistory class which represents one entry in TrackHistory table with given track ID from Tracks table.
         /// </summary>
         /// <param name="Id">Track ID for which entry will be added.</param>
         public TracksHistory(string Id)
