@@ -1,11 +1,12 @@
 var indexSectionsWithContent =
 {
-  0: "acdghijlmorstuvy",
+  0: "acdghijlmoprstuvy",
   1: "ahmorty",
   2: "dy",
-  3: "adgtu",
+  3: "adgotu",
   4: "acdijlrstv",
-  5: "d"
+  5: "p",
+  6: "dy"
 };
 
 var indexSectionNames =
@@ -15,7 +16,8 @@ var indexSectionNames =
   2: "namespaces",
   3: "functions",
   4: "properties",
-  5: "pages"
+  5: "events",
+  6: "pages"
 };
 
 var indexSectionLabels =
@@ -25,6 +27,7 @@ var indexSectionLabels =
   2: "Namespaces",
   3: "Functions",
   4: "Properties",
-  5: "Pages"
+  5: "Events",
+  6: "Pages"
 };
 
