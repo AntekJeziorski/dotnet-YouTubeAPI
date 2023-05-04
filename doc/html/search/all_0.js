@@ -5,9 +5,10 @@ var searchData=
   ['addnewauthorhistoryentry_2',['addNewAuthorHistoryEntry',['../class_you_tube_a_p_i_1_1_you_tube_api_context.html#a12d589e99fe06c102e5697082b75e93b',1,'YouTubeAPI::YouTubeApiContext']]],
   ['addnewtrack_3',['addNewTrack',['../class_you_tube_a_p_i_1_1_you_tube_api_context.html#aa68bbe23ca81e49e2d6f9416bc2383e0',1,'YouTubeAPI::YouTubeApiContext']]],
   ['addnewtrackhistoryentry_4',['addNewTrackHistoryEntry',['../class_you_tube_a_p_i_1_1_you_tube_api_context.html#ad2c7d8d953436630931efff0b44ed823',1,'YouTubeAPI::YouTubeApiContext']]],
-  ['app_5',['App',['../class_you_tube_a_p_i_1_1_app.html',1,'YouTubeAPI']]],
-  ['artistview_6',['ArtistView',['../classdotnet___you_tube_a_p_i_1_1_m_v_v_m_1_1_view_1_1_artist_view.html',1,'dotnet_YouTubeAPI::MVVM::View']]],
-  ['author_7',['Author',['../class_you_tube_a_p_i_1_1_author.html',1,'YouTubeAPI']]],
-  ['authorinfo_8',['AuthorInfo',['../class_you_tube_a_p_i_1_1_author_info.html',1,'YouTubeAPI']]],
-  ['authorshistory_9',['AuthorsHistory',['../class_you_tube_a_p_i_1_1_authors_history.html',1,'YouTubeAPI']]]
+  ['addtime_5',['AddTime',['../class_you_tube_a_p_i_1_1_tracks_history.html#a047f7cff857298ff91d6ad29c39aed85',1,'YouTubeAPI::TracksHistory']]],
+  ['app_6',['App',['../class_you_tube_a_p_i_1_1_app.html',1,'YouTubeAPI']]],
+  ['artistview_7',['ArtistView',['../classdotnet___you_tube_a_p_i_1_1_m_v_v_m_1_1_view_1_1_artist_view.html',1,'dotnet_YouTubeAPI::MVVM::View']]],
+  ['author_8',['Author',['../class_you_tube_a_p_i_1_1_author.html',1,'YouTubeAPI']]],
+  ['authorinfo_9',['AuthorInfo',['../class_you_tube_a_p_i_1_1_author_info.html',1,'YouTubeAPI']]],
+  ['authorshistory_10',['AuthorsHistory',['../class_you_tube_a_p_i_1_1_authors_history.html',1,'YouTubeAPI']]]
 ];

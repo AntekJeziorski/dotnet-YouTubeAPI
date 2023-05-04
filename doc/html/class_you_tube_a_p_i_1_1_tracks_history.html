@@ -80,40 +80,84 @@ $(function() {
   <div class="headertitle"><div class="title">YouTubeAPI.TracksHistory Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Represents TrackHistory table which contains informations about its views, likes, comments and time when the video was added.  
+ <a href="class_you_tube_a_p_i_1_1_tracks_history.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a650e26c6fa4158596e5400edd35bba76"><td class="memItemLeft" align="right" valign="top"><a id="a650e26c6fa4158596e5400edd35bba76" name="a650e26c6fa4158596e5400edd35bba76"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>TracksHistory</b> (string Id)</td></tr>
+<tr class="memitem:a4a718412ce3204b432ad84f66083b3ca"><td class="memItemLeft" align="right" valign="top"><a id="a4a718412ce3204b432ad84f66083b3ca" name="a4a718412ce3204b432ad84f66083b3ca"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>TracksHistory</b> ()</td></tr>
+<tr class="memdesc:a4a718412ce3204b432ad84f66083b3ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-parametric contructor for TracksHistory class. <br /></td></tr>
+<tr class="separator:a4a718412ce3204b432ad84f66083b3ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a650e26c6fa4158596e5400edd35bba76"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_you_tube_a_p_i_1_1_tracks_history.html#a650e26c6fa4158596e5400edd35bba76">TracksHistory</a> (string Id)</td></tr>
+<tr class="memdesc:a650e26c6fa4158596e5400edd35bba76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for TracksHisotry class. It creates one entry in TrackHistory table with given track ID from Tracks table.  <br /></td></tr>
 <tr class="separator:a650e26c6fa4158596e5400edd35bba76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad78776ab4daf41e3810b269ba9ecf49d"><td class="memItemLeft" align="right" valign="top"><a id="ad78776ab4daf41e3810b269ba9ecf49d" name="ad78776ab4daf41e3810b269ba9ecf49d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>GetViedoStats</b> ()</td></tr>
+<tr class="memdesc:ad78776ab4daf41e3810b269ba9ecf49d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets statistics about Track identified by VideoId using YoutubeAPI services. <br /></td></tr>
 <tr class="separator:ad78776ab4daf41e3810b269ba9ecf49d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:a90ee6395683db8c9d5009bf3af813e2d"><td class="memItemLeft" align="right" valign="top"><a id="a90ee6395683db8c9d5009bf3af813e2d" name="a90ee6395683db8c9d5009bf3af813e2d"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>ID</b><code> [get, set]</code></td></tr>
+<tr class="memdesc:a90ee6395683db8c9d5009bf3af813e2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets unique ID of the entry in table. Represents primary key in TracksHistory table. <br /></td></tr>
 <tr class="separator:a90ee6395683db8c9d5009bf3af813e2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a212b602269bf1db9fe8e751f032a822d"><td class="memItemLeft" align="right" valign="top"><a id="a212b602269bf1db9fe8e751f032a822d" name="a212b602269bf1db9fe8e751f032a822d"></a>
 string&#160;</td><td class="memItemRight" valign="bottom"><b>VideoId</b><code> [get, set]</code></td></tr>
+<tr class="memdesc:a212b602269bf1db9fe8e751f032a822d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the ID of the track. Represetns foreign key for Tracks table. <br /></td></tr>
 <tr class="separator:a212b602269bf1db9fe8e751f032a822d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb1a90167d6990ae7b0dc1237af37b88"><td class="memItemLeft" align="right" valign="top"><a id="afb1a90167d6990ae7b0dc1237af37b88" name="afb1a90167d6990ae7b0dc1237af37b88"></a>
 Int64&#160;</td><td class="memItemRight" valign="bottom"><b>LikeCount</b><code> [get, set]</code></td></tr>
+<tr class="memdesc:afb1a90167d6990ae7b0dc1237af37b88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the number of likes for the track. <br /></td></tr>
 <tr class="separator:afb1a90167d6990ae7b0dc1237af37b88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa57d6c843e8ac5285676e1a9b0115de0"><td class="memItemLeft" align="right" valign="top"><a id="aa57d6c843e8ac5285676e1a9b0115de0" name="aa57d6c843e8ac5285676e1a9b0115de0"></a>
 Int64&#160;</td><td class="memItemRight" valign="bottom"><b>ViewCount</b><code> [get, set]</code></td></tr>
+<tr class="memdesc:aa57d6c843e8ac5285676e1a9b0115de0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the number of views for the track. <br /></td></tr>
 <tr class="separator:aa57d6c843e8ac5285676e1a9b0115de0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a76da00bd18ceecbbdcc8c43049d07e"><td class="memItemLeft" align="right" valign="top"><a id="a2a76da00bd18ceecbbdcc8c43049d07e" name="a2a76da00bd18ceecbbdcc8c43049d07e"></a>
 Int64&#160;</td><td class="memItemRight" valign="bottom"><b>CommentCount</b><code> [get, set]</code></td></tr>
+<tr class="memdesc:a2a76da00bd18ceecbbdcc8c43049d07e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets the number of comments for the track. <br /></td></tr>
 <tr class="separator:a2a76da00bd18ceecbbdcc8c43049d07e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a047f7cff857298ff91d6ad29c39aed85"><td class="memItemLeft" align="right" valign="top"><a id="a047f7cff857298ff91d6ad29c39aed85" name="a047f7cff857298ff91d6ad29c39aed85"></a>
 DateTime&#160;</td><td class="memItemRight" valign="bottom"><b>AddTime</b><code> [get, set]</code></td></tr>
+<tr class="memdesc:a047f7cff857298ff91d6ad29c39aed85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets or sets date and time when entry was added. <br /></td></tr>
 <tr class="separator:a047f7cff857298ff91d6ad29c39aed85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e3c5b3af2259c179506100b41828543"><td class="memItemLeft" align="right" valign="top"><a id="a1e3c5b3af2259c179506100b41828543" name="a1e3c5b3af2259c179506100b41828543"></a>
 virtual <a class="el" href="class_you_tube_a_p_i_1_1_track.html">Track</a>&#160;</td><td class="memItemRight" valign="bottom"><b>Track</b><code> [get, set]</code></td></tr>
+<tr class="memdesc:a1e3c5b3af2259c179506100b41828543"><td class="mdescLeft">&#160;</td><td class="mdescRight">Connection to Tracks table which represents one to many relationship. <br /></td></tr>
 <tr class="separator:a1e3c5b3af2259c179506100b41828543"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Represents TrackHistory table which contains informations about its views, likes, comments and time when the video was added. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a650e26c6fa4158596e5400edd35bba76" name="a650e26c6fa4158596e5400edd35bba76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a650e26c6fa4158596e5400edd35bba76">&#9670;&#160;</a></span>TracksHistory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">YouTubeAPI.TracksHistory.TracksHistory </td>
+          <td>(</td>
+          <td class="paramtype">string&#160;</td>
+          <td class="paramname"><em>Id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor for TracksHisotry class. It creates one entry in TrackHistory table with given track ID from Tracks table. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Id</td><td>Track ID for which entry will be added.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>C:/Users/Acer/Documents/dotnet i java/dotnet-YouTubeAPI/TracksHistory.cs</li>
 </ul>

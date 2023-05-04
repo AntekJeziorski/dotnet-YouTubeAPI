@@ -238,8 +238,7 @@ namespace YouTubeAPI
     }
 
     /// <summary>
-    /// Database initializer.
-    /// Initializes database with seed.
+    /// Represents database initializer.
     /// </summary>
     public class YouTubeApiDbInitializer : CreateDatabaseIfNotExists<YouTubeApiContext>
     {
