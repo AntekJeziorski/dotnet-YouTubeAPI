@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace YouTubeAPI
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class AuthorInfo
     {
         public AuthorsHistory AuthorsHistory { get; set; }
