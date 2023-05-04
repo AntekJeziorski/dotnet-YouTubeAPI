@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="Window1" Height="450" Width="800">
     <Grid>
-        
+        <Image Source="{Binding Track.ThumbnailMedium}" Width="312" Height="146" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="181,130,0,0"/>
     </Grid>
 </Window>
