@@ -1,12 +1,5 @@
 var searchData=
 [
-  ['getalltracks_0',['GetAllTracks',['../class_you_tube_a_p_i_1_1_you_tube_api_context.html#a9cf825abb6a1efb57b6a4a69ae4ee628',1,'YouTubeAPI::YouTubeApiContext']]],
-  ['getauthorinfo_1',['getAuthorInfo',['../class_you_tube_a_p_i_1_1_you_tube_api_context.html#a916793e9af65c467e9af4b0065316644',1,'YouTubeAPI::YouTubeApiContext']]],
-  ['getauthorshistory_2',['getAuthorsHistory',['../class_you_tube_a_p_i_1_1_you_tube_api_context.html#ab92a55744b865d4ab3236b8a0e12481a',1,'YouTubeAPI::YouTubeApiContext']]],
-  ['getchanneldata_3',['GetChannelData',['../class_you_tube_a_p_i_1_1_author.html#ab31fe337a3f86b1586c4f85417eb466a',1,'YouTubeAPI::Author']]],
-  ['getchannelstats_4',['GetChannelStats',['../class_you_tube_a_p_i_1_1_authors_history.html#aebe85d072c0c8deb3f4a2f7f2fea2c0f',1,'YouTubeAPI::AuthorsHistory']]],
-  ['gettrackinfo_5',['getTrackInfo',['../class_you_tube_a_p_i_1_1_you_tube_api_context.html#a26db4328befd982b7dd427bb45049d6f',1,'YouTubeAPI::YouTubeApiContext']]],
-  ['gettrackshistory_6',['getTracksHistory',['../class_you_tube_a_p_i_1_1_you_tube_api_context.html#ac2fd3f1f98404a95f5b1349483eea3af',1,'YouTubeAPI::YouTubeApiContext']]],
-  ['getviedodata_7',['GetViedoData',['../class_you_tube_a_p_i_1_1_track.html#ac0fa62e0dc3d956af9060e68adf44d26',1,'YouTubeAPI::Track']]],
-  ['getviedostats_8',['GetViedoStats',['../class_you_tube_a_p_i_1_1_tracks_history.html#ad78776ab4daf41e3810b269ba9ecf49d',1,'YouTubeAPI::TracksHistory']]]
+  ['convert_0',['Convert',['../classdotnet___you_tube_a_p_i_1_1_m_v_v_m_1_1_view_1_1_string_truncation_converter.html#a265dcd7de2d11dae949f229082c2320c',1,'dotnet_YouTubeAPI.MVVM.View.StringTruncationConverter.Convert()'],['../classdotnet___you_tube_a_p_i_1_1_m_v_v_m_1_1_view_1_1_row_number_converter.html#a1282c8b20136558b86f47aa5aa06c855',1,'dotnet_YouTubeAPI.MVVM.View.RowNumberConverter.Convert()']]],
+  ['convertback_1',['ConvertBack',['../classdotnet___you_tube_a_p_i_1_1_m_v_v_m_1_1_view_1_1_string_truncation_converter.html#a8d9697a684928e88d95fba44f271ca7e',1,'dotnet_YouTubeAPI.MVVM.View.StringTruncationConverter.ConvertBack()'],['../classdotnet___you_tube_a_p_i_1_1_m_v_v_m_1_1_view_1_1_row_number_converter.html#a73fb311d67261f0d458ad9ff2a4228d8',1,'dotnet_YouTubeAPI.MVVM.View.RowNumberConverter.ConvertBack()']]]
 ];
