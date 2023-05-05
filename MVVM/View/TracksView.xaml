@@ -39,7 +39,7 @@
                        Foreground="Black"
                        TextChanged="SearchBarTextChange" 
 
-                       KeyDown="OnEnterKeyDown"/>
+                       KeyDown="SearchOnEnterKeyDown"/>
 
                     <TextBlock  Name="tbUsername" 
                         Text="Search for content, press Enter to submit." 
@@ -48,7 +48,7 @@
                         Margin="30,0,0,0" 
                         FontFamily="/Static/Fonts/youbookie-sans.ttf"
                         FontSize="16" 
-                        Foreground="Black"  IsHitTestVisible="False"  Grid.Column="1" KeyDown="OnEnterKeyDown"/>
+                        Foreground="Black"  IsHitTestVisible="False"  Grid.Column="1" KeyDown="SearchOnEnterKeyDown"/>
                 </Grid>
             </Border>
         </Grid>

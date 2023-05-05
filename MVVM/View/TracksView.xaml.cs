@@ -17,7 +17,7 @@ namespace dotnet_YouTubeAPI.MVVM.View
         public TracksView()
         {
             InitializeComponent();
-            PopulateCollection();
+            PopulateTrackList();
         }
 
         private void OnListViewItemClicked(object sender, MouseButtonEventArgs e)
@@ -28,7 +28,7 @@ namespace dotnet_YouTubeAPI.MVVM.View
             subWindow.Show();
         }
 
-        private void OnEnterKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private void SearchOnEnterKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == Key.Return)
             {
@@ -40,7 +40,7 @@ namespace dotnet_YouTubeAPI.MVVM.View
                     txtUserName.Text = string.Empty;
                     var newTrackEntry = new YouTubeAPI.TracksHistory(newTrack.VideoId);
                     context.AddNewTrackHistoryEntry(newTrackEntry);
-                    PopulateCollection();
+                    PopulateTrackList();
                 }
                 catch (DbUpdateException)
                 {
@@ -62,7 +62,7 @@ namespace dotnet_YouTubeAPI.MVVM.View
                 tbUsername.Visibility = Visibility.Visible;
         }
 
-        void PopulateCollection()
+        void PopulateTrackList()
         {
             using (var context = new YouTubeApiContext())
             {
