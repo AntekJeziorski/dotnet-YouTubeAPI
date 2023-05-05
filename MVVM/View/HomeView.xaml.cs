@@ -1,18 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Forms;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using YouTubeAPI;
 using System.Data.Entity.Infrastructure;
 
@@ -48,13 +38,14 @@ namespace dotnet_YouTubeAPI.MVVM.View
         
         private void Button_Click_Video(object sender, RoutedEventArgs e)
         {
-            //var context = new YouTubeApiContext();
-            //var tmp = context.getAuthorInfo();
-            //Console.WriteLine(tmp);
-            //foreach (var item in tmp)
-            //{
-            //    Console.WriteLine($"Author: {item.Author.ChannelId}, Latest Entry: {item.AuthorsHistory.AddTime}, View Count: {item.AuthorsHistory.ViewCount}");
-            //}
+
+            var context = new YouTubeApiContext();
+            var tmp = context.GetAuthorInfo();
+            Console.WriteLine(tmp);
+            foreach (var item in tmp)
+            {
+                Console.WriteLine($"Author: {item.Author.ChannelId}, Latest Entry: {item.AuthorsHistory.AddTime}, View Count: {item.AuthorsHistory.ViewCount}");
+            }
 
             //var newVideo = new YouTubeAPI.Track(textVideoId.Text); /* nLIp4wd0oXs */
             //newVideo.GetViedoData();
@@ -83,11 +74,10 @@ namespace dotnet_YouTubeAPI.MVVM.View
             try
             {
                 var newAuthor = new YouTubeAPI.Author(textAuthorId.Text);
-                context.addNewAuthor(newAuthor);
+                context.AddNewAuthor(newAuthor);
                 textAuthorId.Clear();
                 var newAuthorEntry = new YouTubeAPI.AuthorsHistory(newAuthor.ChannelId);
-                context.addNewAuthorHistoryEntry(newAuthorEntry);
-                //context.getAuthorsHistory(newAuthor.ChannelId);
+                context.AddNewAuthorHistoryEntry(newAuthorEntry);
             }
             catch (DbUpdateException)
             {

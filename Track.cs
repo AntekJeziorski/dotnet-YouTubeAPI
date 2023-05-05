@@ -3,10 +3,6 @@ using Google.Apis.YouTube.v3.Data;
 using Google.Apis.YouTube.v3;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
 namespace YouTubeAPI
@@ -21,6 +17,7 @@ namespace YouTubeAPI
         public string Description { get; set; }
         public DateTime ReleaseDate { get; set; }
         public string ThumbnailMedium { get; set; }
+        public DateTime SubscribeTime { get; set; }
 
         public virtual ICollection<TracksHistory> TracksHistory { get; set; }
 

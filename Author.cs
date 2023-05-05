@@ -21,6 +21,7 @@ namespace YouTubeAPI
         public string ChannelDescription { get; set; }
         public DateTime JoiningDate { get; set; }
         public string ThumbnailMedium { get; set; }
+        public DateTime SubscribeTime { get; set; }
 
         public virtual ICollection<AuthorsHistory> AuthorsHistory { get; set; }
         //public virtual ICollection<Track> Track { get; set; }
