@@ -41,7 +41,10 @@ namespace YouTubeAPI
             }
         }
 
-        //! Deletes author from database
+        /// <summary>
+        /// Deletes author from database
+        /// </summary>
+        /// <param name="Id">Author's Id which will be deleted.</param>
         public void DeleteAuthor(string Id)
         {
             using (var context = new YouTubeApiContext())
@@ -73,9 +76,8 @@ namespace YouTubeAPI
         /// <param name="Id">Author Id</param>
         public IList<AuthorsHistory> GetAuthorsHistory(string Id)
         {
-            //bwah
             using (var context = new YouTubeApiContext())
-            {   //bwah
+            {   
                 var authorsHistoryEntry = context.AuthorsHistory.Where(Channel => Channel.ChannelId == Id).ToList();
                 return authorsHistoryEntry;
             }   
@@ -96,6 +98,7 @@ namespace YouTubeAPI
                 }
             }
         }
+
 
         public IList<YouTubeAPI.AuthorInfo> GetAuthorInfo()
         {
@@ -133,6 +136,11 @@ namespace YouTubeAPI
             }
         }
 
+        
+        /// <summary>
+        /// Gets list of all AuthorInfo objects.
+        /// </summary>
+        /// <returns>List of AuthorInfo objects.</returns>
         public IList<YouTubeAPI.AuthorInfo> GetMostSubAuthor()
         {
             using (var context = new YouTubeApiContext())
@@ -151,11 +159,9 @@ namespace YouTubeAPI
             }
         }
 
-
         /*
          * Tracks handling
          */
-
         /// <summary>
         /// Adds new track Tracks table.
         /// </summary>
@@ -170,8 +176,12 @@ namespace YouTubeAPI
             }
         }
 
-        //! Delete track from database
+        /// <summary>
+        /// Deletes track from database.
+        /// </summary>
+        /// <param name="Id">Track's Id which will be deleted</param>
         public void DeleteTrack(string Id)
+
         {
             using (var context = new YouTubeApiContext())
             {
@@ -226,7 +236,12 @@ namespace YouTubeAPI
             }
         }
 
+        /// <summary>
+        /// Gets list of all tracks from database.
+        /// </summary>
+        /// <returns>List of all tracks.</returns>
         public IList<Track> GetAllTracks()
+
         {
             using (var context = new YouTubeApiContext())
             {
@@ -235,6 +250,10 @@ namespace YouTubeAPI
             }
         }
 
+        /// <summary>
+        /// Gets list of all TrackInfo objects.
+        /// </summary>
+        /// <returns>List of TrackInfo objects.</returns>
         public IList<YouTubeAPI.TrackInfo> GetTrackInfo()
         {
             using (var context = new YouTubeApiContext())
@@ -291,8 +310,7 @@ namespace YouTubeAPI
     }
 
     /// <summary>
-    /// Database initializer.
-    /// Initializes database with seed.
+    /// Represents database initializer.
     /// </summary>
     public class YouTubeApiDbInitializer : CreateDatabaseIfNotExists<YouTubeApiContext>
     {
