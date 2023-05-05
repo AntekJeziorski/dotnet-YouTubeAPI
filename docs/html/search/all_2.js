@@ -1,12 +1,9 @@
 var searchData=
 [
-  ['core_0',['Core',['../namespacedotnet___you_tube_a_p_i_1_1_core.html',1,'dotnet_YouTubeAPI']]],
-  ['deleteauthor_1',['DeleteAuthor',['../class_you_tube_a_p_i_1_1_you_tube_api_context.html#a750cc9ccaf5dd8c8f9f11d25f07185b3',1,'YouTubeAPI::YouTubeApiContext']]],
-  ['deletetrack_2',['DeleteTrack',['../class_you_tube_a_p_i_1_1_you_tube_api_context.html#aa703a3d8799059a94951f1a2794bd344',1,'YouTubeAPI::YouTubeApiContext']]],
-  ['description_3',['Description',['../class_you_tube_a_p_i_1_1_track.html#ac5d4031f5693a2f28830fbef859ee68e',1,'YouTubeAPI::Track']]],
-  ['dotnet_2dyoutubeapi_4',['dotnet-YouTubeAPI',['../md__c___users__acer__documents_dotnet_i_java_dotnet__you_tube_a_p_i__r_e_a_d_m_e.html',1,'']]],
-  ['dotnet_5fyoutubeapi_5',['dotnet_YouTubeAPI',['../namespacedotnet___you_tube_a_p_i.html',1,'']]],
-  ['mvvm_6',['MVVM',['../namespacedotnet___you_tube_a_p_i_1_1_m_v_v_m.html',1,'dotnet_YouTubeAPI']]],
-  ['view_7',['View',['../namespacedotnet___you_tube_a_p_i_1_1_m_v_v_m_1_1_view.html',1,'dotnet_YouTubeAPI::MVVM']]],
-  ['viewmodel_8',['ViewModel',['../namespacedotnet___you_tube_a_p_i_1_1_m_v_v_m_1_1_view_model.html',1,'dotnet_YouTubeAPI::MVVM']]]
+  ['channeldescription_0',['ChannelDescription',['../class_you_tube_a_p_i_1_1_author.html#a1257da1d3b77be58d1af4cdba42c5c1d',1,'YouTubeAPI::Author']]],
+  ['channelid_1',['ChannelId',['../class_you_tube_a_p_i_1_1_author.html#af7fc180b3f7d503b4b058ee9bef8f908',1,'YouTubeAPI.Author.ChannelId()'],['../class_you_tube_a_p_i_1_1_authors_history.html#a2b0d63d4f440825ba9a586ecd74b3e57',1,'YouTubeAPI.AuthorsHistory.ChannelId()'],['../class_you_tube_a_p_i_1_1_track.html#a2472c362d7810083218020c181dbd49a',1,'YouTubeAPI.Track.ChannelId()']]],
+  ['channeltitle_2',['ChannelTitle',['../class_you_tube_a_p_i_1_1_author.html#ac7e0d91d7cb9a893b42b1ce35f7579b8',1,'YouTubeAPI.Author.ChannelTitle()'],['../class_you_tube_a_p_i_1_1_track.html#a67055aeaf34979ad89289929bff7f3e1',1,'YouTubeAPI.Track.ChannelTitle()']]],
+  ['commentcount_3',['CommentCount',['../class_you_tube_a_p_i_1_1_tracks_history.html#a2a76da00bd18ceecbbdcc8c43049d07e',1,'YouTubeAPI::TracksHistory']]],
+  ['convert_4',['Convert',['../classdotnet___you_tube_a_p_i_1_1_m_v_v_m_1_1_view_1_1_string_truncation_converter.html#a265dcd7de2d11dae949f229082c2320c',1,'dotnet_YouTubeAPI.MVVM.View.StringTruncationConverter.Convert()'],['../classdotnet___you_tube_a_p_i_1_1_m_v_v_m_1_1_view_1_1_row_number_converter.html#a1282c8b20136558b86f47aa5aa06c855',1,'dotnet_YouTubeAPI.MVVM.View.RowNumberConverter.Convert()']]],
+  ['convertback_5',['ConvertBack',['../classdotnet___you_tube_a_p_i_1_1_m_v_v_m_1_1_view_1_1_string_truncation_converter.html#a8d9697a684928e88d95fba44f271ca7e',1,'dotnet_YouTubeAPI.MVVM.View.StringTruncationConverter.ConvertBack()'],['../classdotnet___you_tube_a_p_i_1_1_m_v_v_m_1_1_view_1_1_row_number_converter.html#a73fb311d67261f0d458ad9ff2a4228d8',1,'dotnet_YouTubeAPI.MVVM.View.RowNumberConverter.ConvertBack()']]]
 ];

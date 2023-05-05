@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['updateallauthors_0',['UpdateAllAuthors',['../class_you_tube_a_p_i_1_1_you_tube_api_context.html#ae726198751d89259b47516f197882f9d',1,'YouTubeAPI::YouTubeApiContext']]],
-  ['updatealltracks_1',['UpdateAllTracks',['../class_you_tube_a_p_i_1_1_you_tube_api_context.html#af9957d6b29ae2315c2fa17cd5028f92b',1,'YouTubeAPI::YouTubeApiContext']]]
+  ['onlistviewitemclicked_0',['OnListViewItemClicked',['../classdotnet___you_tube_a_p_i_1_1_m_v_v_m_1_1_view_1_1_tracks_view.html#afec3e4455ca536a9724b5dea0449d5dd',1,'dotnet_YouTubeAPI::MVVM::View::TracksView']]],
+  ['onpropertychanged_1',['OnPropertyChanged',['../classdotnet___you_tube_a_p_i_1_1_core_1_1_observable_object.html#a4b6c695f7a98ab9f6b96edb94ec88004',1,'dotnet_YouTubeAPI::Core::ObservableObject']]]
 ];

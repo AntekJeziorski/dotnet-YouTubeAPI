@@ -28,7 +28,7 @@ namespace dotnet_YouTubeAPI.MVVM.View
         /// <summary>
         /// Constructor for TrackInfoView class. Initializes window with detalied information about selected video.
         /// </summary>
-        /// <param name="data"></param>
+        /// <param name="data">Information about track for display.</param>
         public TrackInfoView(TrackInfo data)
         {
             InspectedTrack = data;

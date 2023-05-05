@@ -1,10 +1,7 @@
 var searchData=
 [
-  ['thumbnailmedium_0',['ThumbnailMedium',['../class_you_tube_a_p_i_1_1_author.html#a03c3ce169292e00bb41bfa80abb38c27',1,'YouTubeAPI.Author.ThumbnailMedium()'],['../class_you_tube_a_p_i_1_1_track.html#ae67d38660dca0f8301ad640531caafde',1,'YouTubeAPI.Track.ThumbnailMedium()']]],
-  ['title_1',['Title',['../class_you_tube_a_p_i_1_1_track.html#a2e6baa1fee352f19d24143657b917393',1,'YouTubeAPI::Track']]],
-  ['track_2',['Track',['../class_you_tube_a_p_i_1_1_track_info.html#ae90971e8b382ef5f02e6cfb65f1e6645',1,'YouTubeAPI.TrackInfo.Track()'],['../class_you_tube_a_p_i_1_1_tracks_history.html#a1e3c5b3af2259c179506100b41828543',1,'YouTubeAPI.TracksHistory.Track()'],['../class_you_tube_a_p_i_1_1_track.html#a6d08aa9b1f1deccf4a37820751720bf0',1,'YouTubeAPI.Track.Track()'],['../class_you_tube_a_p_i_1_1_track.html#ad8599d01a33616c71607cfdffffffacc',1,'YouTubeAPI.Track.Track(string Id)'],['../class_you_tube_a_p_i_1_1_track.html',1,'YouTubeAPI.Track']]],
-  ['trackinfo_3',['TrackInfo',['../class_you_tube_a_p_i_1_1_track_info.html',1,'YouTubeAPI']]],
-  ['trackinfoview_4',['TrackInfoView',['../classdotnet___you_tube_a_p_i_1_1_m_v_v_m_1_1_view_1_1_track_info_view.html',1,'dotnet_YouTubeAPI::MVVM::View']]],
-  ['trackshistory_5',['TracksHistory',['../class_you_tube_a_p_i_1_1_track.html#a86b7a62f92f639b48407760d89ca2279',1,'YouTubeAPI.Track.TracksHistory()'],['../class_you_tube_a_p_i_1_1_track_info.html#a3a1996b9fdea76c2d56018dd990eb0e6',1,'YouTubeAPI.TrackInfo.TracksHistory()'],['../class_you_tube_a_p_i_1_1_tracks_history.html#a4a718412ce3204b432ad84f66083b3ca',1,'YouTubeAPI.TracksHistory.TracksHistory()'],['../class_you_tube_a_p_i_1_1_tracks_history.html#a650e26c6fa4158596e5400edd35bba76',1,'YouTubeAPI.TracksHistory.TracksHistory(string Id)'],['../class_you_tube_a_p_i_1_1_tracks_history.html',1,'YouTubeAPI.TracksHistory']]],
-  ['tracksview_6',['TracksView',['../classdotnet___you_tube_a_p_i_1_1_m_v_v_m_1_1_view_1_1_tracks_view.html',1,'dotnet_YouTubeAPI::MVVM::View']]]
+  ['searchbartextchange_0',['SearchBarTextChange',['../classdotnet___you_tube_a_p_i_1_1_m_v_v_m_1_1_view_1_1_tracks_view.html#ab136b537c34ed3415825ce5ae84f3521',1,'dotnet_YouTubeAPI::MVVM::View::TracksView']]],
+  ['searchonenterkeydown_1',['SearchOnEnterKeyDown',['../classdotnet___you_tube_a_p_i_1_1_m_v_v_m_1_1_view_1_1_tracks_view.html#a7f4169cbdcb63934be77ecf07b296705',1,'dotnet_YouTubeAPI::MVVM::View::TracksView']]],
+  ['stringtruncationconverter_2',['StringTruncationConverter',['../classdotnet___you_tube_a_p_i_1_1_m_v_v_m_1_1_view_1_1_string_truncation_converter.html',1,'dotnet_YouTubeAPI::MVVM::View']]],
+  ['subcount_3',['SubCount',['../class_you_tube_a_p_i_1_1_authors_history.html#a45be26893d8646df2f4055929aeae9ab',1,'YouTubeAPI::AuthorsHistory']]]
 ];
