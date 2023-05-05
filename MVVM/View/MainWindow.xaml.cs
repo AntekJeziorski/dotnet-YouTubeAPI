@@ -37,6 +37,7 @@ namespace YouTubeAPI
             // Start the timer.
             _timer.Enabled = true;
 
+      
         }
 
         public static void Update(Object source, ElapsedEventArgs e)

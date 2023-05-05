@@ -46,7 +46,7 @@ namespace dotnet_YouTubeAPI.MVVM.View
             {
                 Console.WriteLine($"Author: {item.Author.ChannelId}, Latest Entry: {item.AuthorsHistory.AddTime}, View Count: {item.AuthorsHistory.ViewCount}");
             }
-
+            context.UpdateAllTracks();
             //var newVideo = new YouTubeAPI.Track(textVideoId.Text); /* nLIp4wd0oXs */
             //newVideo.GetViedoData();
             //textVideoId.Clear();
@@ -62,9 +62,6 @@ namespace dotnet_YouTubeAPI.MVVM.View
             //    System.Windows.Forms.MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //}
 
-
-            var context = new YouTubeApiContext();
-            context.updateAllTracks();
             //context.getTracksHistory("nLIp4wd0oXs");
         }
 
@@ -109,34 +106,6 @@ namespace dotnet_YouTubeAPI.MVVM.View
             //}
         }
 
-        private void WindowsFormsHost_ChildChanged(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
-        {
-            var context = new YouTubeApiContext();
-            var track = context.getTracksHistory("nLIp4wd0oXs");
-            // Create a new chart series and add data to it
-            var series = new Series("Data");
-            foreach(var item in track)
-            {
-                series.Points.AddXY(item.AddTime.Millisecond, item.ViewCount);
-                //series.Points.Add(item.CommentCount, item.AddTime.Millisecond);
-            }
-            //series.Points.AddXY(track, 10);
-            //series.Points.AddXY(2, 20);
-            //series.Points.AddXY(3, 30);
-            //series.Points.AddXY(4, 25);
-            //series.Points.AddXY(5, 15);
-
-            // Set the chart type to scatter
-            series.ChartType = SeriesChartType.Point;
-
-            // Add the series to the chart
-            Chart1.Series.Add(series);
-            Chart1.Series["Data"].Points[0].Color = System.Drawing.Color.Red;
-
-            // Customize the chart appearance
-            Chart1.Titles.Add("Sample Chart");
-            Chart1.ChartAreas[0].AxisX.Title = "X Axis";
-            Chart1.ChartAreas[0].AxisY.Title = "Y Axis";
-        }
+       
     }
 }

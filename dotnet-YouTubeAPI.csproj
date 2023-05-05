@@ -311,7 +311,9 @@
   <ItemGroup>
     <Resource Include="Static\favicon.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Static\refresh-icon.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Static\mockup.png" />
   </ItemGroup>

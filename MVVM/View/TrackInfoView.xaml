@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:dotnet_YouTubeAPI.MVVM.View"
+        xmlns:wf="clr-namespace:System.Windows.Forms.DataVisualization.Charting;assembly=System.Windows.Forms.DataVisualization"
         mc:Ignorable="d"
 
         Icon="/Static/favicon.ico"
@@ -22,21 +23,31 @@
 
             <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="250"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Image Grid.Column="0" Height="50" VerticalAlignment="Center" Source="/Static/youbookie-icon.png" RenderTransformOrigin="0.13,0.5" Margin="5,0,0,0" HorizontalAlignment="Left" Width="50"/>
-                <TextBlock Grid.Column="0" VerticalAlignment="Center" FontFamily="/Static/Fonts/youbookie-sans.ttf"  FontSize="26" FontWeight="Medium" Foreground="#FFEE3E38" Padding="60,5,5,5" ><Run Language="pl-pl" Text="YouBookie"/></TextBlock>
-                <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="/Static/Fonts/youbookie-sans.ttf" FontSize="16" Foreground="Black" Margin="0,0,20,0">
+            <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
+                <Image Height="48" VerticalAlignment="Center" Source="/Static/youbookie-icon.png" Margin="0,0,10,0" />
+                <TextBlock Grid.Column="1" 
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Right"
+                               FontFamily="/Static/Fonts/youbookie-sans.ttf"  
+                               FontSize="32" 
+                               FontWeight="Medium" 
+                               Foreground="#FFEE3E38" 
+                               Margin="0,0,0,0">
+                        <Run Text="YouBookie"/></TextBlock>
+            </StackPanel>
+            <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="/Static/Fonts/youbookie-sans.ttf" FontSize="16" Foreground="Black" Margin="0,0,20,0">
                     <Run Text="VideoId: "/>
                     <Run Text="{Binding Track.VideoId}"/>
                 </TextBlock>
             </Grid>
 
-            <ScrollViewer Grid.Row="1">
+        <ScrollViewer Grid.Row="1" CanContentScroll="True">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="200"/>
                     <RowDefinition />
                 </Grid.RowDefinitions>
                 
@@ -88,185 +99,15 @@
                 </Grid>
                 
                 <StackPanel Grid.Row="1">
-                    <TextBlock Text="AAAAAAAAAAAAAAAAAAAAAAA" 
-                               Margin="40,5,40,0" 
-                               FontFamily="Static/Fonts/youbookie-sans.ttf" 
-                               TextWrapping="WrapWithOverflow"
-                               Foreground="Gray" FontSize="16" 
-                               HorizontalAlignment="Right" 
-                               VerticalAlignment="Center"/>
-                <TextBlock Text="AAAAAAAAAAAAAAAAAAAAAAA" 
-                               Margin="40,5,40,0" 
-                               FontFamily="Static/Fonts/youbookie-sans.ttf" 
-                               TextWrapping="WrapWithOverflow"
-                               Foreground="Gray" FontSize="16" 
-                               HorizontalAlignment="Right" 
-                               VerticalAlignment="Center"/>
-                <TextBlock Text="AAAAAAAAAAAAAAAAAAAAAAA" 
-                               Margin="40,5,40,0" 
-                               FontFamily="Static/Fonts/youbookie-sans.ttf" 
-                               TextWrapping="WrapWithOverflow"
-                               Foreground="Gray" FontSize="16" 
-                               HorizontalAlignment="Right" 
-                               VerticalAlignment="Center"/>
-                <TextBlock Text="AAAAAAAAAAAAAAAAAAAAAAA" 
-                               Margin="40,5,40,0" 
-                               FontFamily="Static/Fonts/youbookie-sans.ttf" 
-                               TextWrapping="WrapWithOverflow"
-                               Foreground="Gray" FontSize="16" 
-                               HorizontalAlignment="Right" 
-                               VerticalAlignment="Center"/>
-                <TextBlock Text="AAAAAAAAAAAAAAAAAAAAAAA" 
-                               Margin="40,5,40,0" 
-                               FontFamily="Static/Fonts/youbookie-sans.ttf" 
-                               TextWrapping="WrapWithOverflow"
-                               Foreground="Gray" FontSize="16" 
-                               HorizontalAlignment="Right" 
-                               VerticalAlignment="Center"/>
-                <TextBlock Text="AAAAAAAAAAAAAAAAAAAAAAA" 
-                               Margin="40,5,40,0" 
-                               FontFamily="Static/Fonts/youbookie-sans.ttf" 
-                               TextWrapping="WrapWithOverflow"
-                               Foreground="Gray" FontSize="16" 
-                               HorizontalAlignment="Right" 
-                               VerticalAlignment="Center"/>
-                <TextBlock Text="AAAAAAAAAAAAAAAAAAAAAAA" 
-                               Margin="40,5,40,0" 
-                               FontFamily="Static/Fonts/youbookie-sans.ttf" 
-                               TextWrapping="WrapWithOverflow"
-                               Foreground="Gray" FontSize="16" 
-                               HorizontalAlignment="Right" 
-                               VerticalAlignment="Center"/>
-                <TextBlock Text="AAAAAAAAAAAAAAAAAAAAAAA" 
-                               Margin="40,5,40,0" 
-                               FontFamily="Static/Fonts/youbookie-sans.ttf" 
-                               TextWrapping="WrapWithOverflow"
-                               Foreground="Gray" FontSize="16" 
-                               HorizontalAlignment="Right" 
-                               VerticalAlignment="Center"/>
-                <TextBlock Text="AAAAAAAAAAAAAAAAAAAAAAA" 
-                               Margin="40,5,40,0" 
-                               FontFamily="Static/Fonts/youbookie-sans.ttf" 
-                               TextWrapping="WrapWithOverflow"
-                               Foreground="Gray" FontSize="16" 
-                               HorizontalAlignment="Right" 
-                               VerticalAlignment="Center"/>
-                <TextBlock Text="AAAAAAAAAAAAAAAAAAAAAAA" 
-                               Margin="40,5,40,0" 
-                               FontFamily="Static/Fonts/youbookie-sans.ttf" 
-                               TextWrapping="WrapWithOverflow"
-                               Foreground="Gray" FontSize="16" 
-                               HorizontalAlignment="Right" 
-                               VerticalAlignment="Center"/>
-                <TextBlock Text="AAAAAAAAAAAAAAAAAAAAAAA" 
-                               Margin="40,5,40,0" 
-                               FontFamily="Static/Fonts/youbookie-sans.ttf" 
-                               TextWrapping="WrapWithOverflow"
-                               Foreground="Gray" FontSize="16" 
-                               HorizontalAlignment="Right" 
-                               VerticalAlignment="Center"/>
-                <TextBlock Text="AAAAAAAAAAAAAAAAAAAAAAA" 
-                               Margin="40,5,40,0" 
-                               FontFamily="Static/Fonts/youbookie-sans.ttf" 
-                               TextWrapping="WrapWithOverflow"
-                               Foreground="Gray" FontSize="16" 
-                               HorizontalAlignment="Right" 
-                               VerticalAlignment="Center"/>
-                <TextBlock Text="AAAAAAAAAAAAAAAAAAAAAAA" 
-                               Margin="40,5,40,0" 
-                               FontFamily="Static/Fonts/youbookie-sans.ttf" 
-                               TextWrapping="WrapWithOverflow"
-                               Foreground="Gray" FontSize="16" 
-                               HorizontalAlignment="Right" 
-                               VerticalAlignment="Center"/>
-                <TextBlock Text="AAAAAAAAAAAAAAAAAAAAAAA" 
-                               Margin="40,5,40,0" 
-                               FontFamily="Static/Fonts/youbookie-sans.ttf" 
-                               TextWrapping="WrapWithOverflow"
-                               Foreground="Gray" FontSize="16" 
-                               HorizontalAlignment="Right" 
-                               VerticalAlignment="Center"/>
-                <TextBlock Text="AAAAAAAAAAAAAAAAAAAAAAA" 
-                               Margin="40,5,40,0" 
-                               FontFamily="Static/Fonts/youbookie-sans.ttf" 
-                               TextWrapping="WrapWithOverflow"
-                               Foreground="Gray" FontSize="16" 
-                               HorizontalAlignment="Right" 
-                               VerticalAlignment="Center"/>
-                <TextBlock Text="AAAAAAAAAAAAAAAAAAAAAAA" 
-                               Margin="40,5,40,0" 
-                               FontFamily="Static/Fonts/youbookie-sans.ttf" 
-                               TextWrapping="WrapWithOverflow"
-                               Foreground="Gray" FontSize="16" 
-                               HorizontalAlignment="Right" 
-                               VerticalAlignment="Center"/>
-                <TextBlock Text="AAAAAAAAAAAAAAAAAAAAAAA" 
-                               Margin="40,5,40,0" 
-                               FontFamily="Static/Fonts/youbookie-sans.ttf" 
-                               TextWrapping="WrapWithOverflow"
-                               Foreground="Gray" FontSize="16" 
-                               HorizontalAlignment="Right" 
-                               VerticalAlignment="Center"/>
-                <TextBlock Text="AAAAAAAAAAAAAAAAAAAAAAA" 
-                               Margin="40,5,40,0" 
-                               FontFamily="Static/Fonts/youbookie-sans.ttf" 
-                               TextWrapping="WrapWithOverflow"
-                               Foreground="Gray" FontSize="16" 
-                               HorizontalAlignment="Right" 
-                               VerticalAlignment="Center"/>
-                <TextBlock Text="AAAAAAAAAAAAAAAAAAAAAAA" 
-                               Margin="40,5,40,0" 
-                               FontFamily="Static/Fonts/youbookie-sans.ttf" 
-                               TextWrapping="WrapWithOverflow"
-                               Foreground="Gray" FontSize="16" 
-                               HorizontalAlignment="Right" 
-                               VerticalAlignment="Center"/>
-                <TextBlock Text="AAAAAAAAAAAAAAAAAAAAAAA" 
-                               Margin="40,5,40,0" 
-                               FontFamily="Static/Fonts/youbookie-sans.ttf" 
-                               TextWrapping="WrapWithOverflow"
-                               Foreground="Gray" FontSize="16" 
-                               HorizontalAlignment="Right" 
-                               VerticalAlignment="Center"/>
-                <TextBlock Text="AAAAAAAAAAAAAAAAAAAAAAA" 
-                               Margin="40,5,40,0" 
-                               FontFamily="Static/Fonts/youbookie-sans.ttf" 
-                               TextWrapping="WrapWithOverflow"
-                               Foreground="Gray" FontSize="16" 
-                               HorizontalAlignment="Right" 
-                               VerticalAlignment="Center"/>
-                <TextBlock Text="AAAAAAAAAAAAAAAAAAAAAAA" 
-                               Margin="40,5,40,0" 
-                               FontFamily="Static/Fonts/youbookie-sans.ttf" 
-                               TextWrapping="WrapWithOverflow"
-                               Foreground="Gray" FontSize="16" 
-                               HorizontalAlignment="Right" 
-                               VerticalAlignment="Center"/>
-                <TextBlock Text="AAAAAAAAAAAAAAAAAAAAAAA" 
-                               Margin="40,5,40,0" 
-                               FontFamily="Static/Fonts/youbookie-sans.ttf" 
-                               TextWrapping="WrapWithOverflow"
-                               Foreground="Gray" FontSize="16" 
-                               HorizontalAlignment="Right" 
-                               VerticalAlignment="Center"/>
-                <TextBlock Text="AAAAAAAAAAAAAAAAAAAAAAA" 
-                               Margin="40,5,40,0" 
-                               FontFamily="Static/Fonts/youbookie-sans.ttf" 
-                               TextWrapping="WrapWithOverflow"
-                               Foreground="Gray" FontSize="16" 
-                               HorizontalAlignment="Right" 
-                               VerticalAlignment="Center"/>
                     <Button Name="UnsubscribeButton" 
-                            Content="Unsubscrbe"
-                            FontSize="16"
+                            Content="Unsubscribe"
+                            FontSize="18"
                             FontFamily="Static/Fonts/youbookie-sans.ttf"
-                            FontWeight="Medium"
-                            Width="150" Height="50" 
-                            Margin="20,20,20,20"
-                            HorizontalAlignment="Left"  
-                            BorderThickness="2"
-                            Background="#FFEE3E38"
-                            BorderBrush="Black"
+                            FontWeight="ExtraLight"
+                            Width="180" Height="45" 
+                            Margin="30,0,20,20"
+                            HorizontalAlignment="Right"  
+                            Foreground="White"
                             Click="Button_Click_DeleteTrack">
                         <Button.Template>
                             <ControlTemplate TargetType="{x:Type Button}">
@@ -281,16 +122,81 @@
                         </Button.Template>
                         <Button.Style>
                             <Style TargetType="Button">
-                                <Setter Property="Foreground" Value="White"/>
+                                <Setter Property="Background" Value="#FFEE3E38"/>
                                 <Style.Triggers>
                                     <Trigger Property="IsMouseOver" Value="True">
-                                        <Setter Property="Foreground" Value="Black"/>
+                                        <Setter Property="Background" Value="#FFCC3E38"/>
                                         <Setter Property="Cursor" Value="Hand"/>
                                     </Trigger>
                                 </Style.Triggers>
                             </Style>
                         </Button.Style>
                     </Button>
+
+                    <TextBlock Margin="40,5,40,0" 
+                               FontFamily="Static/Fonts/youbookie-sans.ttf" 
+                               TextWrapping="WrapWithOverflow"
+                               Foreground="Black" FontSize="16" 
+                               HorizontalAlignment="Left" 
+                               VerticalAlignment="Center">
+                        <Run Text="Recent likes: "/>
+                        <Run Text="{Binding TracksHistory.LikeCount}" />
+                    </TextBlock>
+                    <Canvas x:Name="canvas" Width="300" Height="300">
+                        <WindowsFormsHost Margin="40,10,40,10" ChildChanged="PopulateLikesChart">
+                            <wf:Chart x:Name="LikesChart">
+                            
+                                <wf:Chart.Series>
+                                </wf:Chart.Series>
+                                <wf:Chart.ChartAreas>
+                                    <wf:ChartArea/>
+                                </wf:Chart.ChartAreas>
+                            
+                            </wf:Chart>
+                            
+                    </WindowsFormsHost>
+                    </Canvas>
+                    <TextBlock Margin="40,5,40,0" 
+                               FontFamily="Static/Fonts/youbookie-sans.ttf" 
+                               TextWrapping="WrapWithOverflow"
+                               Foreground="Black" FontSize="16" 
+                               HorizontalAlignment="Left" 
+                               VerticalAlignment="Center">
+                        <Run Text="Recent views: "/>
+                        <Run Text="{Binding TracksHistory.ViewCount}" />
+                    </TextBlock>
+
+                    <WindowsFormsHost Margin="40,10,40,10" ChildChanged="PopulateViewsChart">
+                        <wf:Chart x:Name="ViewsChart">
+                            <wf:Chart.Series>
+                            </wf:Chart.Series>
+                            <wf:Chart.ChartAreas>
+                                <wf:ChartArea/>
+                            </wf:Chart.ChartAreas>
+                        </wf:Chart>
+                    </WindowsFormsHost>
+
+                    <TextBlock Margin="40,5,40,0" 
+                               FontFamily="Static/Fonts/youbookie-sans.ttf" 
+                               TextWrapping="WrapWithOverflow"
+                               Foreground="Black" FontSize="16" 
+                               HorizontalAlignment="Left" 
+                               VerticalAlignment="Center">
+                        <Run Text="Recent comments number: "/>
+                        <Run Text="{Binding TracksHistory.CommentCount}" />
+                    </TextBlock>
+
+                    <WindowsFormsHost Margin="40,10,40,10" ChildChanged="PopulateCommentsChart">
+                        <wf:Chart x:Name="CommentsChart">
+                            <wf:Chart.Series>
+                            </wf:Chart.Series>
+                            <wf:Chart.ChartAreas>
+                                <wf:ChartArea/>
+                            </wf:Chart.ChartAreas>
+                        </wf:Chart>
+                    </WindowsFormsHost>
+
+                    
                 </StackPanel>
             </Grid>
         </ScrollViewer>

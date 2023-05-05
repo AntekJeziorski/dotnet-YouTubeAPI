@@ -25,7 +25,22 @@ namespace dotnet_YouTubeAPI.MVVM.View
             System.Windows.Controls.ListViewItem item = sender as System.Windows.Controls.ListViewItem;
             TrackInfo data = item.Content as TrackInfo;
             TrackInfoView subWindow = new TrackInfoView(data);
+            subWindow.ReloadTracksList += TrackInfoView_ReloadMainWindow;
             subWindow.Show();
+        }
+
+        void PopulateTrackList()
+        {
+            using (var context = new YouTubeApiContext())
+            {
+                var tracks = context.GetTrackInfo();
+                listView.ItemsSource = tracks;
+            }
+        }
+
+        private void TrackInfoView_ReloadMainWindow(object sender, EventArgs e)
+        {
+            PopulateTrackList();
         }
 
         private void SearchOnEnterKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
@@ -62,13 +77,9 @@ namespace dotnet_YouTubeAPI.MVVM.View
                 tbUsername.Visibility = Visibility.Visible;
         }
 
-        void PopulateTrackList()
+        private void RefreshTrackListView(object sender, RoutedEventArgs e)
         {
-            using (var context = new YouTubeApiContext())
-            {
-                var tracks = context.GetTrackInfo();
-                listView.ItemsSource = tracks;
-            }
+            PopulateTrackList();
         }
     }
     public class RowNumberConverter : IValueConverter
