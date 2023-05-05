@@ -1,4 +1,4 @@
-﻿using dotnet_YouTubeAPI.MVVM.View;
+using dotnet_YouTubeAPI.MVVM.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System;
 using System.Timers;
+
 
 namespace YouTubeAPI
 {

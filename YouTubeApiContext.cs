@@ -2,10 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using Google.Apis.YouTube.v3.Data;
-using System.Runtime.Remoting.Contexts;
 using System.Data.Entity.Migrations;
 
 
@@ -228,7 +224,6 @@ namespace YouTubeAPI
                 }
             }
         }
-
 
         public IList<Track> GetAllTracks()
         {
