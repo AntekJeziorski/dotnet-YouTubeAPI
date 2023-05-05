@@ -15,10 +15,20 @@ namespace dotnet_YouTubeAPI.MVVM.View
     /// </summary>
     public partial class TrackInfoView : Window
     {
+        /// <summary>
+        /// Gets or sets TracksInfo object for selected track from list.
+        /// </summary>
         public TrackInfo InspectedTrack { get; set; }
 
+        /// <summary>
+        /// Event that is raised when the list of tracks needs to be reloaded.
+        /// </summary>
         public event EventHandler ReloadTracksList;
 
+        /// <summary>
+        /// Constructor for TrackInfoView class. Initializes window with detalied information about selected video.
+        /// </summary>
+        /// <param name="data"></param>
         public TrackInfoView(TrackInfo data)
         {
             InspectedTrack = data;
@@ -26,6 +36,11 @@ namespace dotnet_YouTubeAPI.MVVM.View
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Deletes track from database after clicking unsubscribe button and cofirming it in messagebox.
+        /// </summary>
+        /// <param name="sender">Event sender.</param>
+        /// <param name="e">Caught event.</param>
         private void Button_Click_DeleteTrack(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBoxResult.None;
@@ -49,6 +64,12 @@ namespace dotnet_YouTubeAPI.MVVM.View
                 }
             }
         }
+
+        /// <summary>
+        /// Renders charts which represents history of views.
+        /// </summary>
+        /// <param name="sender">Event sender.</param>
+        /// <param name="e">Caught event.</param>
         private void PopulateViewsChart(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
         {
             var context = new YouTubeApiContext();
@@ -72,6 +93,11 @@ namespace dotnet_YouTubeAPI.MVVM.View
             ViewsChart.ChartAreas[0].AxisY.Title = "Likes Number";
         }
 
+        /// <summary>
+        /// Renders charts which represents history of likes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PopulateLikesChart(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
         {
             var context = new YouTubeApiContext();
@@ -95,6 +121,11 @@ namespace dotnet_YouTubeAPI.MVVM.View
             LikesChart.ChartAreas[0].AxisY.Title = "Likes Number";
         }
 
+        /// <summary>
+        /// Renders charts which represents history of comments.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PopulateCommentsChart(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
         {
             var context = new YouTubeApiContext();
@@ -119,8 +150,14 @@ namespace dotnet_YouTubeAPI.MVVM.View
         }
     }
 
+    /// <summary>
+    /// Class used for truncating video description to only one paragraph.
+    /// </summary>
     public class StringTruncationConverter : IValueConverter
     {
+        /// <summary>
+        /// Truncates video description to only one paragraph.
+        /// </summary>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value == null)
@@ -130,6 +167,9 @@ namespace dotnet_YouTubeAPI.MVVM.View
             return inputString.Split('\n')[0];
         }
 
+        /// <summary>
+        /// This converter does not provide conversion back from ordinal position to list view item.
+        /// </summary>
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
