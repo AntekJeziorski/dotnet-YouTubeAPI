@@ -1,10 +1,10 @@
 var searchData=
 [
   ['aboutview_0',['AboutView',['../classdotnet___you_tube_a_p_i_1_1_m_v_v_m_1_1_view_1_1_about_view.html',1,'dotnet_YouTubeAPI::MVVM::View']]],
-  ['addnewauthor_1',['addNewAuthor',['../class_you_tube_a_p_i_1_1_you_tube_api_context.html#a683dc54875c07f727028f61bda86e8c0',1,'YouTubeAPI::YouTubeApiContext']]],
-  ['addnewauthorhistoryentry_2',['addNewAuthorHistoryEntry',['../class_you_tube_a_p_i_1_1_you_tube_api_context.html#a12d589e99fe06c102e5697082b75e93b',1,'YouTubeAPI::YouTubeApiContext']]],
-  ['addnewtrack_3',['addNewTrack',['../class_you_tube_a_p_i_1_1_you_tube_api_context.html#aa68bbe23ca81e49e2d6f9416bc2383e0',1,'YouTubeAPI::YouTubeApiContext']]],
-  ['addnewtrackhistoryentry_4',['addNewTrackHistoryEntry',['../class_you_tube_a_p_i_1_1_you_tube_api_context.html#ad2c7d8d953436630931efff0b44ed823',1,'YouTubeAPI::YouTubeApiContext']]],
+  ['addnewauthor_1',['AddNewAuthor',['../class_you_tube_a_p_i_1_1_you_tube_api_context.html#aeac1b453d0eb0dd6303b81f6ed6fc930',1,'YouTubeAPI::YouTubeApiContext']]],
+  ['addnewauthorhistoryentry_2',['AddNewAuthorHistoryEntry',['../class_you_tube_a_p_i_1_1_you_tube_api_context.html#ae51d2cfc27a2d0ff7264ec04b33406fd',1,'YouTubeAPI::YouTubeApiContext']]],
+  ['addnewtrack_3',['AddNewTrack',['../class_you_tube_a_p_i_1_1_you_tube_api_context.html#a9f46323d37b7f09a00765e64b791d75e',1,'YouTubeAPI::YouTubeApiContext']]],
+  ['addnewtrackhistoryentry_4',['AddNewTrackHistoryEntry',['../class_you_tube_a_p_i_1_1_you_tube_api_context.html#a13dd648083b89f473b6981f033753bca',1,'YouTubeAPI::YouTubeApiContext']]],
   ['addtime_5',['AddTime',['../class_you_tube_a_p_i_1_1_authors_history.html#adfa36776c2b61d0d2095255f5b66adaa',1,'YouTubeAPI.AuthorsHistory.AddTime()'],['../class_you_tube_a_p_i_1_1_tracks_history.html#a047f7cff857298ff91d6ad29c39aed85',1,'YouTubeAPI.TracksHistory.AddTime()']]],
   ['artistview_6',['ArtistView',['../classdotnet___you_tube_a_p_i_1_1_m_v_v_m_1_1_view_1_1_artist_view.html',1,'dotnet_YouTubeAPI::MVVM::View']]],
   ['author_7',['Author',['../class_you_tube_a_p_i_1_1_author_info.html#a817902d7e47d3697bb133a92f42e32d2',1,'YouTubeAPI.AuthorInfo.Author()'],['../class_you_tube_a_p_i_1_1_authors_history.html#af4e30292c95cb39ffd1b985d8e63b93a',1,'YouTubeAPI.AuthorsHistory.Author()'],['../class_you_tube_a_p_i_1_1_author.html#ac9722e8e8b2bd5a3b10bc741c6c60ce1',1,'YouTubeAPI.Author.Author()'],['../class_you_tube_a_p_i_1_1_author.html#affc608d97f02cb6a81035eb78c21feef',1,'YouTubeAPI.Author.Author(string Id)'],['../class_you_tube_a_p_i_1_1_author.html',1,'YouTubeAPI.Author']]],
