@@ -115,7 +115,7 @@ namespace dotnet_YouTubeAPI.MVVM.View
     }
 
     /// <summary>
-    /// CLass used for converting numbers for numbering the tarcks on list.
+    /// Class used for converting numbers for numbering the tarcks on list.
     /// </summary>
     public class RowNumberConverter : IValueConverter
     {

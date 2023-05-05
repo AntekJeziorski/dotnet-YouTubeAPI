@@ -1,12 +1,12 @@
 var searchData=
 [
-  ['getalltracks_0',['GetAllTracks',['../class_you_tube_a_p_i_1_1_you_tube_api_context.html#ab307b7450941b523d182a34cb2a653dc',1,'YouTubeAPI::YouTubeApiContext']]],
-  ['getauthorshistory_1',['GetAuthorsHistory',['../class_you_tube_a_p_i_1_1_you_tube_api_context.html#a1ffaf5fbbcab63ef6bc7daae5117da4e',1,'YouTubeAPI::YouTubeApiContext']]],
-  ['getchanneldata_2',['GetChannelData',['../class_you_tube_a_p_i_1_1_author.html#ab31fe337a3f86b1586c4f85417eb466a',1,'YouTubeAPI::Author']]],
-  ['getchannelstats_3',['GetChannelStats',['../class_you_tube_a_p_i_1_1_authors_history.html#aebe85d072c0c8deb3f4a2f7f2fea2c0f',1,'YouTubeAPI::AuthorsHistory']]],
-  ['getmostsubauthor_4',['GetMostSubAuthor',['../class_you_tube_a_p_i_1_1_you_tube_api_context.html#ac6fef6970eb84b60c713e1e32950a480',1,'YouTubeAPI::YouTubeApiContext']]],
-  ['gettrackinfo_5',['GetTrackInfo',['../class_you_tube_a_p_i_1_1_you_tube_api_context.html#a6681c931ab78e0a4774f75a92bd84ff1',1,'YouTubeAPI::YouTubeApiContext']]],
-  ['gettrackshistory_6',['GetTracksHistory',['../class_you_tube_a_p_i_1_1_you_tube_api_context.html#a1ceeefcac9161c29bce729a6983ec515',1,'YouTubeAPI::YouTubeApiContext']]],
-  ['getviedodata_7',['GetViedoData',['../class_you_tube_a_p_i_1_1_track.html#ac0fa62e0dc3d956af9060e68adf44d26',1,'YouTubeAPI::Track']]],
-  ['getviedostats_8',['GetViedoStats',['../class_you_tube_a_p_i_1_1_tracks_history.html#ad78776ab4daf41e3810b269ba9ecf49d',1,'YouTubeAPI::TracksHistory']]]
+  ['core_0',['Core',['../namespacedotnet___you_tube_a_p_i_1_1_core.html',1,'dotnet_YouTubeAPI']]],
+  ['deleteauthor_1',['DeleteAuthor',['../class_you_tube_a_p_i_1_1_you_tube_api_context.html#a750cc9ccaf5dd8c8f9f11d25f07185b3',1,'YouTubeAPI::YouTubeApiContext']]],
+  ['deletetrack_2',['DeleteTrack',['../class_you_tube_a_p_i_1_1_you_tube_api_context.html#aa703a3d8799059a94951f1a2794bd344',1,'YouTubeAPI::YouTubeApiContext']]],
+  ['description_3',['Description',['../class_you_tube_a_p_i_1_1_track.html#ac5d4031f5693a2f28830fbef859ee68e',1,'YouTubeAPI::Track']]],
+  ['dotnet_2dyoutubeapi_4',['dotnet-YouTubeAPI',['../md__c___users__acer__documents_dotnet_i_java_dotnet__you_tube_a_p_i__r_e_a_d_m_e.html',1,'']]],
+  ['dotnet_5fyoutubeapi_5',['dotnet_YouTubeAPI',['../namespacedotnet___you_tube_a_p_i.html',1,'']]],
+  ['mvvm_6',['MVVM',['../namespacedotnet___you_tube_a_p_i_1_1_m_v_v_m.html',1,'dotnet_YouTubeAPI']]],
+  ['view_7',['View',['../namespacedotnet___you_tube_a_p_i_1_1_m_v_v_m_1_1_view.html',1,'dotnet_YouTubeAPI::MVVM']]],
+  ['viewmodel_8',['ViewModel',['../namespacedotnet___you_tube_a_p_i_1_1_m_v_v_m_1_1_view_model.html',1,'dotnet_YouTubeAPI::MVVM']]]
 ];
