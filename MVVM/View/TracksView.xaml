@@ -62,7 +62,7 @@
                             Foreground="White"
                             BorderBrush="#FFEE3E38"
                             BorderThickness="1"
-                            ToolTip="Refresh list of tracks"
+                            ToolTip="Refresh list of tracks."
                             Click="RefreshTrackListView">
                     <Image Source="/Static/refresh-icon.png" Width="35" Height="35"/>
                     <Button.Template>
