@@ -1,21 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data.Entity.Infrastructure;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Forms;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using YouTubeAPI;
 
 namespace dotnet_YouTubeAPI.MVVM.View
@@ -28,23 +17,45 @@ namespace dotnet_YouTubeAPI.MVVM.View
         public TracksView()
         {
             InitializeComponent();
-            PopulateCollection();
+            PopulateTrackList();
         }
 
-        private void OnEnterKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private void OnListViewItemClicked(object sender, MouseButtonEventArgs e)
+        {
+            System.Windows.Controls.ListViewItem item = sender as System.Windows.Controls.ListViewItem;
+            TrackInfo data = item.Content as TrackInfo;
+            TrackInfoView subWindow = new TrackInfoView(data);
+            subWindow.ReloadTracksList += TrackInfoView_ReloadMainWindow;
+            subWindow.Show();
+        }
+
+        void PopulateTrackList()
+        {
+            using (var context = new YouTubeApiContext())
+            {
+                var tracks = context.GetTrackInfo();
+                listView.ItemsSource = tracks;
+            }
+        }
+
+        private void TrackInfoView_ReloadMainWindow(object sender, EventArgs e)
+        {
+            PopulateTrackList();
+        }
+
+        private void SearchOnEnterKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == Key.Return)
             {
-                Console.WriteLine(txtUserName.Text);
                 var context = new YouTubeApiContext(); /* UCXuqSBlHAE6Xw-yeJA0Tunw */
                 try
                 {
                     var newTrack = new YouTubeAPI.Track(txtUserName.Text);
-                    context.addNewTrack(newTrack);
+                    context.AddNewTrack(newTrack);
                     txtUserName.Text = string.Empty;
                     var newTrackEntry = new YouTubeAPI.TracksHistory(newTrack.VideoId);
-                    context.addNewTrackHistoryEntry(newTrackEntry);
-                    PopulateCollection();
+                    context.AddNewTrackHistoryEntry(newTrackEntry);
+                    PopulateTrackList();
                 }
                 catch (DbUpdateException)
                 {
@@ -66,32 +77,31 @@ namespace dotnet_YouTubeAPI.MVVM.View
                 tbUsername.Visibility = Visibility.Visible;
         }
 
-        void PopulateCollection()
+        private void RefreshTrackListView(object sender, RoutedEventArgs e)
         {
-            using (var context = new YouTubeApiContext())
-            {
-                var tracks = context.GetAllTracks();
-                listView.ItemsSource = tracks;
-            }
+            PopulateTrackList();
         }
     }
     public class RowNumberConverter : IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object Convert(object value, System.Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            int result =1;
-            
-            if (value != null && int.TryParse(value.ToString(), out result))
+            System.Windows.Controls.ListViewItem lvi = value as System.Windows.Controls.ListViewItem;
+            int ordinal = 0;
+
+            if (lvi != null)
             {
-                return ++result;
+                System.Windows.Controls.ListView lv = ItemsControl.ItemsControlFromItemContainer(lvi) as System.Windows.Controls.ListView;
+                ordinal = lv.ItemContainerGenerator.IndexFromContainer(lvi) + 1;
             }
 
-            return result;
+            return ordinal;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object ConvertBack(object value, System.Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            throw new NotSupportedException();
+            // This converter does not provide conversion back from ordinal position to list view item
+            throw new System.InvalidOperationException();
         }
     }
 }

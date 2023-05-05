@@ -40,6 +40,7 @@ namespace YouTubeAPI
         /// Gets or Sets URL for medium channel thumbnail.
         /// </summary>
         public string ThumbnailMedium { get; set; }
+        public DateTime SubscribeTime { get; set; }
 
         /// <summary>
         /// Connection to many entries in AuthorsHistory table which represents one to many relationship.

@@ -3,10 +3,6 @@ using Google.Apis.YouTube.v3.Data;
 using Google.Apis.YouTube.v3;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 
 namespace YouTubeAPI
@@ -51,6 +47,7 @@ namespace YouTubeAPI
         /// Gets or Sets URL for medium video thumbnail.
         /// </summary>
         public string ThumbnailMedium { get; set; }
+        public DateTime SubscribeTime { get; set; }
 
         /// <summary>
         /// Connection to many entries in TracksHistory table which represents one to many relationship.
