@@ -68,7 +68,7 @@ namespace dotnet_YouTubeAPI.MVVM.View
             ViewsChart.Series[0].ChartType = SeriesChartType.Line;
             ViewsChart.Series[0].MarkerStyle = MarkerStyle.Circle;
             ViewsChart.Series[0].MarkerColor = System.Drawing.Color.OrangeRed;
-            ViewsChart.Series[0].ToolTip = "Time: #VALX{yyyy/MM/dd HH:mm}, Views: #VALY{#,##0;#,##0;#,##0;0}";
+            ViewsChart.Series[0].ToolTip = "Time: #VALX{dd/MM/yyyy HH:mm}, Views: #VALY{#,##0;#,##0;#,##0;0}";
 
             // Customize the chart appearance
             ViewsChart.Titles.Add("Likes number per history update");
@@ -104,7 +104,7 @@ namespace dotnet_YouTubeAPI.MVVM.View
             LikesChart.Series[0].ChartType = SeriesChartType.Line;
             LikesChart.Series[0].MarkerStyle = MarkerStyle.Circle;
             LikesChart.Series[0].MarkerColor = System.Drawing.Color.OrangeRed;
-            LikesChart.Series[0].ToolTip = "Time: #VALX{yyyy/MM/dd HH:mm}, Views: #VALY{#,##0;#,##0;#,##0;0}";
+            LikesChart.Series[0].ToolTip = "Time: #VALX{dd/MM/yyyy HH:mm}, Views: #VALY{#,##0;#,##0;#,##0;0}";
 
             // Customize the chart appearance
             LikesChart.Titles.Add("Likes number per history update");
@@ -140,7 +140,7 @@ namespace dotnet_YouTubeAPI.MVVM.View
             CommentsChart.Series[0].ChartType = SeriesChartType.Line;
             CommentsChart.Series[0].MarkerStyle = MarkerStyle.Circle;
             CommentsChart.Series[0].MarkerColor = System.Drawing.Color.OrangeRed;
-            CommentsChart.Series[0].ToolTip = "Time: #VALX{yyyy/MM/dd HH:mm}, Views: #VALY{#,##0;#,##0;#,##0;0}";
+            CommentsChart.Series[0].ToolTip = "Time: #VALX{dd/MM/yyyy HH:mm}, Views: #VALY{#,##0;#,##0;#,##0;0}";
 
             // Customize the chart appearance
             CommentsChart.Titles.Add("Likes number per history update");
