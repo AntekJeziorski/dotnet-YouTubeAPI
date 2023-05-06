@@ -10,15 +10,19 @@
     <DockPanel>
         <Grid DockPanel.Dock="Top">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="300"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
             
             <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="0,30,0,30">
-                <TextBlock Text="Favourite Tracks:" VerticalAlignment="Center" Foreground="Black" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <TextBlock Text="Favourite Tracks:" 
+                           VerticalAlignment="Center" 
+                           Foreground="Black" 
+                           FontSize="30" 
+                           HorizontalAlignment="Center"/>
             </StackPanel>
 
-            <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,0" Orientation="Horizontal">
+            <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal">
                 <Border Grid.Column="1" 
                     CornerRadius="30"
                     Background="#f8f8f8"
@@ -30,7 +34,6 @@
                     <Grid>
                         <TextBox Name="txtUserName" 
                                  Grid.Column="1" 
-                                 Margin="28,0,0,0"
                                  BorderThickness ="0"
                                  Background="Transparent"
                                  VerticalAlignment="Center"    
@@ -39,6 +42,7 @@
                                  Width="380"
                                  Foreground="Black"
                                  TextChanged="SearchBarTextChange" 
+                                 Margin="30,0,0,0"
                                  KeyDown="SearchOnEnterKeyDown"/>
                         <TextBlock Name="tbUsername" 
                                    Text="Search for content, press Enter to submit." 
@@ -64,7 +68,7 @@
                             BorderThickness="1"
                             ToolTip="Refresh list of tracks."
                             Click="RefreshTrackListView">
-                    <Image Source="/Static/refresh-icon.png" Width="35" Height="35"/>
+                    <Image Source="/Static/refresh-icon.png" Width="35" Height="35" RenderOptions.BitmapScalingMode="HighQuality"/>
                     <Button.Template>
                         <ControlTemplate TargetType="{x:Type Button}">
                             <Border CornerRadius="30"
@@ -93,7 +97,7 @@
             </StackPanel>
         </Grid>
 
-        <ListView x:Name="listView" BorderThickness="0">
+        <ListView x:Name="listView" BorderThickness="0" Template="{StaticResource ListViewTemplate}">
             <ListView.Resources>
                 <local:RowNumberConverter x:Key="OrdinalConverter"/>
                 <DataTemplate x:Key="OrdinalColumnDataTemplate">
@@ -119,7 +123,12 @@
                     <GridViewColumn Header="Thumbnail" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Image Margin="0,10,0,10" Source="{Binding Track.ThumbnailMedium}" Width="90" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <Image Margin="0,10,0,10" 
+                                       Source="{Binding Track.ThumbnailMedium}"  
+                                       Width="90" 
+                                       Height="50" 
+                                       HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -173,7 +182,7 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn Header="Views" Width="120" HeaderContainerStyle="{StaticResource MyCustomHeaderStyle}">
+                    <GridViewColumn Header="Views" Width="120">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding TracksHistory.ViewCount}" 
@@ -187,7 +196,7 @@
                     </GridViewColumn>
 
 
-                    <GridViewColumn Header="Comments" Width="120" HeaderContainerStyle="{StaticResource MyCustomHeaderStyle}">
+                    <GridViewColumn Header="Comments" Width="120">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding TracksHistory.CommentCount}" 

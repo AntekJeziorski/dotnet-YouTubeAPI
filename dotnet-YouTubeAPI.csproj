@@ -220,11 +220,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Theme\ListViewHeaderRightAligment.xaml">
+    <Page Include="Theme\TopBarButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Theme\TopBarButton.xaml">
+    <Page Include="Theme\TrackListViewMessage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -319,6 +319,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Static\Tracks.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Static\sleepingKoala.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
