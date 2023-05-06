@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.Entity.Infrastructure;
+using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows;
@@ -71,7 +72,7 @@ namespace dotnet_YouTubeAPI.MVVM.View
             ViewsChart.Series[0].ToolTip = "Time: #VALX{dd/MM/yyyy HH:mm}, Views: #VALY{#,##0;#,##0;#,##0;0}";
 
             // Customize the chart appearance
-            ViewsChart.Titles.Add("Likes number per history update");
+            ViewsChart.Titles.Add("View count history");
             ViewsChart.ChartAreas[0].AxisX.LabelStyle.Format = "dd/MM/yyyy\nHH:mm";
             ViewsChart.ChartAreas[0].AxisY.LabelStyle.Format = "#,##0;#,##0;#,##0;0";
             ViewsChart.ChartAreas[0].AxisX.MajorTickMark.Interval = 1;
@@ -79,6 +80,10 @@ namespace dotnet_YouTubeAPI.MVVM.View
             ViewsChart.ChartAreas[0].AxisX.Maximum = DateTime.Now.ToOADate();
             ViewsChart.ChartAreas[0].AxisX.LabelStyle.Angle = -45;
             ViewsChart.ChartAreas[0].AxisY.Title = "Number of likes";
+
+            // Set the chart's font sizes
+            ViewsChart.Titles[0].Font = new Font("Arial", 16);
+            ViewsChart.ChartAreas[0].AxisY.TitleFont = new Font("Arial", 12);
 
             ViewsChart.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
             ViewsChart.ChartAreas[0].CursorX.AutoScroll = true;
@@ -107,14 +112,18 @@ namespace dotnet_YouTubeAPI.MVVM.View
             LikesChart.Series[0].ToolTip = "Time: #VALX{dd/MM/yyyy HH:mm}, Views: #VALY{#,##0;#,##0;#,##0;0}";
 
             // Customize the chart appearance
-            LikesChart.Titles.Add("Likes number per history update");
+            LikesChart.Titles.Add("LLike count history");
             LikesChart.ChartAreas[0].AxisX.LabelStyle.Format = "dd/MM/yyyy\nHH:mm";
             LikesChart.ChartAreas[0].AxisY.LabelStyle.Format = "#,##0;#,##0;#,##0;0";
             LikesChart.ChartAreas[0].AxisX.MajorTickMark.Interval = 1;
             LikesChart.ChartAreas[0].AxisX.IntervalType = DateTimeIntervalType.Months;
             LikesChart.ChartAreas[0].AxisX.Maximum = DateTime.Now.ToOADate();
             LikesChart.ChartAreas[0].AxisX.LabelStyle.Angle = -45;
-            LikesChart.ChartAreas[0].AxisY.Title = "Number of views";
+            LikesChart.ChartAreas[0].AxisY.Title = "Number of likes";
+
+            // Set the chart's font sizes
+            LikesChart.Titles[0].Font = new Font("Arial", 16);
+            LikesChart.ChartAreas[0].AxisY.TitleFont = new Font("Arial", 12);
 
             LikesChart.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
             LikesChart.ChartAreas[0].CursorX.AutoScroll = true;
@@ -143,14 +152,18 @@ namespace dotnet_YouTubeAPI.MVVM.View
             CommentsChart.Series[0].ToolTip = "Time: #VALX{dd/MM/yyyy HH:mm}, Views: #VALY{#,##0;#,##0;#,##0;0}";
 
             // Customize the chart appearance
-            CommentsChart.Titles.Add("Likes number per history update");
+            CommentsChart.Titles.Add("Comment count history");
             CommentsChart.ChartAreas[0].AxisX.LabelStyle.Format = "dd/MM/yyyy\nHH:mm";
             CommentsChart.ChartAreas[0].AxisY.LabelStyle.Format = "#,##0;#,##0;#,##0;0";
             CommentsChart.ChartAreas[0].AxisX.MajorTickMark.Interval = 1;
             CommentsChart.ChartAreas[0].AxisX.IntervalType = DateTimeIntervalType.Months;
             CommentsChart.ChartAreas[0].AxisX.Maximum = DateTime.Now.ToOADate();
             CommentsChart.ChartAreas[0].AxisX.LabelStyle.Angle = -45;
-            CommentsChart.ChartAreas[0].AxisY.Title = "Number of likes";
+            CommentsChart.ChartAreas[0].AxisY.Title = "Number of comments";
+
+            // Set the chart's font sizes
+            CommentsChart.Titles[0].Font = new Font("Arial", 16);
+            CommentsChart.ChartAreas[0].AxisY.TitleFont = new Font("Arial", 12);
 
             CommentsChart.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
             CommentsChart.ChartAreas[0].CursorX.AutoScroll = true;
