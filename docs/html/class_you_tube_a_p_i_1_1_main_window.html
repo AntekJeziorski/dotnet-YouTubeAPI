@@ -97,25 +97,29 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>MainWindow</b> ()</td></tr>
 <tr class="memdesc:a129db0411ba5843d1ff927b1844688a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-parametric constructor which initializes MainWindow and timer. <br /></td></tr>
 <tr class="separator:a129db0411ba5843d1ff927b1844688a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e276f1091edc5fda9e8f3fc9aa6f3ce"><td class="memItemLeft" align="right" valign="top"><a id="a1e276f1091edc5fda9e8f3fc9aa6f3ce" name="a1e276f1091edc5fda9e8f3fc9aa6f3ce"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>PingYoutube</b> ()</td></tr>
+<tr class="memdesc:a1e276f1091edc5fda9e8f3fc9aa6f3ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks the connection to the youtube API, if the connection cannot be established a MessageBox is displayed indicating no connection. <br /></td></tr>
+<tr class="separator:a1e276f1091edc5fda9e8f3fc9aa6f3ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a8375ebe18e962d29033741ec7219cc6b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_you_tube_a_p_i_1_1_main_window.html#a8375ebe18e962d29033741ec7219cc6b">Update</a> (Object source, ElapsedEventArgs e)</td></tr>
-<tr class="memdesc:a8375ebe18e962d29033741ec7219cc6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates TracksHistory table after clicking the refresh button.  <br /></td></tr>
-<tr class="separator:a8375ebe18e962d29033741ec7219cc6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab79a0cfe3b4b6d333d37809d4dd4d21d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_you_tube_a_p_i_1_1_main_window.html#ab79a0cfe3b4b6d333d37809d4dd4d21d">UpdateTrackHistory</a> (Object source, ElapsedEventArgs e)</td></tr>
+<tr class="memdesc:ab79a0cfe3b4b6d333d37809d4dd4d21d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates TracksHistory table for each subscribed Track.  <br /></td></tr>
+<tr class="separator:ab79a0cfe3b4b6d333d37809d4dd4d21d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
-<tr class="memitem:acbdca05c12e2bab0e91422c619d61ac3"><td class="memItemLeft" align="right" valign="top"><a id="acbdca05c12e2bab0e91422c619d61ac3" name="acbdca05c12e2bab0e91422c619d61ac3"></a>
-static Timer&#160;</td><td class="memItemRight" valign="bottom"><b>_timer</b></td></tr>
-<tr class="memdesc:acbdca05c12e2bab0e91422c619d61ac3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer for automatic updating TracksHistory table. <br /></td></tr>
-<tr class="separator:acbdca05c12e2bab0e91422c619d61ac3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06d4402a3fdfc43137b91de2a2e066a4"><td class="memItemLeft" align="right" valign="top"><a id="a06d4402a3fdfc43137b91de2a2e066a4" name="a06d4402a3fdfc43137b91de2a2e066a4"></a>
+static System.Timers.Timer&#160;</td><td class="memItemRight" valign="bottom"><b>_timer</b></td></tr>
+<tr class="memdesc:a06d4402a3fdfc43137b91de2a2e066a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer for automatic updating TracksHistory table. <br /></td></tr>
+<tr class="separator:a06d4402a3fdfc43137b91de2a2e066a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interaction logic for MainWindow.xaml. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a8375ebe18e962d29033741ec7219cc6b" name="a8375ebe18e962d29033741ec7219cc6b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8375ebe18e962d29033741ec7219cc6b">&#9670;&#160;</a></span>Update()</h2>
+<a id="ab79a0cfe3b4b6d333d37809d4dd4d21d" name="ab79a0cfe3b4b6d333d37809d4dd4d21d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab79a0cfe3b4b6d333d37809d4dd4d21d">&#9670;&#160;</a></span>UpdateTrackHistory()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -124,7 +128,7 @@ static Timer&#160;</td><td class="memItemRight" valign="bottom"><b>_timer</b></t
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void YouTubeAPI.MainWindow.Update </td>
+          <td class="memname">static void YouTubeAPI.MainWindow.UpdateTrackHistory </td>
           <td>(</td>
           <td class="paramtype">Object&#160;</td>
           <td class="paramname"><em>source</em>, </td>
@@ -148,7 +152,7 @@ static Timer&#160;</td><td class="memItemRight" valign="bottom"><b>_timer</b></t
 </table>
 </div><div class="memdoc">
 
-<p>Updates TracksHistory table after clicking the refresh button. </p>
+<p>Updates TracksHistory table for each subscribed Track. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">source</td><td>Event sender.</td></tr>

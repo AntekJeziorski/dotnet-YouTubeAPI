@@ -20,9 +20,15 @@ To build and run the application you need to:
 ## docs
 
 The `/docs` directory contains the latest version of the project documentation generated using the doxygen system. 
+The docs file is `/docs/html/index.html`.
+
+## tests
+
+Automatic test implemented for main classes using NUnit package.
+Can be run from Visual Studio or NUnit Console.
 
 ## contrubutors
 
 - Antoni Jeziorski, 259254@studnet.pwr.edu.pl
 - Szymon Sobczak, 259275@student.pwr.edu.pl
-- Jêdrzej Szymczyk, 254898@student.pwr.edu.pl
+- JÄ™drzej Szymczyk, 254898@student.pwr.edu.pl

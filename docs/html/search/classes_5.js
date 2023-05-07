@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['stringtruncationconverter_0',['StringTruncationConverter',['../classdotnet___you_tube_a_p_i_1_1_m_v_v_m_1_1_view_1_1_string_truncation_converter.html',1,'dotnet_YouTubeAPI::MVVM::View']]]
+  ['searchbar_0',['SearchBar',['../classdotnet___you_tube_a_p_i_1_1_utils_1_1_search_bar.html',1,'dotnet_YouTubeAPI::Utils']]],
+  ['stringtruncationconverter_1',['StringTruncationConverter',['../classdotnet___you_tube_a_p_i_1_1_utils_1_1_string_truncation_converter.html',1,'dotnet_YouTubeAPI::Utils']]]
 ];
