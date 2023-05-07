@@ -68,7 +68,6 @@ namespace YouTubeAPI
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Author :" + ex.Message);
                 throw ex;
             }
             finally {}
@@ -87,7 +86,6 @@ namespace YouTubeAPI
             // Prepare the request
             ChannelsResource.ListRequest listRequest = youtubeService.Channels.List("snippet");
             listRequest.Id = ChannelId;
-            //listRequest.ForUsername = ChannelTitle;
             try
             {
                 // Execute the request
@@ -98,14 +96,9 @@ namespace YouTubeAPI
                     foreach (var item in response.Items)
                     {
                         ChannelTitle = item.Snippet.Title;
-                        //ChannelId = item.Id;
                         ChannelDescription = item.Snippet.Description;
                         JoiningDate = item.Snippet.PublishedAt ?? DateTime.Now;
                         ThumbnailMedium = item.Snippet.Thumbnails.Medium.Url;
-
-                        Console.WriteLine("Channel Name: " + ChannelTitle);
-                        Console.WriteLine("Channel Id: " + ChannelId);
-                        Console.WriteLine("Channel Description: " + ChannelDescription);
                     }
                 }
                 else
@@ -123,15 +116,10 @@ namespace YouTubeAPI
                             ChannelDescription = item.Snippet.Description;
                             JoiningDate = item.Snippet.PublishedAt ?? DateTime.Now;
                             ThumbnailMedium = item.Snippet.Thumbnails.Medium.Url;
-
-                            Console.WriteLine("Channel Name: " + ChannelTitle);
-                            Console.WriteLine("Channel Id: " + ChannelId);
-                            Console.WriteLine("Channel Description: " + ChannelDescription);
                         }
                     }
                     else
                     {
-                        Console.WriteLine("Channel not found!!!");
                         throw new Exception("Wrong Channel Id or name");
                     }
                 }

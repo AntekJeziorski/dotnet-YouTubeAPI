@@ -88,7 +88,7 @@ namespace YouTubeAPI
                 ApiKey = "AIzaSyCTlONe6H40ircsdbuIq87DGV5gZeVv2wc",
                 ApplicationName = this.GetType().ToString()
             });
-            //string videoId = "nLIp4wd0oXs";
+
             // Prepare the request
             VideosResource.ListRequest listRequest = youtubeService.Videos.List("snippet");
             listRequest.Id = VideoId;
@@ -107,16 +107,10 @@ namespace YouTubeAPI
                     Description = item.Snippet.Description;
                     ReleaseDate = item.Snippet.PublishedAt ?? DateTime.Now;
                     ThumbnailMedium = item.Snippet.Thumbnails.Medium.Url;
-
-                    Console.WriteLine("Title: " + Title);
-                    Console.WriteLine("Viedo Id: " + VideoId);
-                    Console.WriteLine("Channel Name: " + ChannelTitle);
-                    Console.WriteLine("Channel Id: " + ChannelId);
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Viedo not found!!!");
                     throw new Exception("Wrong Video Id");
                 }
             }

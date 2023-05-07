@@ -101,11 +101,6 @@ namespace YouTubeAPI
                         ViewCount = (Int64)item.Statistics.ViewCount;
                         SubCount = (Int64)item.Statistics.SubscriberCount;
                         VideoCount = (Int64)item.Statistics.VideoCount;
-
-
-                        Console.WriteLine("Channel view count: " + ViewCount);
-                        Console.WriteLine("Channel subscription count: " + SubCount);
-                        Console.WriteLine("Channel video count: " + VideoCount);
                     }
                 }
             }

@@ -14,7 +14,7 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="0,30,0,30">
-                <TextBlock Text="Welcome again!" 
+                <TextBlock Text="Welcome back!" 
                            VerticalAlignment="Center" 
                            Foreground="Black" 
                            FontSize="30" 
