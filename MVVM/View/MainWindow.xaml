@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:YouTubeAPI"
         xmlns:viewModel="clr-namespace:dotnet_YouTubeAPI.MVVM.ViewModel"
         mc:Ignorable="d"
         Icon="/Static/favicon.ico"
@@ -30,7 +29,7 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-               
+
                 <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
                     <Image Height="48" VerticalAlignment="Center" Source="/Static/youbookie-icon.png" Margin="0,0,10,0"  RenderOptions.BitmapScalingMode="HighQuality" />
                     <TextBlock Grid.Column="1" 
@@ -43,14 +42,40 @@
                                Margin="0,0,0,0">
                         <Run Text="YouBookie"/></TextBlock>
                 </StackPanel>
-                <RadioButton  Grid.Column="1" Content="Home" FontSize="24" Style="{StaticResource TopBarButtonTheme}" Margin="25,10,25,10" IsChecked="True" Command="{Binding HomeViewCommand}"/>
-                <RadioButton  Grid.Column="2" Content="Artists" FontSize="24" Style="{StaticResource TopBarButtonTheme}" Margin="25,10,25,10" Command="{Binding ArtistViewCommand}"/>
-                <RadioButton  Grid.Column="3" Content="Tracks" FontSize="24" Style="{StaticResource TopBarButtonTheme}" Margin="25,10,25,10" Command="{Binding TracksViewCommand}"/>
-                <RadioButton  Grid.Column="4" Content="About" FontSize="24" Style="{StaticResource TopBarButtonTheme}" Margin="25,10,25,10" Command="{Binding AboutViewCommand}"/>
+                <RadioButton  Grid.Column="1" 
+                              Content="Home" 
+                              FontSize="24" 
+                              Style="{StaticResource TopBarButtonTheme}" 
+                              Margin="25,10,25,10"
+                              IsChecked="True" 
+                              Command="{Binding HomeViewCommand}"/>
+
+                <RadioButton  Grid.Column="2" 
+                              Content="Artists" 
+                              FontSize="24" 
+                              Style="{StaticResource TopBarButtonTheme}"
+                              Margin="25,10,25,10" 
+                              Command="{Binding ArtistViewCommand}"/>
+
+                <RadioButton  Grid.Column="3" 
+                              Content="Tracks"
+                              FontSize="24" 
+                              Style="{StaticResource TopBarButtonTheme}" 
+                              Margin="25,10,25,10" 
+                              Command="{Binding TracksViewCommand}"/>
+
+                <RadioButton  Grid.Column="4" 
+                              Content="About" 
+                              FontSize="24" 
+                              Style="{StaticResource TopBarButtonTheme}" 
+                              Margin="25,10,25,10" 
+                              Command="{Binding AboutViewCommand}"/>
             </Grid>
-
-            <ContentControl Grid.Row="1" Grid.Column="1" Margin="10" Content="{Binding CurrentView}"/>
-
+            
+            <ContentControl Grid.Row="1" 
+                            Grid.Column="1" 
+                            Margin="10" 
+                            Content="{Binding CurrentView}"/>
         </Grid>
     </Border>
 </Window>

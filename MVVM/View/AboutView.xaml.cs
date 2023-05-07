@@ -8,7 +8,7 @@ namespace dotnet_YouTubeAPI.MVVM.View
     public partial class AboutView : UserControl
     {
         /// <summary>
-        /// Non-parametric constructor which initializes AboutView in app.
+        /// Non-parametric constructor which initializes AboutView for the aplication.
         /// </summary>
         public AboutView()
         {

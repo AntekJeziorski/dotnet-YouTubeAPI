@@ -33,7 +33,7 @@ namespace dotnet_YouTubeAPI.MVVM.View
         public TrackInfoView(TrackInfo data)
         {
             InspectedTrack = data;
-            this.DataContext = InspectedTrack;
+            DataContext = InspectedTrack;
             InitializeComponent();
         }
 

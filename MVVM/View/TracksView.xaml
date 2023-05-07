@@ -45,6 +45,7 @@
                                  TextChanged="SearchBarTextChange" 
                                  Margin="28,0,0,0"
                                  KeyDown="SearchOnEnterKeyDown"/>
+                        
                         <TextBlock Name="searchBarPlaceholder" 
                                    Text="Search for content, press Enter to submit." 
                                    VerticalAlignment="Center" 
@@ -70,6 +71,7 @@
                             ToolTip="Refresh list of tracks."
                             Click="RefreshTrackListView">
                     <Image Source="/Static/refresh-icon.png" Width="35" Height="35" RenderOptions.BitmapScalingMode="HighQuality"/>
+                    
                     <Button.Template>
                         <ControlTemplate TargetType="{x:Type Button}">
                             <Border CornerRadius="30"
@@ -79,9 +81,9 @@
                                 <ContentPresenter HorizontalAlignment="Center"
                                   VerticalAlignment="Center"/>
                             </Border>
-                            
                         </ControlTemplate>
                     </Button.Template>
+
                     <Button.Style>
                         <Style TargetType="Button">
                             <Setter Property="Background" Value="#f8f8f8"/>
@@ -94,7 +96,6 @@
                         </Style>
                     </Button.Style>
                 </Button>
-
             </StackPanel>
         </Grid>
 
@@ -115,11 +116,10 @@
                     <EventSetter Event="PreviewMouseDoubleClick" Handler="OnListViewItemClicked"/>
                 </Style>
             </ListView.ItemContainerStyle>
+            
             <ListView.View>
                 <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle1}" >
-                    <GridViewColumn Header="#" Width="30" CellTemplate="{StaticResource ResourceKey=OrdinalColumnDataTemplate}">
-                    </GridViewColumn>
-
+                    <GridViewColumn Header="#" Width="30" CellTemplate="{StaticResource ResourceKey=OrdinalColumnDataTemplate}"/>
 
                     <GridViewColumn Header="Thumbnail" Width="100">
                         <GridViewColumn.CellTemplate>
@@ -144,6 +144,7 @@
                                                TextWrapping="WrapWithOverflow" FontSize="14" 
                                                HorizontalAlignment="Left" 
                                                VerticalAlignment="Center"/>
+                                    
                                     <TextBlock Text="{Binding Track.ChannelTitle}" 
                                                Margin="0,5,0,0" 
                                                FontFamily="Static/Fonts/youbookie-sans.ttf" 
@@ -196,7 +197,6 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-
                     <GridViewColumn Header="Comments" Width="120">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
@@ -209,8 +209,6 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-
-                    
                 </GridView>
             </ListView.View>
         </ListView>

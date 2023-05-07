@@ -45,6 +45,7 @@
                                  TextChanged="SearchBarTextChange" 
                                  Margin="28,0,0,0"
                                  KeyDown="SearchAuthorOnEnterKeyDown"/>
+                        
                         <TextBlock Name="searchBarPlaceholder" 
                                    Text="Search for content, press Enter to submit." 
                                    VerticalAlignment="Center" 
@@ -69,7 +70,9 @@
                             BorderThickness="1"
                             ToolTip="Refresh list of tracks."
                             Click="RefreshArtistsListView">
+
                     <Image Source="/Static/refresh-icon.png" Width="35" Height="35" RenderOptions.BitmapScalingMode="HighQuality"/>
+
                     <Button.Template>
                         <ControlTemplate TargetType="{x:Type Button}">
                             <Border CornerRadius="30"
@@ -82,6 +85,7 @@
 
                         </ControlTemplate>
                     </Button.Template>
+
                     <Button.Style>
                         <Style TargetType="Button">
                             <Setter Property="Background" Value="#f8f8f8"/>
@@ -94,7 +98,6 @@
                         </Style>
                     </Button.Style>
                 </Button>
-
             </StackPanel>
         </Grid>
 
@@ -117,9 +120,8 @@
             </ListView.ItemContainerStyle>
             <ListView.View>
                 <GridView ColumnHeaderContainerStyle="{StaticResource GridViewColumnHeaderStyle1}" >
-                    <GridViewColumn Header="#" Width="30" CellTemplate="{StaticResource ResourceKey=OrdinalColumnDataTemplate}">
-                    </GridViewColumn>
-
+                    <GridViewColumn Header="#" Width="30" CellTemplate="{StaticResource ResourceKey=OrdinalColumnDataTemplate}"/>
+                    
                     <GridViewColumn Header="Thumbnail" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>

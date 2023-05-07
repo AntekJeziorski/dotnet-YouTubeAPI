@@ -3,7 +3,6 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:dotnet_YouTubeAPI.MVVM.View"
         xmlns:utils="clr-namespace:dotnet_YouTubeAPI.Utils"
         xmlns:wf="clr-namespace:System.Windows.Forms.DataVisualization.Charting;assembly=System.Windows.Forms.DataVisualization"
         mc:Ignorable="d"
@@ -16,6 +15,7 @@
     <Window.Resources>
         <utils:StringTruncationConverter x:Key="StringTruncationConverter"/>
     </Window.Resources>
+    
     <ScrollViewer CanContentScroll="False">
         <Grid>
              <Grid.RowDefinitions>
@@ -35,7 +35,8 @@
                     RenderOptions.BitmapScalingMode="HighQuality"
                     Source="/Static/youbookie-icon.png" 
                     Margin="0,0,10,0" />
-                    <TextBlock Grid.Column="1" 
+                    
+                   <TextBlock Grid.Column="1" 
                             VerticalAlignment="Center"
                             HorizontalAlignment="Right"
                             FontFamily="/Static/Fonts/youbookie-sans.ttf"  
@@ -43,26 +44,36 @@
                             FontWeight="Medium" 
                             Foreground="#FFEE3E38" 
                             Margin="0,0,0,0">
-                    <Run Text="YouBookie"/></TextBlock>
+                        <Run Text="YouBookie"/></TextBlock>
                 </StackPanel>
-                <TextBlock Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" FontFamily="/Static/Fonts/youbookie-sans.ttf" FontSize="16" Foreground="Black" Margin="0,0,20,0">
-                <Run Text="VideoId: "/>
-                <Run Text="{Binding Track.VideoId}"/>
+                
+                <TextBlock Grid.Column="1" 
+                           VerticalAlignment="Center" 
+                           HorizontalAlignment="Right" 
+                           FontFamily="/Static/Fonts/youbookie-sans.ttf" 
+                           FontSize="16" 
+                           Foreground="Black" 
+                           Margin="0,0,20,0">
+                    <Run Text="VideoId: "/>
+                    <Run Text="{Binding Track.VideoId}"/>
                 </TextBlock>
             </Grid>
 
             <Grid Grid.Row="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="200"/>
-                </Grid.RowDefinitions>
-
-                <Grid Grid.Row="0">
+                <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="340"/>
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
+                    
                     <Border BorderBrush="#FFEE3E38" BorderThickness="0,0,0,4"  Margin="5,0,5,0" VerticalAlignment="Top">
-                        <Image Source="{Binding Track.ThumbnailMedium}" Margin="0,0,0,5" Width="320" Height="180" HorizontalAlignment="Center" VerticalAlignment="Top" RenderOptions.BitmapScalingMode="HighQuality"/>
+                        <Image Source="{Binding Track.ThumbnailMedium}" 
+                               Margin="0,0,0,5" 
+                               Width="320" 
+                               Height="180"       
+                               HorizontalAlignment="Center" 
+                               VerticalAlignment="Top" 
+                               RenderOptions.BitmapScalingMode="HighQuality"/>
                     </Border>
                     <StackPanel Grid.Column="1">
                         <TextBlock Text="{Binding Track.Title}" 
@@ -72,6 +83,7 @@
                                    Padding="40,0,40,0"
                                    HorizontalAlignment="Right" 
                                    VerticalAlignment="Center"/>
+                        
                         <TextBlock Margin="40,5,40,0" 
                                    FontFamily="Static/Fonts/youbookie-sans.ttf" 
                                    TextWrapping="WrapWithOverflow"
@@ -81,6 +93,7 @@
                                   <Run Text="Author: "/>
                                   <Run Text="{Binding Track.ChannelTitle}"/>
                         </TextBlock>
+                        
                         <TextBlock Margin="40,5,40,0" 
                                    FontFamily="Static/Fonts/youbookie-sans.ttf" 
                                    TextWrapping="WrapWithOverflow"
@@ -90,6 +103,7 @@
                             <Run Text="Release date: "/>
                             <Run Text="{Binding Track.ReleaseDate, StringFormat={}{0:ddd dd MMM yyyy HH:mm}}"/>
                         </TextBlock>
+                        
                         <TextBlock Margin="10,20,40,0" 
                                    FontFamily="Static/Fonts/youbookie-sans.ttf" 
                                    TextWrapping="WrapWithOverflow"
@@ -116,6 +130,7 @@
                             HorizontalAlignment="Right"  
                             Foreground="White"
                             Click="Button_Click_DeleteTrack">
+                        
                         <Button.Template>
                             <ControlTemplate TargetType="{x:Type Button}">
                                 <Border CornerRadius="25"
@@ -127,6 +142,7 @@
                                 </Border>
                             </ControlTemplate>
                         </Button.Template>
+                        
                         <Button.Style>
                             <Style TargetType="Button">
                                 <Setter Property="Background" Value="#FFEE3E38"/>
@@ -148,7 +164,7 @@
                                VerticalAlignment="Center">
                         <Run Text="👍  Recent likes: "  />
                         <Run Text="{Binding TracksHistory.LikeCount}" />
-                         <Run Text=" 👍" />
+                        <Run Text=" 👍" />
                     </TextBlock>
 
                    <WindowsFormsHost Margin="120,10,120,10" ChildChanged="PopulateLikesChart">
@@ -159,7 +175,6 @@
                                 <wf:ChartArea/>
                             </wf:Chart.ChartAreas>
                         </wf:Chart>
-
                     </WindowsFormsHost>
 
                     <TextBlock Margin="40,5,40,0" 

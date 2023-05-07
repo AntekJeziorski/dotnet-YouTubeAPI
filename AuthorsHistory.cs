@@ -93,17 +93,15 @@ namespace YouTubeAPI
             {
                 // Execute the request
                 ChannelListResponse response = listRequest.Execute();
-                // Access the channel information
-                foreach (var item in response.Items)
+                if (response.PageInfo.TotalResults > 0)
                 {
-                    ViewCount = (Int64)item.Statistics.ViewCount;
-                    SubCount = (Int64)item.Statistics.SubscriberCount;
-                    VideoCount = (Int64)item.Statistics.VideoCount;
-
-
-                    Console.WriteLine("Channel view count: " + ViewCount);
-                    Console.WriteLine("Channel subscription count: " + SubCount);
-                    Console.WriteLine("Channel video count: " + VideoCount);
+                    // Access the channel information
+                    foreach (var item in response.Items)
+                    {
+                        ViewCount = (Int64)item.Statistics.ViewCount;
+                        SubCount = (Int64)item.Statistics.SubscriberCount;
+                        VideoCount = (Int64)item.Statistics.VideoCount;
+                    }
                 }
             }
             catch (Exception ex)
