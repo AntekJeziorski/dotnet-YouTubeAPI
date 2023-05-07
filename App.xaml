@@ -4,6 +4,31 @@
              xmlns:local="clr-namespace:dotnet_YouTubeAPI"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
+<<<<<<< HEAD
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Theme/TopBarButton.xaml"/>
+                <ResourceDictionary Source="Theme/ListViewHeader.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+
+            <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+                <view:HomeView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:ArtistViewModel}">
+                <view:ArtistsView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:TracksViewModel}">
+                <view:TracksView/>
+            </DataTemplate>
+
+            <DataTemplate DataType="{x:Type viewModel:AboutViewModel}">
+                <view:AboutView/>
+            </DataTemplate>
+        </ResourceDictionary>
+=======
          
+>>>>>>> master
     </Application.Resources>
 </Application>

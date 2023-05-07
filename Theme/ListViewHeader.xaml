@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="GridViewColumnHeaderStyle1" TargetType="{x:Type GridViewColumnHeader}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type GridViewColumnHeader}">
+                    <Border BorderThickness="0,0,0,1" BorderBrush="LightGray" Background="Transparent" Visibility="Visible">
+                        <TextBlock x:Name="ContentHeader" Text="{TemplateBinding Content}" Padding="0,5,0,10" Width="{TemplateBinding Width}" HorizontalAlignment="Center" TextAlignment="Justify" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="FontFamily" Value="/Static/Fonts/youbookie-sans.ttf" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+</ResourceDictionary>

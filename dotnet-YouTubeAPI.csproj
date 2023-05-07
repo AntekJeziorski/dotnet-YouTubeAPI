@@ -1,5 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<<<<<<< HEAD
+  <Import Project="packages\Microsoft.NET.Test.Sdk.17.5.0\build\net462\Microsoft.NET.Test.Sdk.props" Condition="Exists('packages\Microsoft.NET.Test.Sdk.17.5.0\build\net462\Microsoft.NET.Test.Sdk.props')" />
+  <Import Project="packages\Microsoft.CodeCoverage.17.5.0\build\netstandard2.0\Microsoft.CodeCoverage.props" Condition="Exists('packages\Microsoft.CodeCoverage.17.5.0\build\netstandard2.0\Microsoft.CodeCoverage.props')" />
+  <Import Project="packages\NUnit3TestAdapter.4.4.2\build\net462\NUnit3TestAdapter.props" Condition="Exists('packages\NUnit3TestAdapter.4.4.2\build\net462\NUnit3TestAdapter.props')" />
+  <Import Project="packages\NUnit.3.13.3\build\NUnit.props" Condition="Exists('packages\NUnit.3.13.3\build\NUnit.props')" />
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+=======
+>>>>>>> master
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -24,6 +32,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\dotnet-YouTubeAPI.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,8 +44,53 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+<<<<<<< HEAD
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis, Version=1.60.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.1.60.0\lib\net45\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.60.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.Auth.1.60.0\lib\net461\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.60.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.Auth.1.60.0\lib\net461\Google.Apis.Auth.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.60.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.Core.1.60.0\lib\net45\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.60.0.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.1.60.0\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.YouTube.v3, Version=1.60.0.2945, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Apis.YouTube.v3.1.60.0.2945\lib\net45\Google.Apis.YouTube.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.CodeCoverage.Shim, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.CodeCoverage.17.5.0\lib\net462\Microsoft.VisualStudio.CodeCoverage.Shim.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.13.3.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>packages\NUnit.3.13.3\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="NUnit3.TestAdapter, Version=4.4.0.0, Culture=neutral, PublicKeyToken=4cb40d35494691ac, processorArchitecture=MSIL" />
+=======
+>>>>>>> master
     <Reference Include="System" />
     <Reference Include="System.Data" />
+<<<<<<< HEAD
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+=======
+>>>>>>> master
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,7 +109,111 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+<<<<<<< HEAD
+    <Compile Include="MVVM\Model\Author.cs" />
+    <Compile Include="MVVM\Model\AuthorInfo.cs" />
+    <Compile Include="MVVM\Model\AuthorsHistory.cs" />
+    <Compile Include="Core\ObservableObject.cs" />
+    <Compile Include="Core\RelayCommand.cs" />
+    <Compile Include="Migrations\202303272226410_InitialCreate.cs" />
+    <Compile Include="Migrations\202303272226410_InitialCreate.designer.cs">
+      <DependentUpon>202303272226410_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304161256197_InitialCreate1.cs" />
+    <Compile Include="Migrations\202304161256197_InitialCreate1.designer.cs">
+      <DependentUpon>202304161256197_InitialCreate1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304171501417_InitialCreate2.cs" />
+    <Compile Include="Migrations\202304171501417_InitialCreate2.designer.cs">
+      <DependentUpon>202304171501417_InitialCreate2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304211933533_InitialCreate3.cs" />
+    <Compile Include="Migrations\202304211933533_InitialCreate3.designer.cs">
+      <DependentUpon>202304211933533_InitialCreate3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304211936578_InitialCreate4.cs" />
+    <Compile Include="Migrations\202304211936578_InitialCreate4.designer.cs">
+      <DependentUpon>202304211936578_InitialCreate4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202304211938193_InitialCreate5.cs" />
+    <Compile Include="Migrations\202304211938193_InitialCreate5.designer.cs">
+      <DependentUpon>202304211938193_InitialCreate5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305012139139_InitialCreate6.cs" />
+    <Compile Include="Migrations\202305012139139_InitialCreate6.designer.cs">
+      <DependentUpon>202305012139139_InitialCreate6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305012316276_InitialCreate7.cs" />
+    <Compile Include="Migrations\202305012316276_InitialCreate7.designer.cs">
+      <DependentUpon>202305012316276_InitialCreate7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305012322291_InitialCreate8.cs" />
+    <Compile Include="Migrations\202305012322291_InitialCreate8.designer.cs">
+      <DependentUpon>202305012322291_InitialCreate8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305021601262_InitialCreate9.cs" />
+    <Compile Include="Migrations\202305021601262_InitialCreate9.designer.cs">
+      <DependentUpon>202305021601262_InitialCreate9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305021606225_InitialCreate10.cs" />
+    <Compile Include="Migrations\202305021606225_InitialCreate10.designer.cs">
+      <DependentUpon>202305021606225_InitialCreate10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305021610049_InitialCreate11.cs" />
+    <Compile Include="Migrations\202305021610049_InitialCreate11.designer.cs">
+      <DependentUpon>202305021610049_InitialCreate11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305021740127_InitialCreate12.cs" />
+    <Compile Include="Migrations\202305021740127_InitialCreate12.designer.cs">
+      <DependentUpon>202305021740127_InitialCreate12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305031205261_FixTimestamp.cs" />
+    <Compile Include="Migrations\202305031205261_FixTimestamp.designer.cs">
+      <DependentUpon>202305031205261_FixTimestamp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305041633273_InitialCreate13.cs" />
+    <Compile Include="Migrations\202305041633273_InitialCreate13.designer.cs">
+      <DependentUpon>202305041633273_InitialCreate13.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="MVVM\ViewModel\ArtistViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\AboutViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\TracksViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\HomeViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
+    <Compile Include="MVVM\View\AboutView.xaml.cs">
+      <DependentUpon>AboutView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\ArtistsInfoView.xaml.cs">
+      <DependentUpon>ArtistsInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\ArtistsView.xaml.cs">
+      <DependentUpon>ArtistsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\TracksView.xaml.cs">
+      <DependentUpon>TracksView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\TrackInfoView.xaml.cs">
+      <DependentUpon>TrackInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\Model\Track.cs" />
+    <Compile Include="MVVM\Model\TrackInfo.cs" />
+    <Compile Include="MVVM\Model\TracksHistory.cs" />
+    <Compile Include="Utils\ListNumberingUtils.cs" />
+    <Compile Include="Utils\SearchBarUtils.cs" />
+    <Compile Include="Utils\StringTruncatingUtils.cs" />
+    <Compile Include="MVVM\Model\YouTubeApiContext.cs" />
+    <Page Include="MVVM\View\ArtistsInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\MainWindow.xaml">
+=======
     <Page Include="MainWindow.xaml">
+>>>>>>> master
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -67,6 +225,37 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+<<<<<<< HEAD
+    <Page Include="MVVM\View\AboutView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\ArtistsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\HomeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\TracksView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\TrackInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Theme\ListViewHeader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Theme\TopBarButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+=======
+>>>>>>> master
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -82,6 +271,54 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+<<<<<<< HEAD
+    <EmbeddedResource Include="Migrations\202303272226410_InitialCreate.resx">
+      <DependentUpon>202303272226410_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304161256197_InitialCreate1.resx">
+      <DependentUpon>202304161256197_InitialCreate1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304171501417_InitialCreate2.resx">
+      <DependentUpon>202304171501417_InitialCreate2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304211933533_InitialCreate3.resx">
+      <DependentUpon>202304211933533_InitialCreate3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304211936578_InitialCreate4.resx">
+      <DependentUpon>202304211936578_InitialCreate4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202304211938193_InitialCreate5.resx">
+      <DependentUpon>202304211938193_InitialCreate5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305012139139_InitialCreate6.resx">
+      <DependentUpon>202305012139139_InitialCreate6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305012316276_InitialCreate7.resx">
+      <DependentUpon>202305012316276_InitialCreate7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305012322291_InitialCreate8.resx">
+      <DependentUpon>202305012322291_InitialCreate8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305021601262_InitialCreate9.resx">
+      <DependentUpon>202305021601262_InitialCreate9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305021606225_InitialCreate10.resx">
+      <DependentUpon>202305021606225_InitialCreate10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305021610049_InitialCreate11.resx">
+      <DependentUpon>202305021610049_InitialCreate11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305021740127_InitialCreate12.resx">
+      <DependentUpon>202305021740127_InitialCreate12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305031205261_FixTimestamp.resx">
+      <DependentUpon>202305031205261_FixTimestamp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305041633273_InitialCreate13.resx">
+      <DependentUpon>202305041633273_InitialCreate13.cs</DependentUpon>
+    </EmbeddedResource>
+=======
+>>>>>>> master
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -94,5 +331,34 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+<<<<<<< HEAD
+  <ItemGroup>
+    <Resource Include="Static\youbookie-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Static\favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Static\refresh-icon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+    <Error Condition="!Exists('packages\NUnit.3.13.3\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\NUnit.3.13.3\build\NUnit.props'))" />
+    <Error Condition="!Exists('packages\NUnit3TestAdapter.4.4.2\build\net462\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\NUnit3TestAdapter.4.4.2\build\net462\NUnit3TestAdapter.props'))" />
+    <Error Condition="!Exists('packages\Microsoft.CodeCoverage.17.5.0\build\netstandard2.0\Microsoft.CodeCoverage.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeCoverage.17.5.0\build\netstandard2.0\Microsoft.CodeCoverage.props'))" />
+    <Error Condition="!Exists('packages\Microsoft.CodeCoverage.17.5.0\build\netstandard2.0\Microsoft.CodeCoverage.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.CodeCoverage.17.5.0\build\netstandard2.0\Microsoft.CodeCoverage.targets'))" />
+    <Error Condition="!Exists('packages\Microsoft.NET.Test.Sdk.17.5.0\build\net462\Microsoft.NET.Test.Sdk.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.NET.Test.Sdk.17.5.0\build\net462\Microsoft.NET.Test.Sdk.props'))" />
+    <Error Condition="!Exists('packages\Microsoft.NET.Test.Sdk.17.5.0\build\net462\Microsoft.NET.Test.Sdk.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.NET.Test.Sdk.17.5.0\build\net462\Microsoft.NET.Test.Sdk.targets'))" />
+  </Target>
+  <Import Project="packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <Import Project="packages\Microsoft.CodeCoverage.17.5.0\build\netstandard2.0\Microsoft.CodeCoverage.targets" Condition="Exists('packages\Microsoft.CodeCoverage.17.5.0\build\netstandard2.0\Microsoft.CodeCoverage.targets')" />
+  <Import Project="packages\Microsoft.NET.Test.Sdk.17.5.0\build\net462\Microsoft.NET.Test.Sdk.targets" Condition="Exists('packages\Microsoft.NET.Test.Sdk.17.5.0\build\net462\Microsoft.NET.Test.Sdk.targets')" />
+=======
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+>>>>>>> master
 </Project>
