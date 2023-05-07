@@ -11,40 +11,40 @@ using YouTubeAPI;
 namespace dotnet_YouTubeAPI.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for Window1.xaml
+    /// Interaction logic for ArtistsInfoView.xaml
     /// </summary>
-    public partial class TrackInfoView : Window
+    public partial class ArtistsInfoView : Window
     {
         /// <summary>
-        /// Gets or sets TracksInfo object for selected track from list.
+        /// Gets or sets AuthorInfo object for selected author from list.
         /// </summary>
-        public TrackInfo InspectedTrack { get; set; }
+        public AuthorInfo InspectedArtist { get; set; }
 
         /// <summary>
-        /// Event that is raised when the list of tracks needs to be reloaded.
+        /// Event that is raised when the list of artists needs to be reloaded.
         /// </summary>
-        public event EventHandler ReloadTracksList;
+        public event EventHandler ReloadArtistsList;
 
         /// <summary>
-        /// Constructor for TrackInfoView class. Initializes window with detalied information about selected video.
+        /// Constructor for ArtistsInfoView class. Initializes window with detalied information about selected artist.
         /// </summary>
-        /// <param name="data">Track information to be displayed.</param>
-        public TrackInfoView(TrackInfo data)
-        {
-            InspectedTrack = data;
-            this.DataContext = InspectedTrack;
-            InitializeComponent();
-        }
+        /// <param name="data">Artist information to be displayed.</param>
+        public ArtistsInfoView(AuthorInfo data)
+            {
+                InspectedArtist = data;
+                this.DataContext = InspectedArtist;
+                InitializeComponent();
+            }
 
         /// <summary>
-        /// Deletes track and whole Track's history from database after clicking unsubscribe button and cofirming it in messagebox.
+        /// Deletes Artist and whole Author's history from database after clicking unsubscribe button and cofirming it in messagebox.
         /// </summary>
         /// <param name="sender">Event sender.</param>
         /// <param name="e">Caught event.</param>
-        private void Button_Click_DeleteTrack(object sender, RoutedEventArgs e)
+        private void Button_Click_DeleteArtist(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBoxResult.None;
-            result = System.Windows.MessageBox.Show("Do you really want to unsubscribe this track?", "Unsubscribe", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            result = System.Windows.MessageBox.Show("Do you really want to unsubscribe this author?", "Unsubscribe", MessageBoxButton.OKCancel, MessageBoxImage.Question);
             if (result == MessageBoxResult.OK)
             {
                 Window currentWindow = System.Windows.Application.Current.Windows.OfType<Window>().SingleOrDefault(w => w.IsActive);
@@ -52,30 +52,30 @@ namespace dotnet_YouTubeAPI.MVVM.View
                 {
                     using (var context = new YouTubeApiContext())
                     {
-                        context.DeleteTrack(InspectedTrack.Track.VideoId);
+                        context.DeleteAuthor(InspectedArtist.Author.ChannelId);
                     }
-                    ReloadTracksList?.Invoke(this, EventArgs.Empty);
+                    ReloadArtistsList?.Invoke(this, EventArgs.Empty);
                     currentWindow.Close();
                 }
                 catch (DbUpdateException)
                 {
-                    System.Windows.Forms.MessageBox.Show("Track already deleted.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    System.Windows.Forms.MessageBox.Show("Author already deleted.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     currentWindow.Close();
                 }
             }
         }
 
         /// <summary>
-        /// Renders a scatter plot which represents history of views for this Trac.
+        /// Renders a scatter plot that represents the number of total channel views over time.
         /// </summary>
         /// <param name="sender">Event sender.</param>
         /// <param name="e">Caught event.</param>
         private void PopulateViewsChart(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
         {
             var context = new YouTubeApiContext();
-            var track = context.GetTrackHistory(InspectedTrack.Track.VideoId);
+            var author = context.GetAuthorHistory(InspectedArtist.Author.ChannelId);
             var series = new Series("Data");
-            foreach (var item in track)
+            foreach (var item in author)
             {
                 series.Points.AddXY(item.AddTime.Millisecond, item.ViewCount);
             }
@@ -94,48 +94,48 @@ namespace dotnet_YouTubeAPI.MVVM.View
         }
 
         /// <summary>
-        /// Renders a scatter plot which represents history of likes for this Track.
+        /// Renders a scatter plot that represents the number of total channel subscribers over time.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void PopulateLikesChart(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
+        private void PopulateSubChart(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
         {
             var context = new YouTubeApiContext();
-            var track = context.GetTrackHistory(InspectedTrack.Track.VideoId);
+            var author = context.GetAuthorHistory(InspectedArtist.Author.ChannelId);
             var series = new Series("Data");
-            foreach (var item in track)
+            foreach (var item in author)
             {
-                series.Points.AddXY(item.AddTime.Millisecond, item.ViewCount);
+                series.Points.AddXY(item.AddTime.Millisecond, item.SubCount);
             }
 
             // Set the chart type to scatter
             series.ChartType = SeriesChartType.Point;
 
             // Add the series to the chart
-            LikesChart.Series.Add(series);
-            LikesChart.Series["Data"].Points[0].Color = System.Drawing.Color.Red;
+            SubChart.Series.Add(series);
+            SubChart.Series["Data"].Points[0].Color = System.Drawing.Color.Red;
 
             // Customize the chart appearance
-            LikesChart.Titles.Add("Likes number per history update");
-            LikesChart.ChartAreas[0].AxisX.Title = "Time";
-            LikesChart.ChartAreas[0].AxisY.Title = "Likes Number";
+            SubChart.Titles.Add("Likes number per history update");
+            SubChart.ChartAreas[0].AxisX.Title = "Time";
+            SubChart.ChartAreas[0].AxisY.Title = "Likes Number";
         }
 
         /// <summary>
-        /// Renders a scatter plot which represents history of comments for this Track.
+        /// Renders a scatter plot that represents the number of all videos published on the channel over time.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void PopulateCommentsChart(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
+        private void PopulateVideosChart(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
         {
             var context = new YouTubeApiContext();
-            var track = context.GetTrackHistory(InspectedTrack.Track.VideoId);
-            
+            var author = context.GetAuthorHistory(InspectedArtist.Author.ChannelId);
             var series = new Series("Data");
-            foreach (var item in track)
+            foreach (var item in author)
             {
-                series.Points.AddXY(item.AddTime.Millisecond, item.CommentCount);
+                series.Points.AddXY(item.AddTime.Millisecond, item.VideoCount);
             }
+
             // Set the chart type to scatter
             series.ChartType = SeriesChartType.Point;
 
@@ -143,10 +143,11 @@ namespace dotnet_YouTubeAPI.MVVM.View
             CommentsChart.Series.Add(series);
             CommentsChart.Series["Data"].Points[0].Color = System.Drawing.Color.Red;
 
-            // Customize the chart appearance
-            CommentsChart.Titles.Add("Comments number per history update");
+        // Customize the chart appearance
+            CommentsChart.Titles.Add("Likes number per history update");
             CommentsChart.ChartAreas[0].AxisX.Title = "Time";
-            CommentsChart.ChartAreas[0].AxisY.Title = "Comments Number";
+            CommentsChart.ChartAreas[0].AxisY.Title = "Likes Number";
         }
     }
 }
+
