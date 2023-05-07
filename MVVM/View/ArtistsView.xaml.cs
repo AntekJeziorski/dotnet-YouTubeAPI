@@ -3,7 +3,6 @@ using System;
 using System.Data.Entity.Infrastructure;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Forms;
 using System.Windows.Input;
 using YouTubeAPI;
@@ -96,7 +95,7 @@ namespace dotnet_YouTubeAPI.MVVM.View
                 }
                 catch (Exception ex)
                 {
-                    System.Windows.Forms.MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    System.Windows.Forms.MessageBox.Show("Specified Artist does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }

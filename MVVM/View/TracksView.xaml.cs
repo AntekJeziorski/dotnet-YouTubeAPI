@@ -94,7 +94,7 @@ namespace dotnet_YouTubeAPI.MVVM.View
                 }
                 catch (Exception ex)
                 {
-                    System.Windows.Forms.MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    System.Windows.Forms.MessageBox.Show("Specified Track does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 
             }

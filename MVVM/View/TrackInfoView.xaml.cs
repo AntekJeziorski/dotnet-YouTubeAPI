@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Data.Entity.Infrastructure;
 using System.Drawing;
-using System.Globalization;
 using System.Linq;
 using System.Windows;
-using System.Windows.Data;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using YouTubeAPI;
@@ -60,7 +58,7 @@ namespace dotnet_YouTubeAPI.MVVM.View
                 }
                 catch (DbUpdateException)
                 {
-                    System.Windows.Forms.MessageBox.Show("Track already deleted.", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    System.Windows.Forms.MessageBox.Show("Track already deleted. ", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     currentWindow.Close();
                 }
             }

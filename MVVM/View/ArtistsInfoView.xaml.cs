@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Data.Entity.Infrastructure;
 using System.Drawing;
-using System.Globalization;
 using System.Linq;
 using System.Windows;
-using System.Windows.Data;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
 using YouTubeAPI;
