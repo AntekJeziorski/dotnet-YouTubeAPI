@@ -27,7 +27,7 @@ namespace YouTubeAPI
                 // Create a timer with a 1 minutes interval.
                 _timer = new System.Timers.Timer(60000);
                 // Hook up the Elapsed event for the timer. 
-                _timer.Elapsed += Update;
+                _timer.Elapsed += UpdateTrackHistory;
                 // Set the timer to repeat.
                 _timer.AutoReset = true;
                 // Start the timer.
@@ -37,11 +37,11 @@ namespace YouTubeAPI
         }
 
         /// <summary>
-        /// Updates TracksHistory table after clicking the refresh button.
+        /// Updates TracksHistory table for each subscribed Track.
         /// </summary>
         /// <param name="source">Event sender.</param>
         /// <param name="e">Caught event.</param>
-        public static void Update(Object source, ElapsedEventArgs e)
+        public static void UpdateTrackHistory(Object source, ElapsedEventArgs e)
         {
             using (var context = new YouTubeApiContext())
             {
@@ -50,6 +50,9 @@ namespace YouTubeAPI
             }
         }
 
+        /// <summary>
+        /// Checks the connection to the youtube API, if the connection cannot be established a MessageBox is displayed indicating no connection.
+        /// </summary>
         public bool PingYoutube()
         {
             try

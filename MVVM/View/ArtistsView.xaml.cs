@@ -17,7 +17,7 @@ namespace dotnet_YouTubeAPI.MVVM.View
     public partial class ArtistsView : System.Windows.Controls.UserControl
     {
         /// <summary>
-        /// Non-parametric constructor for ArtistsView class. Initializes Arist view on app. 
+        /// Non-parametric constructor for ArtistsView class.Initializes Artists view for the aplication. 
         /// </summary>
         public ArtistsView()
         {

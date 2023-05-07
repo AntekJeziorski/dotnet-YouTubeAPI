@@ -15,7 +15,7 @@ namespace dotnet_YouTubeAPI.MVVM.View
     public partial class TracksView : System.Windows.Controls.UserControl
     {
         /// <summary>
-        /// Non-parametric constructor for TracksView class. Initializes Tracks view on app. 
+        /// Non-parametric constructor for TracksView class. Initializes Tracks view for the aplication. 
         /// </summary>
         public TracksView()
         {

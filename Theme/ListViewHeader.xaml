@@ -5,7 +5,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type GridViewColumnHeader}">
                     <Border BorderThickness="0,0,0,1" BorderBrush="LightGray" Background="Transparent" Visibility="Visible">
-                        <TextBlock x:Name="ContentHeader" Text="{TemplateBinding Content}" Padding="0,5,0,10" Width="{TemplateBinding Width}" TextAlignment="Center" />
+                        <TextBlock x:Name="ContentHeader" Text="{TemplateBinding Content}" Padding="0,5,0,10" Width="{TemplateBinding Width}" HorizontalAlignment="Center" TextAlignment="Justify" />
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
