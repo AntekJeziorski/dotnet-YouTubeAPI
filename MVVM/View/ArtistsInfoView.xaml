@@ -139,7 +139,7 @@
                                VerticalAlignment="Center">
                         <Run Text="👀  Total Views count: "/>
                         <Run Text="{Binding AuthorsHistory.ViewCount}" />
-                         <Run Text="👀" />
+                         <Run Text=" 👀" />
                     </TextBlock>
 
 
@@ -162,7 +162,7 @@
                                VerticalAlignment="Center">
                         <Run Text="❤  Total Subscriber count: "/>
                         <Run Text="{Binding AuthorsHistory.SubCount}" />
-                        <Run Text="❤"/>
+                        <Run Text=" ❤"/>
                     </TextBlock>
 
                     <WindowsFormsHost Margin="120,10,120,10" ChildChanged="PopulateSubChart">
@@ -183,11 +183,11 @@
                                VerticalAlignment="Center">
                         <Run Text="🎬  Total Videos count: "/>
                         <Run Text="{Binding AuthorsHistory.VideoCount}" />
-                        <Run Text="🎬"/>
+                        <Run Text=" 🎬"/>
                     </TextBlock>
 
                     <WindowsFormsHost Margin="120,10,120,10" ChildChanged="PopulateVideosChart">
-                        <wf:Chart x:Name="CommentsChart">
+                        <wf:Chart x:Name="VideosChart">
                             <wf:Chart.Series>
                             </wf:Chart.Series>
                             <wf:Chart.ChartAreas>

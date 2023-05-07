@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.Entity.Infrastructure;
+using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows;
@@ -77,20 +78,37 @@ namespace dotnet_YouTubeAPI.MVVM.View
             var series = new Series("Data");
             foreach (var item in author)
             {
-                series.Points.AddXY(item.AddTime.Millisecond, item.ViewCount);
+                series.Points.AddXY(item.AddTime, item.ViewCount);
             }
 
             // Set the chart type to scatter
-            series.ChartType = SeriesChartType.Point;
+            series.ChartType = SeriesChartType.Line;
 
             // Add the series to the chart
             ViewsChart.Series.Add(series);
-            ViewsChart.Series["Data"].Points[0].Color = System.Drawing.Color.Red;
+
+            ViewsChart.Series[0].ChartType = SeriesChartType.Line;
+            ViewsChart.Series[0].MarkerStyle = MarkerStyle.Circle;
+            ViewsChart.Series[0].MarkerColor = System.Drawing.Color.OrangeRed;
+            ViewsChart.Series[0].ToolTip = "Time: #VALX{dd/MM/yyyy HH:mm}, Views: #VALY{#,##0;#,##0;#,##0;0}";
 
             // Customize the chart appearance
-            ViewsChart.Titles.Add("Likes number per history update");
-            ViewsChart.ChartAreas[0].AxisX.Title = "Time";
-            ViewsChart.ChartAreas[0].AxisY.Title = "Likes Number";
+            ViewsChart.Titles.Add("Views count history");
+            ViewsChart.ChartAreas[0].AxisX.LabelStyle.Format = "dd/MM/yyyy\nHH:mm";
+            ViewsChart.ChartAreas[0].AxisY.LabelStyle.Format = "#,##0;#,##0;#,##0;0";
+            ViewsChart.ChartAreas[0].AxisX.MajorTickMark.Interval = 1;
+            ViewsChart.ChartAreas[0].AxisX.IntervalType = DateTimeIntervalType.Months;
+            ViewsChart.ChartAreas[0].AxisX.Maximum = DateTime.Now.ToOADate();
+            ViewsChart.ChartAreas[0].AxisX.LabelStyle.Angle = -45;
+            ViewsChart.ChartAreas[0].AxisY.Title = "Number of views";
+
+            // Set the chart's font sizes
+            ViewsChart.Titles[0].Font = new Font("Arial", 16);
+            ViewsChart.ChartAreas[0].AxisY.TitleFont = new Font("Arial", 12);
+
+            ViewsChart.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
+            ViewsChart.ChartAreas[0].CursorX.AutoScroll = true;
+            ViewsChart.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
         }
 
         /// <summary>
@@ -105,20 +123,37 @@ namespace dotnet_YouTubeAPI.MVVM.View
             var series = new Series("Data");
             foreach (var item in author)
             {
-                series.Points.AddXY(item.AddTime.Millisecond, item.SubCount);
+                series.Points.AddXY(item.AddTime, item.SubCount);
             }
 
             // Set the chart type to scatter
-            series.ChartType = SeriesChartType.Point;
+            series.ChartType = SeriesChartType.Line;
 
             // Add the series to the chart
             SubChart.Series.Add(series);
-            SubChart.Series["Data"].Points[0].Color = System.Drawing.Color.Red;
+
+            SubChart.Series[0].ChartType = SeriesChartType.Line;
+            SubChart.Series[0].MarkerStyle = MarkerStyle.Circle;
+            SubChart.Series[0].MarkerColor = System.Drawing.Color.OrangeRed;
+            SubChart.Series[0].ToolTip = "Time: #VALX{dd/MM/yyyy HH:mm}, Subscribers: #VALY{#,##0;#,##0;#,##0;0}";
 
             // Customize the chart appearance
-            SubChart.Titles.Add("Likes number per history update");
-            SubChart.ChartAreas[0].AxisX.Title = "Time";
-            SubChart.ChartAreas[0].AxisY.Title = "Likes Number";
+            SubChart.Titles.Add("Subscribers count history");
+            SubChart.ChartAreas[0].AxisX.LabelStyle.Format = "dd/MM/yyyy\nHH:mm";
+            SubChart.ChartAreas[0].AxisY.LabelStyle.Format = "#,##0;#,##0;#,##0;0";
+            SubChart.ChartAreas[0].AxisX.MajorTickMark.Interval = 1;
+            SubChart.ChartAreas[0].AxisX.IntervalType = DateTimeIntervalType.Months;
+            SubChart.ChartAreas[0].AxisX.Maximum = DateTime.Now.ToOADate();
+            SubChart.ChartAreas[0].AxisX.LabelStyle.Angle = -45;
+            SubChart.ChartAreas[0].AxisY.Title = "Number of subscribers";
+
+            // Set the chart's font sizes
+            SubChart.Titles[0].Font = new Font("Arial", 16);
+            SubChart.ChartAreas[0].AxisY.TitleFont = new Font("Arial", 12);
+
+            SubChart.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
+            SubChart.ChartAreas[0].CursorX.AutoScroll = true;
+            SubChart.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
         }
 
         /// <summary>
@@ -133,20 +168,37 @@ namespace dotnet_YouTubeAPI.MVVM.View
             var series = new Series("Data");
             foreach (var item in author)
             {
-                series.Points.AddXY(item.AddTime.Millisecond, item.VideoCount);
+                series.Points.AddXY(item.AddTime, item.VideoCount);
             }
 
             // Set the chart type to scatter
-            series.ChartType = SeriesChartType.Point;
+            series.ChartType = SeriesChartType.Line;
 
             // Add the series to the chart
-            CommentsChart.Series.Add(series);
-            CommentsChart.Series["Data"].Points[0].Color = System.Drawing.Color.Red;
+            VideosChart.Series.Add(series);
 
-        // Customize the chart appearance
-            CommentsChart.Titles.Add("Likes number per history update");
-            CommentsChart.ChartAreas[0].AxisX.Title = "Time";
-            CommentsChart.ChartAreas[0].AxisY.Title = "Likes Number";
+            VideosChart.Series[0].ChartType = SeriesChartType.Line;
+            VideosChart.Series[0].MarkerStyle = MarkerStyle.Circle;
+            VideosChart.Series[0].MarkerColor = System.Drawing.Color.OrangeRed;
+            VideosChart.Series[0].ToolTip = "Time: #VALX{dd/MM/yyyy HH:mm}, Videos: #VALY{#,##0;#,##0;#,##0;0}";
+
+            // Customize the chart appearance
+            VideosChart.Titles.Add("Videos count history");
+            VideosChart.ChartAreas[0].AxisX.LabelStyle.Format = "dd/MM/yyyy\nHH:mm";
+            VideosChart.ChartAreas[0].AxisY.LabelStyle.Format = "#,##0;#,##0;#,##0;0";
+            VideosChart.ChartAreas[0].AxisX.MajorTickMark.Interval = 1;
+            VideosChart.ChartAreas[0].AxisX.IntervalType = DateTimeIntervalType.Months;
+            VideosChart.ChartAreas[0].AxisX.Maximum = DateTime.Now.ToOADate();
+            VideosChart.ChartAreas[0].AxisX.LabelStyle.Angle = -45;
+            VideosChart.ChartAreas[0].AxisY.Title = "Number of videos";
+
+            // Set the chart's font sizes
+            VideosChart.Titles[0].Font = new Font("Arial", 16);
+            VideosChart.ChartAreas[0].AxisY.TitleFont = new Font("Arial", 12);
+
+            VideosChart.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
+            VideosChart.ChartAreas[0].CursorX.AutoScroll = true;
+            VideosChart.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
         }
     }
 }

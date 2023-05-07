@@ -15,3 +15,9 @@ To build the application, you can use Visual Studio or use the `dotnet run` comm
 ## docs
 
 The `/docs` directory contains the latest version of the project documentation generated using the doxygen system. 
+
+## contrubutors
+
+- Antoni Jeziorski, 259254@studnet.pwr.edu.pl
+- Szymon Sobczak, 259275@student.pwr.edu.pl
+- Jêdrzej Szymczyk, 254898@student.pwr.edu.pl

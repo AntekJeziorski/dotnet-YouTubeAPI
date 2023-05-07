@@ -86,21 +86,21 @@ namespace dotnet_YouTubeAPI.MVVM.View
 
             // Add the series to the chart
             ViewsChart.Series.Add(series);
-            //ViewsChart.Series[0].Color = System.Drawing.Color.Blue;
+            
             ViewsChart.Series[0].ChartType = SeriesChartType.Line;
             ViewsChart.Series[0].MarkerStyle = MarkerStyle.Circle;
             ViewsChart.Series[0].MarkerColor = System.Drawing.Color.OrangeRed;
             ViewsChart.Series[0].ToolTip = "Time: #VALX{dd/MM/yyyy HH:mm}, Views: #VALY{#,##0;#,##0;#,##0;0}";
 
             // Customize the chart appearance
-            ViewsChart.Titles.Add("View count history");
+            ViewsChart.Titles.Add("Views count history");
             ViewsChart.ChartAreas[0].AxisX.LabelStyle.Format = "dd/MM/yyyy\nHH:mm";
             ViewsChart.ChartAreas[0].AxisY.LabelStyle.Format = "#,##0;#,##0;#,##0;0";
             ViewsChart.ChartAreas[0].AxisX.MajorTickMark.Interval = 1;
             ViewsChart.ChartAreas[0].AxisX.IntervalType = DateTimeIntervalType.Months;
             ViewsChart.ChartAreas[0].AxisX.Maximum = DateTime.Now.ToOADate();
             ViewsChart.ChartAreas[0].AxisX.LabelStyle.Angle = -45;
-            ViewsChart.ChartAreas[0].AxisY.Title = "Number of likes";
+            ViewsChart.ChartAreas[0].AxisY.Title = "Number of views";
 
             // Set the chart's font sizes
             ViewsChart.Titles[0].Font = new Font("Arial", 16);
@@ -131,14 +131,14 @@ namespace dotnet_YouTubeAPI.MVVM.View
 
             // Add the series to the chart
             LikesChart.Series.Add(series);
-            //LikesChart.Series[0].Color = System.Drawing.Color.Red;
+
             LikesChart.Series[0].ChartType = SeriesChartType.Line;
             LikesChart.Series[0].MarkerStyle = MarkerStyle.Circle;
             LikesChart.Series[0].MarkerColor = System.Drawing.Color.OrangeRed;
-            LikesChart.Series[0].ToolTip = "Time: #VALX{dd/MM/yyyy HH:mm}, Views: #VALY{#,##0;#,##0;#,##0;0}";
+            LikesChart.Series[0].ToolTip = "Time: #VALX{dd/MM/yyyy HH:mm}, Likes: #VALY{#,##0;#,##0;#,##0;0}";
 
             // Customize the chart appearance
-            LikesChart.Titles.Add("LLike count history");
+            LikesChart.Titles.Add("Likes count history");
             LikesChart.ChartAreas[0].AxisX.LabelStyle.Format = "dd/MM/yyyy\nHH:mm";
             LikesChart.ChartAreas[0].AxisY.LabelStyle.Format = "#,##0;#,##0;#,##0;0";
             LikesChart.ChartAreas[0].AxisX.MajorTickMark.Interval = 1;
@@ -180,10 +180,10 @@ namespace dotnet_YouTubeAPI.MVVM.View
             CommentsChart.Series[0].ChartType = SeriesChartType.Line;
             CommentsChart.Series[0].MarkerStyle = MarkerStyle.Circle;
             CommentsChart.Series[0].MarkerColor = System.Drawing.Color.OrangeRed;
-            CommentsChart.Series[0].ToolTip = "Time: #VALX{dd/MM/yyyy HH:mm}, Views: #VALY{#,##0;#,##0;#,##0;0}";
+            CommentsChart.Series[0].ToolTip = "Time: #VALX{dd/MM/yyyy HH:mm}, Comments: #VALY{#,##0;#,##0;#,##0;0}";
 
             // Customize the chart appearance
-            CommentsChart.Titles.Add("Comment count history");
+            CommentsChart.Titles.Add("Comments count history");
             CommentsChart.ChartAreas[0].AxisX.LabelStyle.Format = "dd/MM/yyyy\nHH:mm";
             CommentsChart.ChartAreas[0].AxisY.LabelStyle.Format = "#,##0;#,##0;#,##0;0";
             CommentsChart.ChartAreas[0].AxisX.MajorTickMark.Interval = 1;
