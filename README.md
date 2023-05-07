@@ -10,7 +10,12 @@ of statistics to be visualised in graphs.
 ## build
 
 To run the application, you must have the .Net framework version 4.8 installed on your system. 
-To build the application, you can use Visual Studio or use the `dotnet run` command in the project's root directory.
+To build the application, you can use Visual Studio or use the command line in the project's root directory.
+
+To build and run the application you need to:
+1. Navigate to the project solution folder.
+2. Run: msbuild dotnet-YouTubeAPI.sln /p:Configuration=Release
+3. Run: .\bin\Release\dotnet-YouTubeAPI.exe
 
 ## docs
 
