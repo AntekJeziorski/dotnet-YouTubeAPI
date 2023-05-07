@@ -115,16 +115,16 @@ EventHandler&#160;</td><td class="memItemRight" valign="bottom"><b>ReloadTracksL
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:ad8ee798cbab6b5157e389b643bff32f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdotnet___you_tube_a_p_i_1_1_m_v_v_m_1_1_view_1_1_track_info_view.html#ad8ee798cbab6b5157e389b643bff32f8">Button_Click_DeleteTrack</a> (object sender, RoutedEventArgs e)</td></tr>
-<tr class="memdesc:ad8ee798cbab6b5157e389b643bff32f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes track from database after clicking unsubscribe button and cofirming it in messagebox.  <br /></td></tr>
+<tr class="memdesc:ad8ee798cbab6b5157e389b643bff32f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deletes track and whole Track's history from database after clicking unsubscribe button and cofirming it in messagebox.  <br /></td></tr>
 <tr class="separator:ad8ee798cbab6b5157e389b643bff32f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afeceaed435d446861b99ae67b6ae5ce5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdotnet___you_tube_a_p_i_1_1_m_v_v_m_1_1_view_1_1_track_info_view.html#afeceaed435d446861b99ae67b6ae5ce5">PopulateViewsChart</a> (object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)</td></tr>
-<tr class="memdesc:afeceaed435d446861b99ae67b6ae5ce5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders charts which represents history of views.  <br /></td></tr>
+<tr class="memdesc:afeceaed435d446861b99ae67b6ae5ce5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders a scatter plot which represents history of views for this Trac.  <br /></td></tr>
 <tr class="separator:afeceaed435d446861b99ae67b6ae5ce5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2cade3ee059010843710795410c88f60"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdotnet___you_tube_a_p_i_1_1_m_v_v_m_1_1_view_1_1_track_info_view.html#a2cade3ee059010843710795410c88f60">PopulateLikesChart</a> (object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)</td></tr>
-<tr class="memdesc:a2cade3ee059010843710795410c88f60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders charts which represents history of likes.  <br /></td></tr>
+<tr class="memdesc:a2cade3ee059010843710795410c88f60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders a scatter plot which represents history of likes for this Track.  <br /></td></tr>
 <tr class="separator:a2cade3ee059010843710795410c88f60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9c0f3f36666d9a59dbc65efc1be2d6ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classdotnet___you_tube_a_p_i_1_1_m_v_v_m_1_1_view_1_1_track_info_view.html#a9c0f3f36666d9a59dbc65efc1be2d6ba">PopulateCommentsChart</a> (object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)</td></tr>
-<tr class="memdesc:a9c0f3f36666d9a59dbc65efc1be2d6ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders charts which represents history of comments.  <br /></td></tr>
+<tr class="memdesc:a9c0f3f36666d9a59dbc65efc1be2d6ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders a scatter plot which represents history of comments for this Track.  <br /></td></tr>
 <tr class="separator:a9c0f3f36666d9a59dbc65efc1be2d6ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -149,7 +149,7 @@ Private Member Functions</h2></td></tr>
 <p>Constructor for TrackInfoView class. Initializes window with detalied information about selected video. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">data</td><td>Information about track for display.</td></tr>
+    <tr><td class="paramname">data</td><td>Track information to be displayed.</td></tr>
   </table>
   </dd>
 </dl>
@@ -191,7 +191,7 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Deletes track from database after clicking unsubscribe button and cofirming it in messagebox. </p>
+<p>Deletes track and whole Track's history from database after clicking unsubscribe button and cofirming it in messagebox. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sender</td><td>Event sender.</td></tr>
@@ -236,7 +236,7 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Renders charts which represents history of comments. </p>
+<p>Renders a scatter plot which represents history of comments for this Track. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sender</td><td></td></tr>
@@ -281,7 +281,7 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Renders charts which represents history of likes. </p>
+<p>Renders a scatter plot which represents history of likes for this Track. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sender</td><td></td></tr>
@@ -326,7 +326,7 @@ Private Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Renders charts which represents history of views. </p>
+<p>Renders a scatter plot which represents history of views for this Trac. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">sender</td><td>Event sender.</td></tr>
