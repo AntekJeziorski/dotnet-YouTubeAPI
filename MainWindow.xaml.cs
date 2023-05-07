@@ -1,10 +1,18 @@
+<<<<<<< HEAD:MVVM/View/MainWindow.xaml.cs
 using System;
+=======
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+>>>>>>> master:MainWindow.xaml.cs
 using System.Windows;
 using System.Timers;
 using System.Windows.Forms;
 
 
-namespace YouTubeAPI
+namespace dotnet_YouTubeAPI
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

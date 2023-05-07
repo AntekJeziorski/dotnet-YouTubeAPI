@@ -1,11 +1,10 @@
-﻿<Application x:Class="YouTubeAPI.App"
+﻿<Application x:Class="dotnet_YouTubeAPI.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:YouTubeAPI"
-             xmlns:viewModel="clr-namespace:dotnet_YouTubeAPI.MVVM.ViewModel"
-             xmlns:view="clr-namespace:dotnet_YouTubeAPI.MVVM.View"
-             StartupUri="/MVVM/View/MainWindow.xaml">
+             xmlns:local="clr-namespace:dotnet_YouTubeAPI"
+             StartupUri="MainWindow.xaml">
     <Application.Resources>
+<<<<<<< HEAD
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Theme/TopBarButton.xaml"/>
@@ -28,5 +27,8 @@
                 <view:AboutView/>
             </DataTemplate>
         </ResourceDictionary>
+=======
+         
+>>>>>>> master
     </Application.Resources>
 </Application>
