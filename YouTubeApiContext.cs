@@ -74,11 +74,11 @@ namespace YouTubeAPI
         /// Gets author history entries by Author id.
         /// </summary>
         /// <param name="Id">Author Id</param>
-        public IList<AuthorsHistory> GetAuthorsHistory(string Id)
+        public IList<AuthorsHistory> GetAuthorHistory(string Id)
         {
             using (var context = new YouTubeApiContext())
             {   
-                var authorsHistoryEntry = context.AuthorsHistory.Where(Channel => Channel.ChannelId == Id).ToList();
+                var authorsHistoryEntry = context.AuthorsHistory.Where(Author => Author.ChannelId == Id).ToList();
                 return authorsHistoryEntry;
             }   
         }
@@ -207,11 +207,11 @@ namespace YouTubeAPI
         }
 
         /// <summary>
-        /// Gets track history entries by track Id.
+        /// Gets track track entries by track Id.
         /// </summary>
         /// <param name="Id">Track's Id</param>
 
-        public IList<TracksHistory> GetTracksHistory(string Id)
+        public IList<TracksHistory> GetTrackHistory(string Id)
         {
             using (var context = new YouTubeApiContext())
             {

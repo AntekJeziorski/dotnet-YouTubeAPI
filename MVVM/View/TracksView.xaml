@@ -3,22 +3,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:dotnet_YouTubeAPI.MVVM.View" xmlns:row="clr-namespace:dotnet_YouTubeAPI.MVVM.ViewModel"
+             xmlns:local="clr-namespace:dotnet_YouTubeAPI.MVVM.View" 
+             xmlns:utils="clr-namespace:dotnet_YouTubeAPI.Utils"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
              Background="White">
     <DockPanel>
         <Grid DockPanel.Dock="Top">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="300"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
             
             <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="0,30,0,30">
-                <TextBlock Text="Favourite Tracks:" VerticalAlignment="Center" Foreground="Black" FontSize="30" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <TextBlock Text="Favourite Tracks:" 
+                           VerticalAlignment="Center" 
+                           Foreground="Black" 
+                           FontSize="30" 
+                           HorizontalAlignment="Center"/>
             </StackPanel>
 
-            <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0,0,0,0" Orientation="Horizontal">
+            <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Orientation="Horizontal">
                 <Border Grid.Column="1" 
                     CornerRadius="30"
                     Background="#f8f8f8"
@@ -28,9 +33,8 @@
                     BorderThickness="1"
                     BorderBrush="#FFEE3E38">
                     <Grid>
-                        <TextBox Name="txtUserName" 
+                        <TextBox Name="searchBarContent" 
                                  Grid.Column="1" 
-                                 Margin="28,0,0,0"
                                  BorderThickness ="0"
                                  Background="Transparent"
                                  VerticalAlignment="Center"    
@@ -39,8 +43,9 @@
                                  Width="380"
                                  Foreground="Black"
                                  TextChanged="SearchBarTextChange" 
+                                 Margin="28,0,0,0"
                                  KeyDown="SearchOnEnterKeyDown"/>
-                        <TextBlock Name="tbUsername" 
+                        <TextBlock Name="searchBarPlaceholder" 
                                    Text="Search for content, press Enter to submit." 
                                    VerticalAlignment="Center" 
                                    HorizontalAlignment="Left" 
@@ -54,7 +59,7 @@
                                    KeyDown="SearchOnEnterKeyDown"/>
                     </Grid>
                 </Border>
-                <Button Name="UnsubscribeButton" 
+                <Button Name="RefreshButton" 
                             Width="100" Height="50" 
                             Margin="10,0,10,0"
                             VerticalAlignment="Center"
@@ -64,7 +69,7 @@
                             BorderThickness="1"
                             ToolTip="Refresh list of tracks."
                             Click="RefreshTrackListView">
-                    <Image Source="/Static/refresh-icon.png" Width="35" Height="35"/>
+                    <Image Source="/Static/refresh-icon.png" Width="35" Height="35" RenderOptions.BitmapScalingMode="HighQuality"/>
                     <Button.Template>
                         <ControlTemplate TargetType="{x:Type Button}">
                             <Border CornerRadius="30"
@@ -95,7 +100,7 @@
 
         <ListView x:Name="listView" BorderThickness="0">
             <ListView.Resources>
-                <local:RowNumberConverter x:Key="OrdinalConverter"/>
+                <utils:RowNumberConverter x:Key="OrdinalConverter"/>
                 <DataTemplate x:Key="OrdinalColumnDataTemplate">
                     <TextBlock Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ListViewItem},
                     Converter={StaticResource ResourceKey=OrdinalConverter}}" Foreground="Black"  HorizontalAlignment="Center" />
@@ -119,7 +124,12 @@
                     <GridViewColumn Header="Thumbnail" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Image Margin="0,10,0,10" Source="{Binding Track.ThumbnailMedium}" Width="90" Height="50" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                <Image Margin="0,10,0,10" 
+                                       Source="{Binding Track.ThumbnailMedium}"  
+                                       Width="90" 
+                                       Height="50" 
+                                       HorizontalAlignment="Center" 
+                                       VerticalAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -173,7 +183,7 @@
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn Header="Views" Width="120" HeaderContainerStyle="{StaticResource MyCustomHeaderStyle}">
+                    <GridViewColumn Header="Views" Width="120">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding TracksHistory.ViewCount}" 
@@ -187,7 +197,7 @@
                     </GridViewColumn>
 
 
-                    <GridViewColumn Header="Comments" Width="120" HeaderContainerStyle="{StaticResource MyCustomHeaderStyle}">
+                    <GridViewColumn Header="Comments" Width="120">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding TracksHistory.CommentCount}" 
