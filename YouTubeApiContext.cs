@@ -100,7 +100,7 @@ namespace YouTubeAPI
         }
 
 
-        public IList<YouTubeAPI.AuthorInfo> GetAuthorInfo()
+        public IList<AuthorInfo> GetAuthorInfo()
         {
             using (var context = new YouTubeApiContext())
             {
@@ -118,7 +118,7 @@ namespace YouTubeAPI
             }
         }
 
-        public IList<YouTubeAPI.AuthorInfo> GetMostViewedAuthor()
+        public IList<AuthorInfo> GetMostViewedAuthor()
         {
             using (var context = new YouTubeApiContext())
             {
@@ -254,7 +254,7 @@ namespace YouTubeAPI
         /// Gets list of all TrackInfo objects.
         /// </summary>
         /// <returns>List of TrackInfo objects.</returns>
-        public IList<YouTubeAPI.TrackInfo> GetTrackInfo()
+        public IList<TrackInfo> GetTrackInfo()
         {
             using (var context = new YouTubeApiContext())
             {
@@ -272,7 +272,7 @@ namespace YouTubeAPI
             }
         }
 
-        public IList<YouTubeAPI.TrackInfo> GetMostViewedTrack()
+        public IList<TrackInfo> GetMostViewedTrack()
         {
             using (var context = new YouTubeApiContext())
             {
@@ -290,7 +290,7 @@ namespace YouTubeAPI
             }
         }
 
-        public IList<YouTubeAPI.TrackInfo> GetMostLikedTrack()
+        public IList<TrackInfo> GetMostLikedTrack()
         {
             using (var context = new YouTubeApiContext())
             {
@@ -310,19 +310,46 @@ namespace YouTubeAPI
     }
 
     /// <summary>
-    /// Represents database initializer.
+    /// Class representing an initialiser which, when the database has not been initialised, seeds it with example entries about Arutors and Tracks.
     /// </summary>
     public class YouTubeApiDbInitializer : CreateDatabaseIfNotExists<YouTubeApiContext>
     {
         protected override void Seed(YouTubeApiContext context)
         {
-            IList<Author> defaultAuthors = new List<Author>();
-            IList<Track> defaultTracks = new List<Track>();
+            IList<Author> defaultAuthors = new List<Author> 
+            { 
+                new Author("UCXuqSBlHAE6Xw-yeJA0Tunw"),
+                new Author("UC_976xMxPgzIa290Hqtk-9g"),
+                new Author("UCtcUMxUSMWUNBfOaKUv5cjg"),
+                new Author("UCO8czxzBx4PxuTEolCBmq2w")
+            };
 
-            context.Authors.AddRange(defaultAuthors);
-            context.Tracks.AddRange(defaultTracks);
-            var newTrack = new YouTubeAPI.Track("2ixECdC615g");
-            context.AddNewTrack(newTrack);
+            foreach (Author author in defaultAuthors)
+            {
+                context.AddNewAuthor(author);
+                AuthorsHistory AuthorHistoryEntry = new AuthorsHistory(author.ChannelId);
+                context.AddNewAuthorHistoryEntry(AuthorHistoryEntry);
+            }
+
+            IList<Track> defaultTracks = new List<Track>
+            {
+                new Track("qcxr2xuVLUs"),
+                new Track("vz-rpRYFhRo"),
+                new Track("IxS7gnP3kWk"),
+                new Track("togmdDHG3Pw"),
+                new Track("nLIp4wd0oXs"),
+                new Track("8wg4slkjKI0"),
+                new Track("Way9Dexny3w"),
+                new Track("Way9Dexny3w")
+            };
+
+            foreach (Track track in defaultTracks) { 
+                context.AddNewTrack(track);
+                TracksHistory AuthorTrackEntry = new TracksHistory(track.VideoId);
+                context.AddNewTrackHistoryEntry(AuthorTrackEntry);
+            }
+
+            context.SaveChanges();
         }
     }
 }
