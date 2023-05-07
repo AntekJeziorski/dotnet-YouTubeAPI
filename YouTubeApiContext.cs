@@ -115,9 +115,9 @@ namespace YouTubeAPI
         }
 
         /// <summary>
-        /// 
+        /// Returns current author's statistics.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Object which contains current author's statistics.</returns>
         public IList<YouTubeAPI.AuthorInfo> GetAuthorInfo()
         {
             using (var context = new YouTubeApiContext())
@@ -137,9 +137,9 @@ namespace YouTubeAPI
         }
 
         /// <summary>
-        /// 
+        /// Returns most viewed author.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Object which contains current most viewed author's statistics.</returns>
         public IList<YouTubeAPI.AuthorInfo> GetMostViewedAuthor()
         {
             using (var context = new YouTubeApiContext())
@@ -158,11 +158,11 @@ namespace YouTubeAPI
             }
         }
 
-        
+
         /// <summary>
-        /// Gets list of all AuthorInfo objects.
+        /// Returns most subscribed author.
         /// </summary>
-        /// <returns>List of AuthorInfo objects.</returns>
+        /// <returns>Object which contains current most subscribed author's statistics.</returns>
         public IList<YouTubeAPI.AuthorInfo> GetMostSubAuthor()
         {
             using (var context = new YouTubeApiContext())
@@ -291,9 +291,9 @@ namespace YouTubeAPI
         }
 
         /// <summary>
-        /// 
+        /// Returns most viewed track.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Object which contains current most viewed track's statistics.</returns>
         public IList<YouTubeAPI.TrackInfo> GetMostViewedTrack()
         {
             using (var context = new YouTubeApiContext())
@@ -313,9 +313,9 @@ namespace YouTubeAPI
         }
 
         /// <summary>
-        /// 
+        /// Returns most liked track.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Object which contains current most liked tracks's statistics.</returns>
         public IList<YouTubeAPI.TrackInfo> GetMostLikedTrack()
         {
             using (var context = new YouTubeApiContext())
