@@ -1065,7 +1065,9 @@ EXCLUDE                = "C:/Users/Acer/Documents/dotnet i java/dotnet-YouTubeAP
                          "../dotnet i java/dotnet-YouTubeAPI/App.xaml" \
                          "../dotnet i java/dotnet-YouTubeAPI/App.xaml.cs" \
                          "C:/Users/Acer/Documents/dotnet i java/dotnet-YouTubeAPI/Migrations/202303272226410_InitialCreate.cs" \
-                         "C:/Users/Acer/Documents/dotnet i java/dotnet-YouTubeAPI/App.xaml.cs"
+                         "C:/Users/Acer/Documents/dotnet i java/dotnet-YouTubeAPI/App.xaml.cs" \
+                         Sprawozdanie_dotNET_Sobczak_Szymczyk_Jeziorski.pdf \
+                         "C:/Users/Acer/Documents/dotnet i java/dotnet-YouTubeAPI/Migrations/202303272226410_InitialCreate.cs"
 
 # The EXCLUDE_SYMLINKS tag can be used to select whether or not files or
 # directories that are symbolic links (a Unix file system feature) are excluded
