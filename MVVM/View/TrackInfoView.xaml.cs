@@ -16,10 +16,20 @@ namespace dotnet_YouTubeAPI.MVVM.View
     /// </summary>
     public partial class TrackInfoView : Window
     {
+        /// <summary>
+        /// Gets or sets TracksInfo object for selected track from list.
+        /// </summary>
         public TrackInfo InspectedTrack { get; set; }
 
+        /// <summary>
+        /// Event that is raised when the list of tracks needs to be reloaded.
+        /// </summary>
         public event EventHandler ReloadTracksList;
 
+        /// <summary>
+        /// Constructor for TrackInfoView class. Initializes window with detalied information about selected video.
+        /// </summary>
+        /// <param name="data">Track information to be displayed.</param>
         public TrackInfoView(TrackInfo data)
         {
             InspectedTrack = data;
@@ -27,6 +37,11 @@ namespace dotnet_YouTubeAPI.MVVM.View
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Deletes track and whole Track's history from database after clicking unsubscribe button and cofirming it in messagebox.
+        /// </summary>
+        /// <param name="sender">Event sender.</param>
+        /// <param name="e">Caught event.</param>
         private void Button_Click_DeleteTrack(object sender, RoutedEventArgs e)
         {
             MessageBoxResult result = MessageBoxResult.None;
@@ -50,10 +65,16 @@ namespace dotnet_YouTubeAPI.MVVM.View
                 }
             }
         }
+
+        /// <summary>
+        /// Renders a scatter plot which represents history of views for this Trac.
+        /// </summary>
+        /// <param name="sender">Event sender.</param>
+        /// <param name="e">Caught event.</param>
         private void PopulateViewsChart(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
         {
             var context = new YouTubeApiContext();
-            var track = context.GetTracksHistory(InspectedTrack.Track.VideoId);
+            var track = context.GetTrackHistory(InspectedTrack.Track.VideoId);
             var series = new Series("Data");
             foreach (var item in track)
             {
@@ -90,10 +111,15 @@ namespace dotnet_YouTubeAPI.MVVM.View
             ViewsChart.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
         }
 
+        /// <summary>
+        /// Renders a scatter plot which represents history of likes for this Track.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PopulateLikesChart(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
         {
             var context = new YouTubeApiContext();
-            var track = context.GetTracksHistory(InspectedTrack.Track.VideoId);
+            var track = context.GetTrackHistory(InspectedTrack.Track.VideoId);
             var series = new Series("Data");
             foreach (var item in track)
             {
@@ -130,10 +156,15 @@ namespace dotnet_YouTubeAPI.MVVM.View
             LikesChart.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
         }
 
+        /// <summary>
+        /// Renders a scatter plot which represents history of comments for this Track.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PopulateCommentsChart(object sender, System.Windows.Forms.Integration.ChildChangedEventArgs e)
         {
             var context = new YouTubeApiContext();
-            var track = context.GetTracksHistory(InspectedTrack.Track.VideoId);
+            var track = context.GetTrackHistory(InspectedTrack.Track.VideoId);
             
             var series = new Series("Data");
             foreach (var item in track)
@@ -170,22 +201,4 @@ namespace dotnet_YouTubeAPI.MVVM.View
             CommentsChart.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
         }
     }
-
-    public class StringTruncationConverter : IValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            if (value == null)
-                return "";
-
-            string inputString = value.ToString();
-            return inputString.Split('\n')[0];
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotImplementedException();
-        }
-    }
-  
 }

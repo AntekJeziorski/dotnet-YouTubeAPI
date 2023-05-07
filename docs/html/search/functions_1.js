@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['deleteauthor_0',['deleteAuthor',['../class_you_tube_a_p_i_1_1_you_tube_api_context.html#a9f4a0fb9b7d0fd56d5e1fe696447dad5',1,'YouTubeAPI::YouTubeApiContext']]],
-  ['deletetrack_1',['deleteTrack',['../class_you_tube_a_p_i_1_1_you_tube_api_context.html#a5318312cd368a4a21823d47ee55cf715',1,'YouTubeAPI::YouTubeApiContext']]]
+  ['button_5fclick_5fdeletetrack_0',['Button_Click_DeleteTrack',['../classdotnet___you_tube_a_p_i_1_1_m_v_v_m_1_1_view_1_1_track_info_view.html#ad8ee798cbab6b5157e389b643bff32f8',1,'dotnet_YouTubeAPI::MVVM::View::TrackInfoView']]]
 ];

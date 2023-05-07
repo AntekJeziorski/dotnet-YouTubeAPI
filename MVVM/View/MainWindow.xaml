@@ -32,7 +32,7 @@
                 </Grid.ColumnDefinitions>
                
                 <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center">
-                    <Image Height="48" VerticalAlignment="Center" Source="/Static/youbookie-icon.png" Margin="0,0,10,0" />
+                    <Image Height="48" VerticalAlignment="Center" Source="/Static/youbookie-icon.png" Margin="0,0,10,0"  RenderOptions.BitmapScalingMode="HighQuality" />
                     <TextBlock Grid.Column="1" 
                                VerticalAlignment="Center"
                                HorizontalAlignment="Right"

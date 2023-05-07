@@ -10,7 +10,14 @@ namespace YouTubeAPI
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Timer for automatic updating TracksHistory table.
+        /// </summary>
         private static Timer _timer;
+
+        /// <summary>
+        /// Non-parametric constructor which initializes MainWindow and timer.
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
@@ -24,6 +31,11 @@ namespace YouTubeAPI
             _timer.Enabled = true;
         }
 
+        /// <summary>
+        /// Updates TracksHistory table after clicking the refresh button.
+        /// </summary>
+        /// <param name="source">Event sender.</param>
+        /// <param name="e">Caught event.</param>
         public static void Update(Object source, ElapsedEventArgs e)
         {
             using (var context = new YouTubeApiContext())
