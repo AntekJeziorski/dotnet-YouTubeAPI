@@ -63,11 +63,11 @@ namespace YouTubeAPI
             try
             {
                 ChannelId = Id;
+                ChannelTitle = Id;
                 GetChannelData();
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Author :" + ex.Message);
                 throw ex;
             }
             finally {}
@@ -99,16 +99,29 @@ namespace YouTubeAPI
                         ChannelDescription = item.Snippet.Description;
                         JoiningDate = item.Snippet.PublishedAt ?? DateTime.Now;
                         ThumbnailMedium = item.Snippet.Thumbnails.Medium.Url;
-
-                        Console.WriteLine("Channel Name: " + ChannelTitle);
-                        Console.WriteLine("Channel Id: " + ChannelId);
-                        Console.WriteLine("Channel Description: " + ChannelDescription);
                     }
                 }
                 else
                 {
-                    Console.WriteLine("Channel not found!!!");
-                    throw new Exception("Wrong Channel Id");
+                    listRequest.Id = null;
+                    listRequest.ForUsername = ChannelTitle;
+
+                    response = listRequest.Execute();
+                    if (response.PageInfo.TotalResults == 1)
+                    {
+                        // Access the channel information
+                        foreach (var item in response.Items)
+                        {
+                            ChannelId = item.Id;
+                            ChannelDescription = item.Snippet.Description;
+                            JoiningDate = item.Snippet.PublishedAt ?? DateTime.Now;
+                            ThumbnailMedium = item.Snippet.Thumbnails.Medium.Url;
+                        }
+                    }
+                    else
+                    {
+                        throw new Exception("Wrong Channel Id or name");
+                    }
                 }
             }
             catch (Exception ex)

@@ -10,7 +10,6 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Theme/TopBarButton.xaml"/>
                 <ResourceDictionary Source="Theme/ListViewHeader.xaml"/>
-                <ResourceDictionary Source="Theme/ListViewHeaderRightAligment.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
@@ -18,7 +17,7 @@
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type viewModel:ArtistViewModel}">
-                <view:ArtistView/>
+                <view:ArtistsView/>
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type viewModel:TracksViewModel}">
@@ -28,9 +27,6 @@
             <DataTemplate DataType="{x:Type viewModel:AboutViewModel}">
                 <view:AboutView/>
             </DataTemplate>
-
-            
-
         </ResourceDictionary>
     </Application.Resources>
 </Application>

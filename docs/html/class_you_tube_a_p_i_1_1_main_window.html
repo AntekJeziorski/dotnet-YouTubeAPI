@@ -74,6 +74,9 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="class_you_tube_a_p_i_1_1_main_window-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">YouTubeAPI.MainWindow Class Reference</div></div>
 </div><!--header-->
@@ -87,9 +90,80 @@ Inheritance diagram for YouTubeAPI.MainWindow:</div>
  <div class="center">
   <img src="class_you_tube_a_p_i_1_1_main_window.png" alt=""/>
  </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a129db0411ba5843d1ff927b1844688a6"><td class="memItemLeft" align="right" valign="top"><a id="a129db0411ba5843d1ff927b1844688a6" name="a129db0411ba5843d1ff927b1844688a6"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>MainWindow</b> ()</td></tr>
+<tr class="memdesc:a129db0411ba5843d1ff927b1844688a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non-parametric constructor which initializes MainWindow and timer. <br /></td></tr>
+<tr class="separator:a129db0411ba5843d1ff927b1844688a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e276f1091edc5fda9e8f3fc9aa6f3ce"><td class="memItemLeft" align="right" valign="top"><a id="a1e276f1091edc5fda9e8f3fc9aa6f3ce" name="a1e276f1091edc5fda9e8f3fc9aa6f3ce"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>PingYoutube</b> ()</td></tr>
+<tr class="memdesc:a1e276f1091edc5fda9e8f3fc9aa6f3ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks the connection to the youtube API, if the connection cannot be established a MessageBox is displayed indicating no connection. <br /></td></tr>
+<tr class="separator:a1e276f1091edc5fda9e8f3fc9aa6f3ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:ab79a0cfe3b4b6d333d37809d4dd4d21d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_you_tube_a_p_i_1_1_main_window.html#ab79a0cfe3b4b6d333d37809d4dd4d21d">UpdateTrackHistory</a> (Object source, ElapsedEventArgs e)</td></tr>
+<tr class="memdesc:ab79a0cfe3b4b6d333d37809d4dd4d21d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates TracksHistory table for each subscribed Track.  <br /></td></tr>
+<tr class="separator:ab79a0cfe3b4b6d333d37809d4dd4d21d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:a06d4402a3fdfc43137b91de2a2e066a4"><td class="memItemLeft" align="right" valign="top"><a id="a06d4402a3fdfc43137b91de2a2e066a4" name="a06d4402a3fdfc43137b91de2a2e066a4"></a>
+static System.Timers.Timer&#160;</td><td class="memItemRight" valign="bottom"><b>_timer</b></td></tr>
+<tr class="memdesc:a06d4402a3fdfc43137b91de2a2e066a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timer for automatic updating TracksHistory table. <br /></td></tr>
+<tr class="separator:a06d4402a3fdfc43137b91de2a2e066a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Interaction logic for MainWindow.xaml. </p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ab79a0cfe3b4b6d333d37809d4dd4d21d" name="ab79a0cfe3b4b6d333d37809d4dd4d21d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab79a0cfe3b4b6d333d37809d4dd4d21d">&#9670;&#160;</a></span>UpdateTrackHistory()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void YouTubeAPI.MainWindow.UpdateTrackHistory </td>
+          <td>(</td>
+          <td class="paramtype">Object&#160;</td>
+          <td class="paramname"><em>source</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ElapsedEventArgs&#160;</td>
+          <td class="paramname"><em>e</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates TracksHistory table for each subscribed Track. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">source</td><td>Event sender.</td></tr>
+    <tr><td class="paramname">e</td><td>Caught event.</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>C:/Users/Acer/Documents/dotnet i java/dotnet-YouTubeAPI/MVVM/View/MainWindow.xaml.cs</li>
 </ul>
 </div><!-- contents -->

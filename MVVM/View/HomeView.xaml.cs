@@ -7,6 +7,9 @@ using YouTubeAPI;
 using System.Data.Entity.Infrastructure;
 
 using System.Windows.Forms.DataVisualization.Charting;
+using dotnet_YouTubeAPI.Utils;
+using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace dotnet_YouTubeAPI.MVVM.View
 {
@@ -15,97 +18,44 @@ namespace dotnet_YouTubeAPI.MVVM.View
     /// </summary>
     public partial class HomeView : System.Windows.Controls.UserControl
     {
-        int newID;
-        string newNickname;
-        string newYtChannelID;
-
-        IList<Track> Tracks;
-        
+        /// <summary>
+        /// Non-parametric constructor for HomeView class. Initializes Home view for the aplication. 
+        /// </summary>
         public HomeView()
         {
             InitializeComponent();
+            PopulateHomeStats();
+        }
 
-
+        /// <summary>
+        /// Creates lists of best trending artists and tracks to be displayed.
+        /// </summary>
+        void PopulateHomeStats()
+        {
             using (var context = new YouTubeApiContext())
             {
-                Tracks = context.Tracks.ToList();
+                var mostVievedTrack = context.GetMostViewedTrack();
+                mostWatchedVideoList.ItemsSource = mostVievedTrack.Take(1);
+
+                var mostVievedAuthor = context.GetMostViewedAuthor();
+                mostWatchedAuthorList.ItemsSource = mostVievedAuthor.Take(1);
+
+                var mostLikedTrack = context.GetMostLikedTrack();
+                mostLikedTrackList.ItemsSource = mostLikedTrack.Take(1);
+
+                var mostVSubscribedAuthor = context.GetMostSubAuthor();
+                mostSubscribedAuthor.ItemsSource = mostVSubscribedAuthor.Take(1);
             }
-
-            authorList.ItemsSource = Tracks;
-
-            Console.WriteLine(Tracks);
         }
-        
-        private void Button_Click_Video(object sender, RoutedEventArgs e)
+
+        /// <summary>
+        /// Refreshes vievs of lists of the best trending artists and tracks tracks after pressing a button.
+        /// </summary>
+        /// <param name="sender">Event sender.</param>
+        /// <param name="e">Catched event.</param>
+        private void RefreshHomeView(object sender, EventArgs e)
         {
-
-            var context = new YouTubeApiContext();
-            var tmp = context.GetAuthorInfo();
-            Console.WriteLine(tmp);
-            foreach (var item in tmp)
-            {
-                Console.WriteLine($"Author: {item.Author.ChannelId}, Latest Entry: {item.AuthorsHistory.AddTime}, View Count: {item.AuthorsHistory.ViewCount}");
-            }
-            context.UpdateAllTracks();
-            //var newVideo = new YouTubeAPI.Track(textVideoId.Text); /* nLIp4wd0oXs */
-            //newVideo.GetViedoData();
-            //textVideoId.Clear();
-
-            //var context = new YouTubeApiContext();
-            ////context.getAuthorsHistory("UCXuqSBlHAE6Xw-yeJA0Tunw");
-            //try
-            //{
-            //    context.deleteAuthor(textAuthorId.Text);
-            //}
-            //catch (Exception ex)
-            //{
-            //    System.Windows.Forms.MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-
-            //context.getTracksHistory("nLIp4wd0oXs");
+            PopulateHomeStats();
         }
-
-        private void Button_Click_Author(object sender, RoutedEventArgs e)
-        {
-            var context = new YouTubeApiContext(); /* UCXuqSBlHAE6Xw-yeJA0Tunw */
-            try
-            {
-                var newAuthor = new YouTubeAPI.Author(textAuthorId.Text);
-                context.AddNewAuthor(newAuthor);
-                textAuthorId.Clear();
-                var newAuthorEntry = new YouTubeAPI.AuthorsHistory(newAuthor.ChannelId);
-                context.AddNewAuthorHistoryEntry(newAuthorEntry);
-            }
-            catch (DbUpdateException)
-            {
-                System.Windows.Forms.MessageBox.Show("Author already subscribed.", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            catch (Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            ////! For tracks
-            //var context = new YouTubeApiContext(); /* UCXuqSBlHAE6Xw-yeJA0Tunw */
-            //try
-            //{
-            //    var newTrack = new YouTubeAPI.Track(textAuthorId.Text);
-            //    context.addNewTrack(newTrack);
-            //    textAuthorId.Clear();
-            //    var newTrackEntry = new YouTubeAPI.TracksHistory(newTrack.VideoId);
-            //    context.addNewTrackHistoryEntry(newTrackEntry);
-            //    //context.getAuthorsHistory(newAuthor.ChannelId);
-            //}
-            //catch (DbUpdateException)
-            //{
-            //    System.Windows.Forms.MessageBox.Show("Author already subscribed.", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //}
-            //catch (Exception ex)
-            //{
-            //    System.Windows.Forms.MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-        }
-
-       
     }
 }

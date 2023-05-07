@@ -12,18 +12,33 @@ namespace YouTubeAPI
     /// </summary>
     public class YouTubeApiContext : DbContext
     {
-        // Your context has been configured to use a 'YouTubeApiContext' connection string from your application's 
-        // configuration file (App.config or Web.config). By default, this connection string targets the 
-        // 'dotnet_YouTubeAPI.YouTubeApiContext' database on your LocalDb instance. 
+        /// <summary>
+        /// Non-parametric constructor. Initializes databse context.
+        /// </summary>
         public YouTubeApiContext() : base("name=YouTubeApiContext")
         {
             this.Configuration.LazyLoadingEnabled = false;
             Database.SetInitializer(new YouTubeApiDbInitializer());
         }
 
+        /// <summary>
+        /// Initializes Authors table.
+        /// </summary>
         public DbSet<Author> Authors { get; set; }
+
+        /// <summary>
+        /// Initializes Tracks table.
+        /// </summary>
         public DbSet<Track> Tracks { get; set; }
+
+        /// <summary>
+        /// Initializes TracksHistory table.
+        /// </summary>
         public DbSet<TracksHistory> TracksHistory { get; set; }
+
+        /// <summary>
+        /// Initializes AuthorsHistory table.
+        /// </summary>
         public DbSet<AuthorsHistory> AuthorsHistory { get; set; }
  
  
@@ -74,11 +89,11 @@ namespace YouTubeAPI
         /// Gets author history entries by Author id.
         /// </summary>
         /// <param name="Id">Author Id</param>
-        public IList<AuthorsHistory> GetAuthorsHistory(string Id)
+        public IList<AuthorsHistory> GetAuthorHistory(string Id)
         {
             using (var context = new YouTubeApiContext())
             {   
-                var authorsHistoryEntry = context.AuthorsHistory.Where(Channel => Channel.ChannelId == Id).ToList();
+                var authorsHistoryEntry = context.AuthorsHistory.Where(Author => Author.ChannelId == Id).ToList();
                 return authorsHistoryEntry;
             }   
         }
@@ -99,7 +114,10 @@ namespace YouTubeAPI
             }
         }
 
-
+        /// <summary>
+        /// Returns current author's statistics.
+        /// </summary>
+        /// <returns>Object which contains current author's statistics.</returns>
         public IList<YouTubeAPI.AuthorInfo> GetAuthorInfo()
         {
             using (var context = new YouTubeApiContext())
@@ -118,6 +136,10 @@ namespace YouTubeAPI
             }
         }
 
+        /// <summary>
+        /// Returns most viewed author.
+        /// </summary>
+        /// <returns>Object which contains current most viewed author's statistics.</returns>
         public IList<YouTubeAPI.AuthorInfo> GetMostViewedAuthor()
         {
             using (var context = new YouTubeApiContext())
@@ -136,11 +158,11 @@ namespace YouTubeAPI
             }
         }
 
-        
+
         /// <summary>
-        /// Gets list of all AuthorInfo objects.
+        /// Returns most subscribed author.
         /// </summary>
-        /// <returns>List of AuthorInfo objects.</returns>
+        /// <returns>Object which contains current most subscribed author's statistics.</returns>
         public IList<YouTubeAPI.AuthorInfo> GetMostSubAuthor()
         {
             using (var context = new YouTubeApiContext())
@@ -159,9 +181,6 @@ namespace YouTubeAPI
             }
         }
 
-        /*
-         * Tracks handling
-         */
         /// <summary>
         /// Adds new track Tracks table.
         /// </summary>
@@ -207,11 +226,10 @@ namespace YouTubeAPI
         }
 
         /// <summary>
-        /// Gets track history entries by track Id.
+        /// Gets track track entries by track Id.
         /// </summary>
         /// <param name="Id">Track's Id</param>
-
-        public IList<TracksHistory> GetTracksHistory(string Id)
+        public IList<TracksHistory> GetTrackHistory(string Id)
         {
             using (var context = new YouTubeApiContext())
             {
@@ -272,6 +290,10 @@ namespace YouTubeAPI
             }
         }
 
+        /// <summary>
+        /// Returns most viewed track.
+        /// </summary>
+        /// <returns>Object which contains current most viewed track's statistics.</returns>
         public IList<YouTubeAPI.TrackInfo> GetMostViewedTrack()
         {
             using (var context = new YouTubeApiContext())
@@ -290,6 +312,10 @@ namespace YouTubeAPI
             }
         }
 
+        /// <summary>
+        /// Returns most liked track.
+        /// </summary>
+        /// <returns>Object which contains current most liked tracks's statistics.</returns>
         public IList<YouTubeAPI.TrackInfo> GetMostLikedTrack()
         {
             using (var context = new YouTubeApiContext())

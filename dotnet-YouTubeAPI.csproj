@@ -179,8 +179,11 @@
     <Compile Include="MVVM\View\AboutView.xaml.cs">
       <DependentUpon>AboutView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MVVM\View\ArtistView.xaml.cs">
-      <DependentUpon>ArtistView.xaml</DependentUpon>
+    <Compile Include="MVVM\View\ArtistsInfoView.xaml.cs">
+      <DependentUpon>ArtistsInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\ArtistsView.xaml.cs">
+      <DependentUpon>ArtistsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\HomeView.xaml.cs">
       <DependentUpon>HomeView.xaml</DependentUpon>
@@ -194,7 +197,14 @@
     <Compile Include="Track.cs" />
     <Compile Include="TrackInfo.cs" />
     <Compile Include="TracksHistory.cs" />
+    <Compile Include="Utils\ListNumberingUtils.cs" />
+    <Compile Include="Utils\SearchBarUtils.cs" />
+    <Compile Include="Utils\StringTruncatingUtils.cs" />
     <Compile Include="YouTubeApiContext.cs" />
+    <Page Include="MVVM\View\ArtistsInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -211,7 +221,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MVVM\View\ArtistView.xaml">
+    <Page Include="MVVM\View\ArtistsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -228,10 +238,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Theme\ListViewHeader.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Theme\ListViewHeaderRightAligment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -314,9 +320,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Static\youbookie-logo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Static\youbookie-icon.png" />
   </ItemGroup>
   <ItemGroup>
@@ -324,12 +327,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Static\refresh-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Static\mockup.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Static\Tracks.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

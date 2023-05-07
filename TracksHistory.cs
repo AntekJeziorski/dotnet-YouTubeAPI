@@ -81,7 +81,7 @@ namespace YouTubeAPI
                 ApiKey = "AIzaSyCTlONe6H40ircsdbuIq87DGV5gZeVv2wc",
                 ApplicationName = this.GetType().ToString()
             });
-            //string videoId = "nLIp4wd0oXs";
+
             // Prepare the request
             VideosResource.ListRequest listRequest = youtubeService.Videos.List("statistics");
             listRequest.Id = VideoId;
@@ -95,9 +95,6 @@ namespace YouTubeAPI
                     ViewCount = (Int64)item.Statistics.ViewCount;
                     LikeCount = (Int64)item.Statistics.LikeCount;
                     CommentCount = (Int64)item.Statistics.CommentCount;
-
-                    Console.WriteLine("View Count: " + ViewCount);
-                    Console.WriteLine("Like Count: " + LikeCount);
                 }
             }
             catch (Exception ex)
@@ -105,7 +102,6 @@ namespace YouTubeAPI
                 // Log the error
                 throw ex;
             }
-            Console.ReadLine();
         }
     }
 }
