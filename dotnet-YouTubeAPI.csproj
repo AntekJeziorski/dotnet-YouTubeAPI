@@ -105,9 +105,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Author.cs" />
-    <Compile Include="AuthorInfo.cs" />
-    <Compile Include="AuthorsHistory.cs" />
+    <Compile Include="MVVM\Model\Author.cs" />
+    <Compile Include="MVVM\Model\AuthorInfo.cs" />
+    <Compile Include="MVVM\Model\AuthorsHistory.cs" />
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />
     <Compile Include="Migrations\202303272226410_InitialCreate.cs" />
@@ -194,13 +194,13 @@
     <Compile Include="MVVM\View\TrackInfoView.xaml.cs">
       <DependentUpon>TrackInfoView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Track.cs" />
-    <Compile Include="TrackInfo.cs" />
-    <Compile Include="TracksHistory.cs" />
+    <Compile Include="MVVM\Model\Track.cs" />
+    <Compile Include="MVVM\Model\TrackInfo.cs" />
+    <Compile Include="MVVM\Model\TracksHistory.cs" />
     <Compile Include="Utils\ListNumberingUtils.cs" />
     <Compile Include="Utils\SearchBarUtils.cs" />
     <Compile Include="Utils\StringTruncatingUtils.cs" />
-    <Compile Include="YouTubeApiContext.cs" />
+    <Compile Include="MVVM\Model\YouTubeApiContext.cs" />
     <Page Include="MVVM\View\ArtistsInfoView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

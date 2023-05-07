@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace YouTubeAPI
+﻿namespace YouTubeAPI
 {
     /// <summary>
     /// Represents object which contains complete current information about Track from both Tracks and Trackshistory table.

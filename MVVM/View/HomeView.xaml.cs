@@ -1,15 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Windows;
-using System.Windows.Forms;
 using YouTubeAPI;
-using System.Data.Entity.Infrastructure;
-
-using System.Windows.Forms.DataVisualization.Charting;
-using dotnet_YouTubeAPI.Utils;
-using System.Windows.Controls;
-using System.Windows.Input;
 
 namespace dotnet_YouTubeAPI.MVVM.View
 {
