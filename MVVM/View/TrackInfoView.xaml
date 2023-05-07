@@ -151,8 +151,7 @@
                          <Run Text=" 👍" />
                     </TextBlock>
 
-
-                    <WindowsFormsHost Margin="120,10,120,10" ChildChanged="PopulateLikesChart">
+                   <WindowsFormsHost Margin="120,10,120,10" ChildChanged="PopulateLikesChart">
                         <wf:Chart x:Name="LikesChart">
                             <wf:Chart.Series>
                             </wf:Chart.Series>
