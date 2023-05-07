@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnet-YouTubeAPI", "dotnet-YouTubeAPI.csproj", "{05C2AD0A-51A2-47E6-B0C3-2162E3B0ADAA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnet-YouTubeAPI.Tests", "dotnet-YouTubeAPI.Tests\dotnet-YouTubeAPI.Tests.csproj", "{A2CF80BC-6C52-477B-B4F5-526C9C4F3C91}"
+	ProjectSection(ProjectDependencies) = postProject
+		{05C2AD0A-51A2-47E6-B0C3-2162E3B0ADAA} = {05C2AD0A-51A2-47E6-B0C3-2162E3B0ADAA}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
