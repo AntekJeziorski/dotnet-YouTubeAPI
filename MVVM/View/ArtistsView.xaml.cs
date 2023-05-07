@@ -3,60 +3,62 @@ using System;
 using System.Data.Entity.Infrastructure;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Forms;
 using System.Windows.Input;
 using YouTubeAPI;
 
+
 namespace dotnet_YouTubeAPI.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for TracksView.xaml
+    /// Interaction logic for ArtistView.xaml
     /// </summary>
-    public partial class TracksView : System.Windows.Controls.UserControl
+    public partial class ArtistsView : System.Windows.Controls.UserControl
     {
         /// <summary>
-        /// Non-parametric constructor for TracksView class. Initializes Tracks view on app. 
+        /// Non-parametric constructor for ArtistsView class. Initializes Arist view on app. 
         /// </summary>
-        public TracksView()
+        public ArtistsView()
         {
             InitializeComponent();
-            PopulateTrackList();
+            PopulateArtistsList();
         }
 
         /// <summary>
-        /// Shows second window with detailed information about clicked track.
+        /// Shows second window with detailed information about clicked arist.
         /// </summary>
         /// <param name="sender">Event sender.</param>
         /// <param name="e">Catched event.</param>
         private void OnListViewItemClicked(object sender, MouseButtonEventArgs e)
         {
             System.Windows.Controls.ListViewItem item = sender as System.Windows.Controls.ListViewItem;
-            TrackInfo data = item.Content as TrackInfo;
-            TrackInfoView subWindow = new TrackInfoView(data);
-            subWindow.ReloadTracksList += ReloadTracksView;
+            AuthorInfo data = item.Content as AuthorInfo;
+            ArtistsInfoView subWindow = new ArtistsInfoView(data);
+            subWindow.ReloadArtistsList += ReloadArtistsView;
             subWindow.Show();
         }
 
         /// <summary>
-        /// Creates list of tracks for display.
+        /// Creates a list of artists to be displayed.
         /// </summary>
-        void PopulateTrackList()
+        void PopulateArtistsList()
         {
             using (var context = new YouTubeApiContext())
             {
-                var tracks = context.GetTrackInfo();
-                listView.ItemsSource = tracks;
+                var artists = context.GetAuthorInfo();
+                ArtisitsList.ItemsSource = artists;
             }
         }
 
         /// <summary>
-        /// Refreshes list of tracked tracks after pressing button.
+        /// Refreshes list of tracked artists after pressing button.
         /// </summary>
         /// <param name="sender">Event sender.</param>
         /// <param name="e">Catched event.</param>
-        private void ReloadTracksView(object sender, EventArgs e)
+        private void ReloadArtistsView(object sender, EventArgs e)
         {
-            PopulateTrackList();
+            PopulateArtistsList();
         }
 
         /// <summary>
@@ -64,29 +66,29 @@ namespace dotnet_YouTubeAPI.MVVM.View
         /// </summary>
         /// <param name="sender">Event sender.</param>
         /// <param name="e">Caught event.</param>
-        private void RefreshTrackListView(object sender, RoutedEventArgs e)
+        private void RefreshArtistsListView(object sender, RoutedEventArgs e)
         {
-            PopulateTrackList();
+            PopulateArtistsList();
         }
 
         /// <summary>
-        /// Adds Track to database with given VideoID taken from textbox afetr clicking enter.
+        /// Adds Artist to database with given ChannelID taken from textbox afetr clicking enter.
         /// </summary>
         /// <param name="sender">Event sender.</param>
         /// <param name="e">Caught event.</param>
-        private void SearchOnEnterKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        private void SearchAuthorOnEnterKeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             if (e.Key == Key.Return)
             {
-                var context = new YouTubeApiContext();
+                var context = new YouTubeApiContext(); /* UCXuqSBlHAE6Xw-yeJA0Tunw */
                 try
                 {
-                    var newTrack = new YouTubeAPI.Track(searchBarContent.Text);
-                    context.AddNewTrack(newTrack);
+                    var newAuthor = new YouTubeAPI.Author(searchBarContent.Text);
+                    context.AddNewAuthor(newAuthor);
                     searchBarContent.Text = string.Empty;
-                    var newTrackEntry = new YouTubeAPI.TracksHistory(newTrack.VideoId);
-                    context.AddNewTrackHistoryEntry(newTrackEntry);
-                    PopulateTrackList();
+                    var newAuthorEntry = new YouTubeAPI.AuthorsHistory(newAuthor.ChannelId);
+                    context.AddNewAuthorHistoryEntry(newAuthorEntry);
+                    PopulateArtistsList();
                 }
                 catch (DbUpdateException)
                 {
@@ -96,7 +98,7 @@ namespace dotnet_YouTubeAPI.MVVM.View
                 {
                     System.Windows.Forms.MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                
+
             }
         }
 
