@@ -79,12 +79,11 @@ namespace YouTubeAPI
         }
 
         /// <summary>
-        /// Gets Track data identified by VideoId using YoutubeAPI services.
+        /// Gets Track data identified by VideoId.
         /// </summary>
         public void GetViedoData()
         {
             var API = new APILink();
-
             (Title, ChannelTitle, ChannelId, Description, ReleaseDate, ThumbnailMedium) = API.GetViedoData(VideoId);
         }
     }

@@ -11,17 +11,17 @@ using System.Windows.Forms.DataVisualization.Charting;
 namespace YouTubeAPI
 {
     /// <summary>
-    /// 
+    /// Represents link to YouTubeAPI services.
     /// </summary>
     public class APILink
     {
         /// <summary>
-        /// 
+        /// Gets or sets youtube service.
         /// </summary>
         public YouTubeService youtubeService { get; set; }
 
         /// <summary>
-        /// 
+        /// Non-parametric construcor for APILink class. Specifies API key and application name.
         /// </summary>
         public APILink()
         {
@@ -33,8 +33,10 @@ namespace YouTubeAPI
         }
 
         /// <summary>
-        /// 
+        /// Gets Track data identified by VideoId using YoutubeAPI services.
         /// </summary>
+        /// <param name="VideoId">ID of searched video.</param>
+        /// <returns>Tuple of video's data.</returns>
         public (string, string, string, string, DateTime, string) GetViedoData(string VideoId)
         {
             string Title = string.Empty;
@@ -76,6 +78,143 @@ namespace YouTubeAPI
             }
             Console.ReadLine();
             return (Title, ChannelTitle, ChannelId, Description, ReleaseDate, ThumbnailMedium);
+        }
+
+        /// <summary>
+        /// Gets Author data identified by ChannelId using YoutubeAPI services.
+        /// </summary>
+        /// <param name="ChannelId">ID of searched artist.</param>
+        /// <returns>Tuple of artist's data</returns>
+        public (string, string, DateTime, string, bool) GetChannelData(string ChannelId)
+        {
+            string Channel = string.Empty;
+            string ChannelDescription = string.Empty;
+            DateTime JoiningDate = DateTime.MinValue;
+            string ThumbnailMedium = string.Empty;
+            bool ifId = true;
+            // Prepare the request
+            ChannelsResource.ListRequest listRequest = youtubeService.Channels.List("snippet");
+            listRequest.Id = ChannelId;
+            try
+            {
+                // Execute the request
+                ChannelListResponse response = listRequest.Execute();
+                if (response.PageInfo.TotalResults > 0)
+                {
+                    // Access the channel information
+                    foreach (var item in response.Items)
+                    {
+                        Channel = item.Snippet.Title;
+                        ChannelDescription = item.Snippet.Description;
+                        JoiningDate = item.Snippet.PublishedAt ?? DateTime.Now;
+                        ThumbnailMedium = item.Snippet.Thumbnails.Medium.Url;
+                    }
+
+                }
+                else
+                {
+                    listRequest.Id = null;
+                    listRequest.ForUsername = ChannelId;
+
+                    response = listRequest.Execute();
+                    if (response.PageInfo.TotalResults == 1)
+                    {
+                        // Access the channel information
+                        foreach (var item in response.Items)
+                        {
+                            Channel = item.Id;
+                            ChannelDescription = item.Snippet.Description;
+                            JoiningDate = item.Snippet.PublishedAt ?? DateTime.Now;
+                            ThumbnailMedium = item.Snippet.Thumbnails.Medium.Url;
+                            ifId = false;
+                        }
+                    }
+                    else
+                    {
+                        throw new Exception("Wrong Channel Id or name");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Re-throw exception
+                throw ex;
+            }
+            Console.ReadLine();
+            return (Channel, ChannelDescription, JoiningDate, ThumbnailMedium, ifId);
+
+        }
+
+        /// <summary>
+        /// Gets statistics about Track identified by VideoId using YoutubeAPI services.
+        /// </summary>
+        /// <param name="VideoId">ID of video for which statistics are searched.</param>
+        /// <returns>Tuple of video's statistics.</returns>
+        public (Int64, Int64, Int64) GetViedoStats(string VideoId)
+        {
+            Int64 ViewCount = Int64.MinValue;
+            Int64 LikeCount = Int64.MinValue;
+            Int64 CommentCount = Int64.MinValue;
+
+            // Prepare the request
+            VideosResource.ListRequest listRequest = youtubeService.Videos.List("statistics");
+            listRequest.Id = VideoId;
+            try
+            {
+                // Execute the request
+                VideoListResponse response = listRequest.Execute();
+                // Access the video information
+                foreach (var item in response.Items)
+                {
+                    ViewCount = (Int64)item.Statistics.ViewCount;
+                    LikeCount = (Int64)item.Statistics.LikeCount;
+                    CommentCount = (Int64)item.Statistics.CommentCount;
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the error
+                throw ex;
+            }
+            return (ViewCount, LikeCount, CommentCount);
+        }
+
+        /// <summary>
+        /// Gets statistics about Channel identified by ChannelId using YoutubeAPI services.
+        /// </summary>
+        /// <param name="ChannelId">ID of channel for which statistics are searched.</param>
+        /// <returns>Tuple of author's statistics.</returns>
+
+        public (Int64, Int64, Int64) GetChannelStats(string ChannelId)
+        {
+            Int64 ViewCount = Int64.MinValue;
+            Int64 SubCount = Int64.MinValue;
+            Int64 VideoCount = Int64.MinValue;
+            // Prepare the request
+            ChannelsResource.ListRequest listRequest = youtubeService.Channels.List("statistics");
+            listRequest.Id = ChannelId;
+            try
+            {
+                // Execute the request
+                ChannelListResponse response = listRequest.Execute();
+                if (response.PageInfo.TotalResults > 0)
+                {
+                    // Access the channel information
+                    foreach (var item in response.Items)
+                    {
+                        ViewCount = (Int64)item.Statistics.ViewCount;
+                        SubCount = (Int64)item.Statistics.SubscriberCount;
+                        VideoCount = (Int64)item.Statistics.VideoCount;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the error
+                throw ex;
+            }
+            Console.ReadLine();
+            return (ViewCount, SubCount, VideoCount);
         }
     }
 }
