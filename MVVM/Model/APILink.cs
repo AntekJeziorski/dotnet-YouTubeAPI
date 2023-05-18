@@ -37,7 +37,7 @@ namespace YouTubeAPI
         /// </summary>
         /// <param name="VideoId">ID of searched video.</param>
         /// <returns>Tuple of video's data.</returns>
-        public (string, string, string, string, DateTime, string) GetViedoData(string VideoId)
+        public Tuple<string, string, string, string, DateTime, string> GetViedoData(string VideoId)
         {
             string Title = string.Empty;
             string ChannelTitle = string.Empty;
@@ -77,7 +77,44 @@ namespace YouTubeAPI
                 throw ex;
             }
             Console.ReadLine();
-            return (Title, ChannelTitle, ChannelId, Description, ReleaseDate, ThumbnailMedium);
+            return Tuple.Create(Title, ChannelTitle, ChannelId, Description, ReleaseDate, ThumbnailMedium);
+        }
+
+        /// <summary>
+        /// Gets statistics about Channel identified by ChannelId using YoutubeAPI services.
+        /// </summary>
+        /// <param name="ChannelId">ID of channel for which statistics are searched.</param>
+        /// <returns>Tuple of author's statistics.</returns>
+        public Tuple<long, long, long> GetChannelStats(string ChannelId)
+        {
+            Int64 ViewCount = Int64.MinValue;
+            Int64 SubCount = Int64.MinValue;
+            Int64 VideoCount = Int64.MinValue;
+            // Prepare the request
+            ChannelsResource.ListRequest listRequest = youtubeService.Channels.List("statistics");
+            listRequest.Id = ChannelId;
+            try
+            {
+                // Execute the request
+                ChannelListResponse response = listRequest.Execute();
+                if (response.PageInfo.TotalResults > 0)
+                {
+                    // Access the channel information
+                    foreach (var item in response.Items)
+                    {
+                        ViewCount = (Int64)item.Statistics.ViewCount;
+                        SubCount = (Int64)item.Statistics.SubscriberCount;
+                        VideoCount = (Int64)item.Statistics.VideoCount;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the error
+                throw ex;
+            }
+            Console.ReadLine();
+            return Tuple.Create(ViewCount, SubCount, VideoCount);
         }
 
         /// <summary>
@@ -85,7 +122,7 @@ namespace YouTubeAPI
         /// </summary>
         /// <param name="ChannelId">ID of searched artist.</param>
         /// <returns>Tuple of artist's data</returns>
-        public (string, string, DateTime, string, bool) GetChannelData(string ChannelId)
+        public Tuple<string, string, DateTime, string, bool> GetChannelData(string ChannelId)
         {
             string Channel = string.Empty;
             string ChannelDescription = string.Empty;
@@ -141,7 +178,7 @@ namespace YouTubeAPI
                 throw ex;
             }
             Console.ReadLine();
-            return (Channel, ChannelDescription, JoiningDate, ThumbnailMedium, ifId);
+            return Tuple.Create(Channel, ChannelDescription, JoiningDate, ThumbnailMedium, ifId);
 
         }
 
@@ -150,7 +187,7 @@ namespace YouTubeAPI
         /// </summary>
         /// <param name="VideoId">ID of video for which statistics are searched.</param>
         /// <returns>Tuple of video's statistics.</returns>
-        public (Int64, Int64, Int64) GetViedoStats(string VideoId)
+        public Tuple<long, long, long> GetViedoStats(string VideoId)
         {
             Int64 ViewCount = Int64.MinValue;
             Int64 LikeCount = Int64.MinValue;
@@ -176,45 +213,9 @@ namespace YouTubeAPI
                 // Log the error
                 throw ex;
             }
-            return (ViewCount, LikeCount, CommentCount);
+            return Tuple.Create(ViewCount, LikeCount, CommentCount);
         }
 
-        /// <summary>
-        /// Gets statistics about Channel identified by ChannelId using YoutubeAPI services.
-        /// </summary>
-        /// <param name="ChannelId">ID of channel for which statistics are searched.</param>
-        /// <returns>Tuple of author's statistics.</returns>
-
-        public (Int64, Int64, Int64) GetChannelStats(string ChannelId)
-        {
-            Int64 ViewCount = Int64.MinValue;
-            Int64 SubCount = Int64.MinValue;
-            Int64 VideoCount = Int64.MinValue;
-            // Prepare the request
-            ChannelsResource.ListRequest listRequest = youtubeService.Channels.List("statistics");
-            listRequest.Id = ChannelId;
-            try
-            {
-                // Execute the request
-                ChannelListResponse response = listRequest.Execute();
-                if (response.PageInfo.TotalResults > 0)
-                {
-                    // Access the channel information
-                    foreach (var item in response.Items)
-                    {
-                        ViewCount = (Int64)item.Statistics.ViewCount;
-                        SubCount = (Int64)item.Statistics.SubscriberCount;
-                        VideoCount = (Int64)item.Statistics.VideoCount;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                // Log the error
-                throw ex;
-            }
-            Console.ReadLine();
-            return (ViewCount, SubCount, VideoCount);
-        }
+        
     }
 }
