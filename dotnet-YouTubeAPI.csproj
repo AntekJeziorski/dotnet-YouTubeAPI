@@ -105,6 +105,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="MVVM\Model\APILink.cs" />
     <Compile Include="MVVM\Model\Author.cs" />
     <Compile Include="MVVM\Model\AuthorInfo.cs" />
     <Compile Include="MVVM\Model\AuthorsHistory.cs" />
