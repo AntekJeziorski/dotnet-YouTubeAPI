@@ -71,62 +71,20 @@ namespace YouTubeAPI
         }
 
         /// <summary>
-        /// Gets Author data identified by ChannelId using YoutubeAPI services.
+        /// Gets Author data identified by ChannelId.
         /// </summary>
         public void GetChannelData()
         {
-            var youtubeService = new YouTubeService(new BaseClientService.Initializer()
+            var API = new APILink();
+            var channelData = API.GetChannelData(ChannelId);
+            if (channelData.Item5)
             {
-                ApiKey = "AIzaSyCTlONe6H40ircsdbuIq87DGV5gZeVv2wc",
-                ApplicationName = this.GetType().ToString()
-            });
-            // Prepare the request
-            ChannelsResource.ListRequest listRequest = youtubeService.Channels.List("snippet");
-            listRequest.Id = ChannelId;
-            try
-            {
-                // Execute the request
-                ChannelListResponse response = listRequest.Execute();
-                if (response.PageInfo.TotalResults > 0)
-                {
-                    // Access the channel information
-                    foreach (var item in response.Items)
-                    {
-                        ChannelTitle = item.Snippet.Title;
-                        ChannelDescription = item.Snippet.Description;
-                        JoiningDate = item.Snippet.PublishedAt ?? DateTime.Now;
-                        ThumbnailMedium = item.Snippet.Thumbnails.Medium.Url;
-                    }
-                }
-                else
-                {
-                    listRequest.Id = null;
-                    listRequest.ForUsername = ChannelTitle;
-
-                    response = listRequest.Execute();
-                    if (response.PageInfo.TotalResults == 1)
-                    {
-                        // Access the channel information
-                        foreach (var item in response.Items)
-                        {
-                            ChannelId = item.Id;
-                            ChannelDescription = item.Snippet.Description;
-                            JoiningDate = item.Snippet.PublishedAt ?? DateTime.Now;
-                            ThumbnailMedium = item.Snippet.Thumbnails.Medium.Url;
-                        }
-                    }
-                    else
-                    {
-                        throw new Exception("Wrong Channel Id or name");
-                    }
-                }
+                (ChannelTitle, ChannelDescription, JoiningDate, ThumbnailMedium) = (channelData.Item1, channelData.Item2, channelData.Item3, channelData.Item4);
             }
-            catch (Exception ex)
+            else
             {
-                // Re-throw exception
-                throw ex;
+                (ChannelId, ChannelDescription, JoiningDate, ThumbnailMedium) = (channelData.Item1, channelData.Item2, channelData.Item3, channelData.Item4);
             }
-            Console.ReadLine();
         }
     }
 }

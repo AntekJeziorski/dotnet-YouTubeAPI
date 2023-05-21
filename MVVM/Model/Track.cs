@@ -79,47 +79,12 @@ namespace YouTubeAPI
         }
 
         /// <summary>
-        /// Gets Track data identified by VideoId using YoutubeAPI services.
+        /// Gets Track data identified by VideoId.
         /// </summary>
         public void GetViedoData()
         {
-            var youtubeService = new YouTubeService(new BaseClientService.Initializer()
-            {
-                ApiKey = "AIzaSyCTlONe6H40ircsdbuIq87DGV5gZeVv2wc",
-                ApplicationName = this.GetType().ToString()
-            });
-
-            // Prepare the request
-            VideosResource.ListRequest listRequest = youtubeService.Videos.List("snippet");
-            listRequest.Id = VideoId;
-            try
-            {
-                // Execute the request
-                VideoListResponse response = listRequest.Execute();
-                if (response.PageInfo.TotalResults > 0)
-                {
-                    // Access the video information
-                    foreach (var item in response.Items)
-                    {
-                    Title = item.Snippet.Title;
-                    ChannelTitle = item.Snippet.ChannelTitle;
-                    ChannelId = item.Snippet.ChannelId;
-                    Description = item.Snippet.Description;
-                    ReleaseDate = item.Snippet.PublishedAt ?? DateTime.Now;
-                    ThumbnailMedium = item.Snippet.Thumbnails.Medium.Url;
-                    }
-                }
-                else
-                {
-                    throw new Exception("Wrong Video Id");
-                }
-            }
-            catch (Exception ex)
-            {
-                // Re-throw exception
-                throw ex;
-            }
-            Console.ReadLine();
+            var API = new APILink();
+            (Title, ChannelTitle, ChannelId, Description, ReleaseDate, ThumbnailMedium) = API.GetViedoData(VideoId);
         }
     }
 }

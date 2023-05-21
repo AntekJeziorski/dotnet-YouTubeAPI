@@ -3,6 +3,7 @@ using Google.Apis.YouTube.v3.Data;
 using Google.Apis.YouTube.v3;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace YouTubeAPI
 {
@@ -72,36 +73,12 @@ namespace YouTubeAPI
         }
 
         /// <summary>
-        /// Gets statistics about Track identified by VideoId using YoutubeAPI services.
+        /// Gets statistics about Track identified by VideoId.
         /// </summary>
         public void GetViedoStats()
         {
-            var youtubeService = new YouTubeService(new BaseClientService.Initializer()
-            {
-                ApiKey = "AIzaSyCTlONe6H40ircsdbuIq87DGV5gZeVv2wc",
-                ApplicationName = this.GetType().ToString()
-            });
-
-            // Prepare the request
-            VideosResource.ListRequest listRequest = youtubeService.Videos.List("statistics");
-            listRequest.Id = VideoId;
-            try
-            {
-                // Execute the request
-                VideoListResponse response = listRequest.Execute();
-                // Access the video information
-                foreach (var item in response.Items)
-                {
-                    ViewCount = (Int64)item.Statistics.ViewCount;
-                    LikeCount = (Int64)item.Statistics.LikeCount;
-                    CommentCount = (Int64)item.Statistics.CommentCount;
-                }
-            }
-            catch (Exception ex)
-            {
-                // Log the error
-                throw ex;
-            }
+            var API = new APILink();
+            (ViewCount, LikeCount, CommentCount) = API.GetViedoStats(VideoId);
         }
     }
 }

@@ -74,39 +74,12 @@ namespace YouTubeAPI
         }
 
         /// <summary>
-        /// Gets statistics about Channel identified by ChannelId using YoutubeAPI services.
+        /// Gets statistics about Channel identified by ChannelId.
         /// </summary>
         public void GetChannelStats()
         {
-            var youtubeService = new YouTubeService(new BaseClientService.Initializer()
-            {
-                ApiKey = "AIzaSyCTlONe6H40ircsdbuIq87DGV5gZeVv2wc",
-                ApplicationName = this.GetType().ToString()
-            });
-            // Prepare the request
-            ChannelsResource.ListRequest listRequest = youtubeService.Channels.List("statistics");
-            listRequest.Id = ChannelId;
-            try
-            {
-                // Execute the request
-                ChannelListResponse response = listRequest.Execute();
-                if (response.PageInfo.TotalResults > 0)
-                {
-                    // Access the channel information
-                    foreach (var item in response.Items)
-                    {
-                        ViewCount = (Int64)item.Statistics.ViewCount;
-                        SubCount = (Int64)item.Statistics.SubscriberCount;
-                        VideoCount = (Int64)item.Statistics.VideoCount;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                // Log the error
-                throw ex;
-            }
-            Console.ReadLine();
+            var API = new APILink();
+            (ViewCount, SubCount, VideoCount) = API.GetChannelStats(ChannelId);
         }
 
     }
